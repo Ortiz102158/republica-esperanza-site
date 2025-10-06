@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="República de Esperanza - Movimiento por la Salvación de la República (MSR). La verdad que nadie quiere contar." />
+  <meta name="keywords" content="MSR, República Esperanza, política, diáspora, justicia social, República Dominicana, Dotnek, neoliberalismo, deuda global" />
+  <meta name="author" content="Alejandro Ortiz" />
+  <meta property="og:title" content="República de Esperanza" />
+  <meta property="og:description" content="Movimiento por la Salvación de la República - Luchando por una República Democrática, Popular y Revolucionaria." />
+  <meta property="og:type" content="website" />
+  <title>República de Esperanza</title>
+  <style>
+    :root {
+      --red: #CE1126;
+      --green: #009B3A;
+      --yellow: #FEDD00;
+      --black: #000000;
+      --gray-dark: #111;
+      --gray: #333;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: var(--black);
+      color: white;
+      font-family: 'Georgia', serif;
+      line-height: 1.7;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    header {
+      background-color: var(--red);
+      border-bottom: 4px solid var(--green);
+      padding: 1rem 0;
+      position: relative;
+    }
+    .msr-logo {
+      background-color: var(--black);
+      border: 2px solid var(--yellow);
+      padding: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .star { color: var(--red); font-size: 1.5rem; }
+    h1 {
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+    .tagline {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 1.1rem;
+    }
+    nav {
+      background-color: var(--green);
+      border-bottom: 2px solid var(--red);
+      padding: 0.75rem 0;
+    }
+    nav button {
+      background-color: var(--red);
+      color: white;
+      border: 2px solid var(--black);
+      padding: 0.5rem 0.75rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      margin: 0 0.25rem;
+      cursor: pointer;
+    }
+    main {
+      padding: 2rem 0;
+    }
+    .section {
+      margin-bottom: 3rem;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem 0 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 4px solid var(--red);
+      font-size: 2rem;
+      color: var(--yellow);
+    }
+    .section-title.green { color: var(--green); border-bottom-color: var(--green); }
+    .section-title.red { color: var(--red); border-bottom-color: var(--green); }
+    .card {
+      background-color: #222;
+      border: 4px solid var(--green);
+      margin: 1rem 0;
+      padding: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card.red-border { border-color: var(--red); }
+    .card.yellow-border { border-color: var(--yellow); }
+    .badge {
+      background-color: var(--green);
+      color: white;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .badge.red { background-color: var(--red); }
+    .contact-grid, .grid-2, .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    @media (min-width: 768px) {
+      .contact-grid, .grid-2 { grid-template-columns: 1fr 1fr; }
+      .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      background-color: var(--black);
+      border: 2px solid #444;
+      color: white;
+      font-family: 'Georgia', serif;
+    }
+    button, .btn {
+      background-color: var(--red);
+      color: white;
+      border: 2px solid var(--black);
+      padding: 0.75rem;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 1rem;
+      text-transform: uppercase;
+    }
+    footer {
+      background-color: #0a3a0a;
+      border-top: 4px solid var(--red);
+      padding: 2rem 0;
+      margin-top: 2rem;
+    }
+    .text-center { text-align: center; }
+    .mb-1 { margin-bottom: 0.5rem; }
+    .mb-2 { margin-bottom: 1rem; }
+    .quote {
+      font-style: italic;
+      color: var(--yellow);
+      padding: 1rem;
+      border-left: 4px solid var(--red);
+      margin: 1.5rem 0;
+    }
+    .donation-card {
+      background-color: #222;
+      border: 4px solid var(--yellow);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .paypal-btn {
+      background-color: #ffc439;
+      color: #003087;
+      padding: 12px 24px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 4px;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="text-center">
+        <div class="msr-logo">
+          <span class="star">★</span>
+          <span style="color: var(--yellow); font-weight: bold;">MSR</span>
+        </div>
+        <h1>REPÚBLICA DE ESPERANZA</h1>
+        <div class="tagline">
+          <span>📰 LA VERDAD QUE NADIE QUIERE CONTAR</span>
+        </div>
+        <div class="mt-2 text-sm">
+          <span>Editor: Alejandro Ortiz</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container text-center">
+      <button>INICIO</button>
+      <button>SOBRE NOSOTROS</button>
+      <button>VALORES</button>
+      <button>INTERNACIONAL</button>
+      <button>DIÁSPORA</button>
+      <button>DERECHOS HUMANOS</button>
+      <button>DONACIONES</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="section">
+      <div class="card" style="border-color: var(--yellow);">
+        <div style="background: linear-gradient(90deg, #8b0000, #006400); padding: 2rem; border: 4px solid var(--yellow);">
+          <div style="color: var(--red); font-weight: bold; margin-bottom: 1rem;">¡LLAMADO A LA ACCIÓN!</div>
+          <h2 style="font-size: 2.2rem; color: var(--yellow); margin-bottom: 1rem;">
+            ¡ÚNETE A LA LUCHA POR UNA REPÚBLICA DEMOCRÁTICA, POPULAR Y REVOLUCIONARIA!
+          </h2>
+          <p>
+            El Movimiento por la Salvación de la República convoca a todas las fuerzas populares a organizarse, resistir y construir el futuro que merecemos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section class="section">
+      <h2 class="section-title red">
+        <span>✊</span> SOBRE NOSOTROS <span>✊</span>
+      </h2>
+      <div class="card red-border">
+        <p class="mb-2">
+          El <strong>Movimiento por la Salvación de la República (MSR)</strong> nace como respuesta a la crisis moral, política y económica que asfixia a nuestro pueblo.
+        </p>
+        <p class="mb-2">
+          Inspirados en el pensamiento de Hostos, los restauradores y las luchas populares del siglo XX, nos proponemos construir una República que garantice la justicia, la soberanía y la dignidad humana.
+        </p>
+      </div>
+    </section>
+
+    <!-- Declaración de Principios -->
+    <section class="section">
+      <h2 class="section-title">
+        <span>📜</span> DECLARACIÓN DE PRINCIPIOS <span>📜</span>
+      </h2>
+      <div class="card yellow-border">
+        <h3 class="text-center mb-2">Del Movimiento Por la Salvación de la República (MSR)</h3>
+        <div class="quote text-center">
+          "Política sin Moral es indignidad" — Hostos
+        </div>
+        <p class="mb-2">
+          En este momento en donde todo parece necesitar nuevas definiciones, donde las aspiraciones y las esperanzas parecen inalcanzables para los pobres (obreros (as), campesinos (as), mujeres, dominico-haitianos (as), chiriperos (as), jóvenes, niños y niñas). Hombres y Mujeres que hemos soñados por más de dos décadas con una República Democrática, Popular, Revolucionaria, humana, Nos resistimos a dejar de soñar y luchar contra la desigualdad, el individualismo, la opresión del capitalismo salvaje, local e imperial.
+        </p>
+        <p class="mb-2">
+          Por tal razón nos constituimos en una expresión política, democrática, revolucionaria, anti-imperialista, solidaria e internacionalista, con el nombre de Movimiento Por la Salvación de la República (MSR), que enarbole y rescate los aportes de las generaciones de luchadores (as) que nos precedieron y los que nos acompañaron en la lucha por alcanzar una República Democrática, Popular, Revolucionaria.
+        </p>
+        <p class="mb-2">
+          MSR se propone lanzar una campaña permanente por una Republica que revierta el concepto nacionalista del chovinismo estrecho a una noción de Soberanía Popular, que extienda el concepto de Republica más allá de las fronteras territoriales hasta cubrir a los que se consideran parte del pueblo dominicano aún hallan nacido o vivan en el exterior.
+        </p>
+        <p class="mb-2">
+          Creemos y abogamos por los valores fundamentales de La libertad solidaria y de La justicia. Lo hacemos conforme a nuestra concepción del hombre y de la mujer en la sociedad actual porque creemos que son seres libres. Pero esa libertad tiene una forma responsable de expresarse y un límite moral en función de la concepción ética que tenga La sociedad.
+        </p>
+        <p class="mb-2">
+          La libertad no debe ser obstaculizada por las condiciones bajas que vive el ser humano. Por ello consideramos una tarea de nuestro Partido. Hacer oposición a la Opresión, a la Miseria, a la Dependencia, Luchar contra todas las limitaciones que impidan el libre desarrollo del pueblo dominicana y que se garanticen las condiciones materiales de la libertad.
+        </p>
+        <p class="mb-2">
+          Creemos que es necesario. Como fuerza política popular y de masas tener conciencia de los graves problemas que afectan al mundo. Creemos en el trascendental compromiso de convertirnos en el Movimiento promotor de un nuevo orden social, que sea un proyecto histórico a la satisfacción de todos. Nuestras aspiraciones por la justicia nos llevan al diseño de una política operativa. Basada en los valores fundamentales de los fundadores, restauradores, Raza Inmortal, Minerva, Manolo, Amaury, Caamaño y otros/as héroes y mártires de nuestra república.
+        </p>
+        <p class="mb-2">
+          Creemos que la educación y la salud deben ser derechos que correspondan en igualdad de condiciones a todos. El régimen político que aspiramos a construir. Necesitará de ciudadanos capacitados y preparados técnica, científica y culturalmente...
+        </p>
+        <p class="mb-2">
+          Creemos que es importante que el sector público se haga cargo de la mayoría de los servicios colectivos y juegue un papel significativo en los sectores estratégicos de la industria. Las materias primas. La energía y el crédito.
+        </p>
+        <p class="mb-2">
+          La política fiscal debe estar al servicio de tales objetivos al desarrollo económico, social para garantizar una justa distribución de las riqueza a todos/as los ciudadanos/as.
+        </p>
+        <p class="mb-2">
+          Creemos en el principio universal de la Autodeterminación de los pueblos, de decidir las políticas necesarias para alcanzar su desarrollo.
+        </p>
+        <p>
+          Nuestro Movimiento está comprometido con la defensa de los recursos naturales renovables y no renovables. Especialmente los bosques, los ríos, los yacimientos minerales, los cuales deben ser explotados y utilizados de manera racional.
+        </p>
+      </div>
+    </section>
+
+    <!-- Valores -->
+    <section class="section">
+      <h2 class="section-title green">
+        <span>🌱</span> NUESTROS VALORES <span>🌱</span>
+      </h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3 style="color: var(--yellow); margin-bottom: 1rem;">Solidaridad</h3>
+          <p>Actuamos con empatía y compromiso con las luchas del pueblo trabajador, campesino y marginado.</p>
+        </div>
+        <div class="card">
+          <h3 style="color: var(--yellow); margin-bottom: 1rem;">Justicia Social</h3>
+          <p>Defendemos la redistribución de la riqueza, la educación y salud públicas, y los derechos de todos los sectores oprimidos.</p>
+        </div>
+        <div class="card">
+          <h3 style="color: var(--yellow); margin-bottom: 1rem;">Antiimperialismo</h3>
+          <p>Rechazamos toda forma de dominación extranjera y luchamos por la soberanía nacional en todos los ámbitos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Internacional -->
+    <section class="section">
+      <h2 class="section-title">
+        <span>🌍</span> INTERNACIONAL <span>🌍</span>
+      </h2>
+      <div class="card yellow-border">
+        <h3 style="color: var(--yellow); margin-bottom: 1rem;">ACTUALIDAD Y COYUNTURA</h3>
+        
+        <h4 style="color: var(--green); margin: 1.5rem 0 1rem;">El inicio del declive unipolar (2014-2016)</h4>
+        <p class="mb-2">
+          El año 2014 marcó un punto de inflexión en la geopolítica global con la anexión de Crimea por parte de Rusia, como respuesta al golpe de Estado en Ucrania, patrocinado por la OTAN y EEUU, un evento que resucitó tensiones reminiscentes de la Guerra Fría. La respuesta occidental, liderada por Estados Unidos y la Unión Europea, incluyó sanciones económicas y el fortalecimiento de la OTAN en Europa del Este, lo que profundizó la división entre Occidente y Rusia.
+        </p>
+        <p class="mb-2">
+          Simultáneamente, el ascenso del Estado Islámico (ISIS) en Siria e Irak planteó un desafío al internacional liderada por Estados Unidos a intervenir militarmente, mientras que Rusia aprovechó la oportunidad para consolidar su influencia en Siria apoyando al régimen de Bashar al-Assad. Estos eventos subrayaron la complejidad de los conflictos contemporáneos, donde intereses nacionales, ideologías y dinámicas regionales se entrelazaban.
+        </p>
+        
+        <h4 style="color: var(--green); margin: 1.5rem 0 1rem;">El surgimiento de un mundo multipolar (2017-2020)</h4>
+        <p class="mb-2">
+          La segunda mitad de la década estuvo marcada por el fortalecimiento de China como una superpotencia global. Bajo el liderazgo de Xi Jinping, China lanzó iniciativas ambiciosas como la Franja y la Ruta (BRI), que buscaba expandir su influencia económica y política en Asia, África y Europa. Al mismo tiempo, Pekín intensificó sus reclamos territoriales en el Mar de China Meridional, generando tensiones con países vecinos y Estados Unidos.
+        </p>
+        <p class="mb-2">
+          La pandemia de COVID-19, declarada en 2020, exacerbó las tensiones globales. La gestión de la crisis por parte de Pekín fue vista como un ejemplo de eficiencia autoritaria, mientras que las democracias occidentales enfrentaron críticas por su respuesta fragmentada y descoordinada.
+        </p>
+        
+        <h4 style="color: var(--green); margin: 1.5rem 0 1rem;">Crisis y realineamientos (2021-2025)</h4>
+        <p class="mb-2">
+          La guerra genocida de Ucrania contra el Dombás y Dotnek. Más el incumplimiento de los acuerdos de Minsk por parte de Ucrania y los garantes, provocó la Operación Militar Especial que condujo a la invasión Rusa de Ucrania en febrero de 2022. Esto marcó otro hito en la geopolítica global. Esta guerra no solo devastó a Ucrania, sino que también polarizó aún más el sistema.
+        </p>
+        <p class="mb-2">
+          Occidente impuso sanciones sin precedentes a Rusia, mientras que países como China, India y varias naciones del Sur Global adoptaron posiciones más equilibradas o neutrales.
+        </p>
+        
+        <h4 style="color: var(--green); margin: 1.5rem 0 1rem;">Neoliberalismo: Causas y Consecuencias</h4>
+        <p class="mb-2">
+          El neoliberalismo es una corriente económica que surgió como reacción al socialismo y al movimiento obrero. Se caracteriza por la defensa del libre mercado, la privatización de servicios públicos, la reducción del papel del Estado y la promoción de la globalización.
+        </p>
+        <p class="mb-2">
+          Sus consecuencias incluyen: exacerbación de desigualdades, precarización laboral, erosión del Estado de bienestar, impacto ambiental negativo, y dependencia económica en países del Sur Global.
+        </p>
+        
+        <h4 style="color: var(--green); margin: 1.5rem 0 1rem;">Deuda y Dependencia en el Sur Global</h4>
+        <p class="mb-2">
+          La deuda externa y la dependencia económica perpetúan estructuras de desigualdad global. Los países en desarrollo enfrentan limitación del gasto público, aumento de pobreza, y pérdida de soberanía debido a préstamos condicionados del FMI y Banco Mundial.
+        </p>
+        <p class="mb-2">
+          Soluciones propuestas: reestructuración de deuda, financiamiento alternativo, regulación financiera global, diversificación económica y justicia climática.
+        </p>
+        
+        <h4 style="color: var(--green); margin: 1.5rem 0 1rem;">El Movimiento Obrero (1980-2025)</h4>
+        <p>
+          En las últimas décadas, el movimiento obrero ha enfrentado desindustrialización, precarización laboral y políticas neoliberales. Sin embargo, ha surgido nueva organización en la "gig economy", resistencia en el Sur Global, y mayor participación de mujeres con enfoque interseccional.
+        </p>
+        <div class="quote mt-2">
+          "El movimiento obrero no es solo una reliquia del pasado; es una fuerza viva que continúa evolucionando."
+        </div>
+      </div>
+    </section>
+
+    <!-- Diáspora -->
+    <section class="section">
+      <h2 class="section-title">
+        <span>🌎</span> DIÁSPORA <span>🌎</span>
+      </h2>
+      <div class="card yellow-border">
+        <p class="mb-2">
+          La diáspora dominicana constituye una de las fuerzas más dinámicas y solidarias de la nación. Se estima que más de <strong>2.5 millones de dominicanos y dominicanas</strong> viven en el exterior, principalmente en <strong>Estados Unidos, España, Puerto Rico, Italia y Canadá</strong>.
+        </p>
+        <p class="mb-2">
+          Según el <strong>Banco Central de la República Dominicana</strong>, las remesas familiares enviadas por la diáspora superaron los <strong>USD 10,000 millones en 2023</strong>, representando alrededor del <strong>9% del PIB nacional</strong>.
+        </p>
+        <p class="mb-2">
+          Más allá del dinero, la diáspora impulsa el desarrollo mediante:
+        </p>
+        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+          <li><strong>Inversiones productivas</strong>: Emprendimientos en turismo, agroindustria, tecnología y vivienda.</li>
+          <li><strong>Transferencia de conocimientos</strong>: Profesionales que regresan o colaboran con instituciones locales.</li>
+          <li><strong>Activismo cívico</strong>: Organizaciones comunitarias que defienden los derechos de los migrantes.</li>
+        </ul>
+        <p>
+          El MSR reconoce a la diáspora como parte inseparable del pueblo dominicano y aboga por políticas públicas que protejan sus derechos y potencien su rol como agente de desarrollo soberano y popular.
+        </p>
+      </div>
+    </section>
+
+    <!-- Derechos Humanos -->
+    <section class="section">
+      <h2 class="section-title red">
+        <span>⚖️</span> DERECHOS HUMANOS <span>⚖️</span>
+      </h2>
+      <div class="card red-border">
+        <h3 style="color: var(--yellow); margin-bottom: 1rem; text-align: center;">Declaración Universal de Derechos Humanos</h3>
+        <p class="mb-2">
+          Adoptada por la Asamblea General de las Naciones Unidas el 10 de diciembre de 1948
+        </p>
+        
+        <h4 style="color: var(--green); margin: 1rem 0;">Preámbulo</h4>
+        <p class="mb-2">
+          Considerando que la libertad, la justicia y la paz en el mundo tienen por base el reconocimiento de la dignidad intrínseca y de los derechos iguales e inalienables de todos los miembros de la familia humana.
+        </p>
+        
+        <h4 style="color: var(--green); margin: 1rem 0;">Artículo 1</h4>
+        <p>Todos los seres humanos nacen libres e iguales en dignidad y derechos.</p>
+        
+        <h4 style="color: var(--green); margin: 1rem 0;">Artículo 3</h4>
+        <p>Todo individuo tiene derecho a la vida, a la libertad y a la seguridad de su persona.</p>
+        
+        <h4 style="color: var(--green); margin: 1rem 0;">Artículo 25</h4>
+        <p>Toda persona tiene derecho a un nivel de vida adecuado que le asegure la salud y el bienestar, y en especial la alimentación, el vestido, la vivienda y la asistencia médica.</p>
+        
+        <h4 style="color: var(--green); margin: 1rem 0;">Artículo 26</h4>
+        <p>Toda persona tiene derecho a la educación. La educación debe ser gratuita, al menos en lo concerniente a la instrucción elemental y fundamental.</p>
+      </div>
+    </section>
+
+    <!-- Donaciones -->
+    <section class="section" id="donaciones">
+      <h2 class="section-title">
+        <span>💰</span> DONACIONES <span>💰</span>
+      </h2>
+      <div class="donation-card">
+        <h3 style="color: var(--yellow); margin-bottom: 1rem;">APOYA AL MSR</h3>
+        <p class="mb-2">
+          El Movimiento por la Salvación de la República (MSR) depende del apoyo solidario de personas comprometidas con la justicia social y la soberanía popular.
+        </p>
+        <p class="mb-2">
+          Tu donación nos permite mantener este sitio, difundir la verdad y organizar actividades por una República Democrática, Popular y Revolucionaria.
+        </p>
+        <a href="https://www.paypal.com/donate" target="_blank" class="paypal-btn">
+          Donar con PayPal
+        </a>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">
+          <em>¡Cualquier aporte, por pequeño que sea, hace una gran diferencia!</em>
+        </p>
+      </div>
+    </section>
+
+    <!-- Actividades -->
+    <section class="section">
+      <h2 class="section-title">
+        <span>📅</span> ACTIVIDADES RECIENTES <span>📅</span>
+      </h2>
+      <div class="grid-2">
+        <div class="card yellow-border">
+          <h3 style="color: var(--yellow); margin-bottom: 1rem;">Asamblea Nacional por la Soberanía Alimentaria</h3>
+          <p>22 de mayo, 2024 — Santo Domingo</p>
+          <p>Agricultores, economistas y comunidades debatieron soluciones a la crisis alimentaria.</p>
+        </div>
+        <div class="card yellow-border">
+          <h3 style="color: var(--yellow); margin-bottom: 1rem;">Campaña "Educación para Todos"</h3>
+          <p>21 de mayo, 2024 — Barrios populares</p>
+          <p>Brigadas de alfabetización y apoyo escolar en zonas marginadas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="section" id="contacto">
+      <h2 class="section-title">
+        <span>✉️</span> CONTACTO <span>📞</span>
+      </h2>
+      <div class="contact-grid">
+        <div class="card yellow-border">
+          <h3 style="color: var(--yellow); margin-bottom: 1rem;">Escríbenos</h3>
+          <form action="https://formspree.io/f/xanpekev" method="POST">
+            <input type="text" name="name" placeholder="Tu nombre" required>
+            <input type="email" name="email" placeholder="tu@email.com" required>
+            <textarea name="message" placeholder="Tu mensaje..." rows="5" required></textarea>
+            <button type="submit">Enviar Mensaje</button>
+          </form>
+        </div>
+        <div class="card" style="border-color: var(--green);">
+          <h3 style="color: var(--green); margin-bottom: 1rem;">Únete a Nosotros</h3>
+          <p>📍 Santo Domingo, República Dominicana</p>
+          <p>✉️ contacto@republicaesperanza.org</p>
+          <div style="margin-top: 1rem; padding: 1rem; background: var(--black); border: 2px solid var(--red);">
+            <p style="color: var(--red); font-style: italic;">
+              "La esperanza no es un sentimiento, es una decisión política."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container text-center">
+      <div style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem;">REPÚBLICA DE ESPERANZA</div>
+      <p>© 2024 - Movimiento por la Salvación de la República (MSR)</p>
+      <p style="color: var(--red); margin-top: 0.5rem;">¡LA VERDAD ESTÁ EN LAS SOMBRAS!</p>
+    </div>
+  </footer>
+</body>
+</html>
