@@ -16,7 +16,8 @@
       --green: #009B3A;
       --yellow: #FEDD00;
       --black: #000000;
-      --gray-dark: #111;
+  
+  --gray-dark: #111;
       --gray: #333;
     }
     * {
@@ -88,8 +89,7 @@
       display: flex;
       align-items: center;
       gap: 1rem;
-      margin: 2rem 0 1.5rem;
-      padding-bottom: 0.5rem;
+      margin: 2rem 0 0.5rem;
       border-bottom: 4px solid var(--red);
       font-size: 2rem;
       color: var(--yellow);
@@ -181,6 +181,32 @@
       border: none;
       cursor: pointer;
       font-size: 1rem;
+    }
+    /* Estilos para los nuevos artículos */
+    .activity-item {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      border-left: 3px solid var(--red);
+      background-color: #1a1a1a;
+      border-radius: 4px;
+    }
+    .activity-item h3 {
+      margin-top: 0;
+      color: var(--yellow);
+    }
+    .activity-item p {
+      color: #ccc;
+      line-height: 1.6;
+    }
+    .activity-item ul {
+      margin: 0.75rem 0 0.75rem 1.5rem;
+      color: #ddd;
+    }
+    .activity-item small {
+      color: #888;
+      font-style: italic;
+      display: block;
+      margin-top: 0.5rem;
     }
   </style>
 </head>
@@ -427,7 +453,7 @@
       </div>
     </section>
 
-    <!-- Donaciones - SECCIÓN CORREGIDA -->
+    <!-- Donaciones -->
     <section class="section" id="donaciones">
       <h2 class="section-title">
         <span>💰</span> DONACIONES <span>💰</span>
@@ -441,12 +467,10 @@
           Tu donación nos permite mantener este sitio, difundir la verdad y organizar actividades por una República Democrática, Popular y Revolucionaria.
         </p>
         
-        <!-- Botón de donación corregido -->
         <form action="https://www.paypal.com/donate" method="post" target="_blank">
-          <input type="hidden" name="hosted_button_id" value="" />
           <input type="hidden" name="business" value="pablo102158@gmail.com" />
           <input type="hidden" name="item_name" value="República de Esperanza - MSR" />
-          <button type="submit" class="paypal-btn">
+          <button type="submit" name="submit" class="paypal-btn">
             Donar con PayPal
           </button>
         </form>
@@ -457,33 +481,86 @@
       </div>
     </section>
 
-    <!-- Actividades -->
+    <!-- Actividades RECIENTES -->
     <section class="section">
       <h2 class="section-title">
         <span>📅</span> ACTIVIDADES RECIENTES <span>📅</span>
       </h2>
-      <div class="grid-2">
-        <div class="card yellow-border">
-          <h3 style="color: var(--yellow); margin-bottom: 1rem;">Asamblea Nacional por la Soberanía Alimentaria</h3>
-          <p>22 de mayo, 2024 — Santo Domingo</p>
-          <p>Agricultores, economistas y comunidades debatieron soluciones a la crisis alimentaria.</p>
-        </div>
-        <div class="card yellow-border">
-          <h3 style="color: var(--yellow); margin-bottom: 1rem;">Campaña "Educación para Todos"</h3>
-          <p>21 de mayo, 2024 — Barrios populares</p>
-          <p>Brigadas de alfabetización y apoyo escolar en zonas marginadas.</p>
-        </div>
+
+      <!-- Artículo 1: Tabaco -->
+      <div class="activity-item">
+        <h3>🚭 El tabaco no es un vicio individual, es una estrategia de la industria</h3>
+        <p>
+          La industria tabacalera sigue lucrando con la salud de millones, especialmente en barrios populares y países del Sur Global. 
+          A través de publicidad engañosa, sabores atractivos para adolescentes y presión política, las grandes corporaciones 
+          como Philip Morris y British American Tobacco evaden regulaciones y expanden su mercado entre los más vulnerables.
+        </p>
+        <p>
+          En América Latina, el 80% de las muertes por cáncer de pulmón están vinculadas al tabaco, y los gastos en salud pública 
+          superan con creces los impuestos recaudados. El Movimiento Social Revolucionario (MSR) exige:
+        </p>
+        <ul>
+          <li>Prohibición total de la publicidad, promoción y patrocinio de productos de tabaco.</li>
+          <li>Impuestos progresivos que desincentiven el consumo y financien campañas de cesación.</li>
+          <li>Apoyo a pequeños agricultores para transitar hacia cultivos alternativos sostenibles.</li>
+        </ul>
+        <p>
+          Defender la vida es luchar contra las corporaciones que la mercantilizan. ¡El humo del cigarro no es libertad: es opresión disfrazada de elección!
+        </p>
+        <small>Publicado: 5 de abril de 2025 | MSR - Comisión de Salud y Soberanía Popular</small>
       </div>
+
+      <!-- Artículo 2: Palestina -->
+      <div class="activity-item">
+        <h3>🌍 ¡Alto al genocidio en Palestina! Exigimos justicia y soberanía</h3>
+        <p>
+          Mientras el mundo mira en silencio, el pueblo palestino enfrenta uno de los asedios más brutales de la historia reciente. 
+          Bombardeos indiscriminados, desplazamientos forzados, bloqueo de ayuda humanitaria y destrucción de infraestructura 
+          son crímenes de lesa humanidad que no pueden seguir normalizándose.
+        </p>
+        <p>
+          El Movimiento Social Revolucionario (MSR) se suma a la voz global que exige:
+        </p>
+        <ul>
+          <li>Cese inmediato de las agresiones militares israelíes.</li>
+          <li>Levantamiento total del bloqueo a Gaza.</li>
+          <li>Reconocimiento del Estado palestino con fronteras de 1967 y capital en Jerusalén Este.</li>
+          <li>Boicot, desinversión y sanciones (BDS) contra empresas cómplices del apartheid.</li>
+        </ul>
+        <p>
+          La libertad de Palestina es inseparable de la lucha antiimperialista mundial. ¡No somos neutrales: estamos con el pueblo palestino!
+        </p>
+        <small>Publicado: 4 de abril de 2025 | MSR - Comisión Internacional de Solidaridad</small>
+      </div>
+
+      <!-- Artículo 3: Venezuela -->
+      <div class="activity-item">
+        <h3>🇻🇪 Venezuela: Defender la soberanía popular frente al cerco imperial</h3>
+        <p>
+          Nuevamente, potencias extranjeras intentan imponer su agenda mediante sanciones económicas, campañas mediáticas 
+          y presión diplomática contra la Revolución Bolivariana. Estas medidas no solo violan el derecho internacional, 
+          sino que afectan directamente al pueblo venezolano, limitando el acceso a medicinas, alimentos y recursos básicos.
+        </p>
+        <p>
+          El MSR rechaza toda forma de injerencia y respalda el derecho inalienable del pueblo venezolano a:
+        </p>
+        <ul>
+          <li>Autodeterminación sin condicionamientos externos.</li>
+          <li>Desarrollar su modelo económico y social en paz.</li>
+          <li>Contar con el apoyo solidario de los pueblos del mundo frente al bloqueo.</li>
+        </ul>
+        <p>
+          La verdadera democracia no se impone con decretos imperiales, sino que florece desde la organización popular. ¡Manos fuera de Venezuela!
+        </p>
+        <small>Publicado: 3 de abril de 2025 | MSR - Frente Antiimperialista Latinoamericano</small>
+      </div>
+
     </section>
 
     <!-- Contacto -->
     <section class="section" id="contacto">
       <h2 class="section-title">
-        <span>✉️</span> CONTACTO <span>📞</span>
-      </h2>
-      <div class="contact-grid">
-        <div class="card yellow-border">
-          <h3 style="color: var(--yellow); margin-bottom: 1rem;">Escríbenos</h3>
+             <h3 style="color: var(--yellow); margin-bottom: 1rem;">Escríbenos</h3>
           <form action="https://formspree.io/f/xanpekev" method="POST">
             <input type="text" name="name" placeholder="Tu nombre" required>
             <input type="email" name="email" placeholder="tu@email.com" required>
@@ -513,4 +590,7 @@
     </div>
   </footer>
 </body>
-</html>
+</html>     <span>✉️</span> CONTACTO <span>📞</span>
+      </h2>
+      <div class="contact-grid">
+        <div class="card yellow-border">
