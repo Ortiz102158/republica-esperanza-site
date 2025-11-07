@@ -1,701 +1,258 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="República de Esperanza - Movimiento por la Salvación de la República (MSR). La verdad que nadie quiere contar." />
-  <meta name="keywords" content="MSR, República Esperanza, política, diáspora, justicia social, República Dominicana, Dotnek, neoliberalismo, deuda global" />
-  <meta name="author" content="Alejandro Ortiz" />
-  <meta property="og:title" content="República de Esperanza" />
-  <meta property="og:description" content="Movimiento por la Salvación de la República - Luchando por una República Democrática, Popular y Revolucionaria." />
-  <meta property="og:type" content="website" />
-  <title>República de Esperanza</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>República de la Esperanza — MSR</title>
+  <meta name="description" content="Movimiento por la Salvación de la República: programa integral para una República democrática, popular y revolucionaria. Memoria, justicia, soberanía y esperanza para el pueblo dominicano.">
+  
+  <!-- Open Graph / Redes -->
+  <meta property="og:title" content="República de la Esperanza — MSR">
+  <meta property="og:description" content="Programa político del Movimiento por la Salvación de la República: justicia social, antiimperialismo, memoria histórica y poder popular.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ortiz102158.github.io/republica-esperanza-interactiva/">
+  <meta name="twitter:card" content="summary">
+
   <style>
     :root {
-      --red: #CE1126;
-      --green: #009B3A;
-      --yellow: #FEDD00;
-      --black: #000000;
-      --gray-dark: #111;
-      --gray: #333;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      --rojo: #d32f2f;
+      --verde: #2e7d32;
+      --negro: #1a1a1a;
     }
     body {
-      background-color: var(--black);
-      color: white;
-      font-family: 'Georgia', serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
       line-height: 1.7;
-    }
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    header {
-      background-color: var(--red);
-      border-bottom: 4px solid var(--green);
-      padding: 1rem 0;
-      position: relative;
-    }
-    .msr-logo {
-      background-color: var(--black);
-      border: 2px solid var(--yellow);
-      padding: 0.75rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    .star { color: var(--red); font-size: 1.5rem; }
-    h1 {
-      font-size: 2.5rem;
-      text-shadow: 0 0 10px rgba(255,255,255,0.5);
-    }
-    .tagline {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      font-size: 1.1rem;
-    }
-    nav {
-      background-color: var(--green);
-      border-bottom: 2px solid var(--red);
-      padding: 0.75rem 0;
-    }
-    nav button {
-      background-color: var(--red);
-      color: white;
-      border: 2px solid var(--black);
-      padding: 0.5rem 0.75rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      margin: 0 0.25rem;
-      cursor: pointer;
+      color: var(--negro);
+      max-width: 880px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      background-color: #fff;
     }
     main {
-      padding: 2rem 0;
-    }
-    .section {
       margin-bottom: 3rem;
     }
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin: 2rem 0 0.5rem;
-      border-bottom: 4px solid var(--red);
-      font-size: 2rem;
-      color: var(--yellow);
+    h1 {
+      color: var(--rojo);
+      text-align: center;
+      font-size: 2.1rem;
+      margin: 1.8rem 0 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
     }
-    .section-title.green { color: var(--green); border-bottom-color: var(--green); }
-    .section-title.red { color: var(--red); border-bottom-color: var(--green); }
-    .card {
-      background-color: #222;
-      border: 4px solid var(--green);
-      margin: 1rem 0;
-      padding: 1.5rem;
-      transition: transform 0.3s ease;
+    h2 {
+      color: var(--rojo);
+      border-bottom: 2px solid var(--rojo);
+      padding-bottom: 0.4rem;
+      margin: 2.4rem 0 1.2rem;
+      font-size: 1.55rem;
+      font-weight: 700;
     }
-    .card:hover {
-      transform: translateY(-5px);
+    h3 {
+      color: var(--verde);
+      margin: 1.8rem 0 0.9rem;
+      font-size: 1.25rem;
+      font-weight: 600;
     }
-    .card.red-border { border-color: var(--red); }
-    .card.yellow-border { border-color: var(--yellow); }
-    .badge {
-      background-color: var(--green);
-      color: white;
-      padding: 0.25rem 0.5rem;
-      font-size: 0.8rem;
-      font-weight: bold;
-      text-transform: uppercase;
+    h4 {
+      color: var(--negro);
+      margin: 1.3rem 0 0.7rem;
+      font-size: 1.1rem;
+      font-weight: 600;
     }
-    .badge.red { background-color: var(--red); }
-    .contact-grid, .grid-2, .grid-3 {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      margin-top: 2rem;
+    strong {
+      color: var(--verde);
+      font-weight: 700;
     }
-    @media (min-width: 768px) {
-      .contact-grid, .grid-2 { grid-template-columns: 1fr 1fr; }
-      .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    em {
+      color: var(--rojo);
     }
-    input, textarea {
-      width: 100%;
-      padding: 0.75rem;
-      margin: 0.5rem 0;
-      background-color: var(--black);
-      border: 2px solid #444;
-      color: white;
-      font-family: 'Georgia', serif;
+    blockquote {
+      font-style: italic;
+      border-left: 5px solid var(--rojo);
+      padding: 1.2rem 1.5rem;
+      margin: 2.2rem 0;
+      background: #fef8f8;
+      color: var(--negro);
+      font-size: 1.05rem;
     }
-    button, .btn {
-      background-color: var(--red);
-      color: white;
-      border: 2px solid var(--black);
-      padding: 0.75rem;
-      font-weight: bold;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 1rem;
-      text-transform: uppercase;
+    .contacto {
+      background: #f0f8f0;
+      padding: 1.4rem;
+      border-radius: 8px;
+      margin-top: 1.6rem;
+      border-left: 4px solid var(--verde);
+    }
+    .btn {
+      display: inline-block;
+      background: var(--rojo);
+      color: white !important;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      margin: 0.6rem 0.6rem 0 0;
+      font-weight: 600;
+      transition: background 0.25s, transform 0.15s;
+    }
+    .btn:hover {
+      background: #b71c1c;
+      transform: translateY(-2px);
+    }
+    .btn-whatsapp { background: #25d366; }
+    .btn-whatsapp:hover { background: #128c7e; }
+    .articulo {
+      background: #fbfbfb;
+      padding: 1.6rem;
+      border-radius: 6px;
+      margin: 2.2rem 0;
+      border: 1px solid #eee;
+    }
+    .articulo h3 {
+      margin-top: 0;
+      color: var(--rojo);
     }
     footer {
-      background-color: #0a3a0a;
-      border-top: 4px solid var(--red);
-      padding: 2rem 0;
-      margin-top: 2rem;
-    }
-    .text-center { text-align: center; }
-    .mb-1 { margin-bottom: 0.5rem; }
-    .mb-2 { margin-bottom: 1rem; }
-    .quote {
-      font-style: italic;
-      color: var(--yellow);
-      padding: 1rem;
-      border-left: 4px solid var(--red);
-      margin: 1.5rem 0;
-    }
-    .donation-card {
-      background-color: #222;
-      border: 4px solid var(--yellow);
-      padding: 1.5rem;
       text-align: center;
-    }
-    .paypal-btn {
-      background-color: #ffc439;
-      color: #003087;
-      padding: 12px 24px;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 4px;
-      display: inline-block;
-      margin-top: 1rem;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    .activity-item {
-      margin-bottom: 1.5rem;
-      padding: 1rem;
-      border-left: 3px solid var(--red);
-      background-color: #1a1a1a;
-      border-radius: 4px;
-    }
-    .activity-item h3 {
-      margin-top: 0;
-      color: var(--yellow);
-    }
-    .activity-item p {
-      color: #ccc;
+      margin-top: 3.5rem;
+      padding-top: 1.8rem;
+      border-top: 2px solid var(--rojo);
+      color: var(--negro);
+      font-size: 0.95rem;
       line-height: 1.6;
     }
-    .activity-item ul {
-      margin: 0.75rem 0 0.75rem 1.5rem;
-      color: #ddd;
+    footer a {
+      color: var(--verde);
+      text-decoration: none;
+      font-weight: 600;
     }
-    .activity-item small {
-      color: #888;
-      font-style: italic;
-      display: block;
-      margin-top: 0.5rem;
+    footer a:hover { text-decoration: underline; }
+    @media (max-width: 600px) {
+      body { padding: 1.2rem; }
+      h1 { font-size: 1.7rem; }
+      h2 { font-size: 1.35rem; }
+      .btn { display: block; margin: 0.7rem 0; }
+      .articulo { padding: 1.2rem; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="text-center">
-        <div class="msr-logo">
-          <span class="star">★</span>
-          <span style="color: var(--yellow); font-weight: bold;">MSR</span>
-        </div>
-        <h1>REPÚBLICA DE ESPERANZA</h1>
-        <div class="tagline">
-          <span>📰 LA VERDAD QUE NADIE QUIERE CONTAR</span>
-        </div>
-        <div class="mt-2 text-sm">
-          <span>Editor: Alejandro Ortiz</span>
-        </div>
-      </div>
-    </div>
-  </header>
+  <main>
+    <h1>🌱 REPÚBLICA DE LA ESPERANZA</h1>
+    <p style="text-align:center; color:var(--negro); font-size:1.15rem; margin-bottom:2.2rem;">
+      <strong>Movimiento por la Salvación de la República (MSR)</strong><br>
+      <em>Por una República democrática, popular y revolucionaria</em>
+    </p>
 
-  <nav>
-    <div class="container text-center">
-      <button>INICIO</button>
-      <button>SOBRE NOSOTROS</button>
-      <button>VALORES</button>
-      <button>INTERNACIONAL</button>
-      <button>DIÁSPORA</button>
-      <button>DERECHOS HUMANOS</button>
-      <button>DONACIONES</button>
-    </div>
-  </nav>
-
-  <main class="container">
-    <!-- Hero -->
-    <section class="section">
-      <div class="card" style="border-color: var(--yellow);">
-        <div style="background: linear-gradient(90deg, #8b0000, #006400); padding: 2rem; border: 4px solid var(--yellow);">
-          <div style="color: var(--red); font-weight: bold; margin-bottom: 1rem;">¡LLAMADO A LA ACCIÓN!</div>
-          <h2 style="font-size: 2.2rem; color: var(--yellow); margin-bottom: 1rem;">
-            ¡ÚNETE A LA LUCHA POR UNA REPÚBLICA DEMOCRÁTICA, POPULAR Y REVOLUCIONARIA!
-          </h2>
-          <p>
-            El Movimiento por la Salvación de la República convoca a todas las fuerzas populares a organizarse, resistir y construir el futuro que merecemos.
-          </p>
-        </div>
-      </div>
+    <!-- Artículo 1 -->
+    <section class="articulo">
+      <h3>LA REPÚBLICA QUE NOS ARREBATARON</h3>
+      <p>El 18 de febrero de 1865, el pueblo dominicano, tras una guerra heroica, logró restaurar su independencia frente a la anexión española. Pero la República no fue solo un acto fundacional: fue una promesa —de justicia agraria, educación popular, soberanía y dignidad.</p>
+      <p>Esa promesa fue traicionada. Las oligarquías, aliadas al capital extranjero, convirtieron la República en una fachada para la explotación. Hoy, más de 150 años después, el pueblo vuelve a levantar la bandera tricolor —no como símbolo de Estado, sino como <strong>juramento de lucha colectiva</strong>.</p>
+      <blockquote>
+        “No queremos una República de palacios y caudillos, sino una República de escuelas, hospitales y cooperativas.”
+      </blockquote>
     </section>
 
-    <!-- Sobre Nosotros -->
-    <section class="section">
-      <h2 class="section-title red">
-        <span>✊</span> SOBRE NOSOTROS <span>✊</span>
-      </h2>
-      <div class="card red-border">
-        <p class="mb-2">
-          El <strong>Movimiento por la Salvación de la República (MSR)</strong> nace como respuesta a la crisis moral, política y económica que asfixia a nuestro pueblo.
-        </p>
-        <p class="mb-2">
-          Inspirados en el pensamiento de Hostos, los restauradores y las luchas populares del siglo XX, nos proponemos construir una República que garantice la justicia, la soberanía y la dignidad humana.
-        </p>
-      </div>
+    <!-- Artículo 2 -->
+    <section class="articulo">
+      <h3>PROGRAMA MÍNIMO DEL MSR</h3>
+      
+      <h4>1. Soberanía Nacional</h4>
+      <p>• Ruptura inmediata con los acuerdos neocoloniales (Tratado de Libre Comercio con EE.UU., acuerdos con el FMI).<br>
+      • Nacionalización de los recursos estratégicos: minas, energía, agua y telecomunicaciones.<br>
+      • Rechazo a las bases militares extranjeras y ejercicios conjuntos con fuerzas imperiales.</p>
+
+      <h4>2. Justicia Social</h4>
+      <p>• Reforma agraria integral: tierra para quien la trabaja.<br>
+      • Salario mínimo vital y móvil, indexado a la canasta básica.<br>
+      • Educación y salud públicas, universales y gratuitas.<br>
+      • Jubilación digna a los 60 años con el 80% del último salario.</p>
+
+      <h4>3. Democracia Popular</h4>
+      <p>• Asambleas populares barriales y rurales con poder decisorio.<br>
+      • Revocabilidad de mandatos para cargos públicos.<br>
+      • Medios de comunicación comunitarios y estatales al servicio del pueblo.</p>
     </section>
 
-    <!-- Declaración de Principios -->
-    <section class="section">
-      <h2 class="section-title">
-        <span>📜</span> DECLARACIÓN DE PRINCIPIOS <span>📜</span>
-      </h2>
-      <div class="card yellow-border">
-        <h3 class="text-center mb-2">Del Movimiento Por la Salvación de la República (MSR)</h3>
-        <div class="quote text-center">
-          "Política sin Moral es indignidad" — Hostos
-        </div>
-        <p class="mb-2">
-          En este momento en donde todo parece necesitar nuevas definiciones, donde las aspiraciones y las esperanzas parecen inalcanzables para los pobres (obreros (as), campesinos (as), mujeres, dominico-haitianos (as), chiriperos (as), jóvenes, niños y niñas). Hombres y Mujeres que hemos soñados por más de dos décadas con una República Democrática, Popular, Revolucionaria, humana, Nos resistimos a dejar de soñar y luchar contra la desigualdad, el individualismo, la opresión del capitalismo salvaje, local e imperial.
-        </p>
-        <p class="mb-2">
-          Por tal razón nos constituimos en una expresión política, democrática, revolucionaria, anti-imperialista, solidaria e internacionalista, con el nombre de Movimiento Por la Salvación de la República (MSR), que enarbole y rescate los aportes de las generaciones de luchadores (as) que nos precedieron y los que nos acompañaron en la lucha por alcanzar una República Democrática, Popular, Revolucionaria.
-        </p>
-        <p class="mb-2">
-          MSR se propone lanzar una campaña permanente por una Republica que revierta el concepto nacionalista del chovinismo estrecho a una noción de Soberanía Popular, que extienda el concepto de Republica más allá de las fronteras territoriales hasta cubrir a los que se consideran parte del pueblo dominicano aún hallan nacido o vivan en el exterior.
-        </p>
-        <p class="mb-2">
-          Creemos y abogamos por los valores fundamentales de La libertad solidaria y de La justicia. Lo hacemos conforme a nuestra concepción del hombre y de la mujer en la sociedad actual porque creemos que son seres libres. Pero esa libertad tiene una forma responsable de expresarse y un límite moral en función de la concepción ética que tenga La sociedad.
-        </p>
-        <p class="mb-2">
-          La libertad no debe ser obstaculizada por las condiciones bajas que vive el ser humano. Por ello consideramos una tarea de nuestro Partido. Hacer oposición a la Opresión, a la Miseria, a la Dependencia, Luchar contra todas las limitaciones que impidan el libre desarrollo del pueblo dominicana y que se garanticen las condiciones materiales de la libertad.
-        </p>
-        <p class="mb-2">
-          Creemos que es necesario. Como fuerza política popular y de masas tener conciencia de los graves problemas que afectan al mundo. Creemos en el trascendental compromiso de convertirnos en el Movimiento promotor de un nuevo orden social, que sea un proyecto histórico a la satisfacción de todos. Nuestras aspiraciones por la justicia nos llevan al diseño de una política operativa. Basada en los valores fundamentales de los fundadores, restauradores, Raza Inmortal, Minerva, Manolo, Amaury, Caamaño y otros/as héroes y mártires de nuestra república.
-        </p>
-        <p class="mb-2">
-          Creemos que la educación y la salud deben ser derechos que correspondan en igualdad de condiciones a todos. El régimen político que aspiramos a construir. Necesitará de ciudadanos capacitados y preparados técnica, científica y culturalmente...
-        </p>
-        <p class="mb-2">
-          Creemos que es importante que el sector público se haga cargo de la mayoría de los servicios colectivos y juegue un papel significativo en los sectores estratégicos de la industria. Las materias primas. La energía y el crédito.
-        </p>
-        <p class="mb-2">
-          La política fiscal debe estar al servicio de tales objetivos al desarrollo económico, social para garantizar una justa distribución de las riqueza a todos/as los ciudadanos/as.
-        </p>
-        <p class="mb-2">
-          Creemos en el principio universal de la Autodeterminación de los pueblos, de decidir las políticas necesarias para alcanzar su desarrollo.
-        </p>
-        <p>
-          Nuestro Movimiento está comprometido con la defensa de los recursos naturales renovables y no renovables. Especialmente los bosques, los ríos, los yacimientos minerales, los cuales deben ser explotados y utilizados de manera racional.
-        </p>
-      </div>
+    <!-- Artículo 3 -->
+    <section class="articulo">
+      <h3>MEMORIA, VERDAD Y JUSTICIA</h3>
+      <p>Exigimos la apertura de todos los archivos del Estado sobre las dictaduras, las masacres (Parsley, Haitianos en 1937; Palma Sola, 1962; Guayubín, 2000) y los desaparecidos.</p>
+      <p>El MSR propone una <strong>Comisión Nacional de la Verdad y la Reparación Popular</strong>, con participación de víctimas, organizaciones sociales y juristas independientes.</p>
+      <p>Ningún olvido. Ningún perdón sin justicia.</p>
     </section>
 
-    <!-- Valores -->
-    <section class="section">
-      <h2 class="section-title green">
-        <span>🌱</span> NUESTROS VALORES <span>🌱</span>
-      </h2>
-      <div class="grid-3">
-        <div class="card">
-          <h3 style="color: var(--yellow); margin-bottom: 1rem;">Solidaridad</h3>
-          <p>Actuamos con empatía y compromiso con las luchas del pueblo trabajador, campesino y marginado.</p>
-        </div>
-        <div class="card">
-          <h3 style="color: var(--yellow); margin-bottom: 1rem;">Justicia Social</h3>
-          <p>Defendemos la redistribución de la riqueza, la educación y salud públicas, y los derechos de todos los sectores oprimidos.</p>
-        </div>
-        <div class="card">
-          <h3 style="color: var(--yellow); margin-bottom: 1rem;">Antiimperialismo</h3>
-          <p>Rechazamos toda forma de dominación extranjera y luchamos por la soberanía nacional en todos los ámbitos.</p>
-        </div>
-      </div>
+    <!-- Artículo 4 -->
+    <section class="articulo">
+      <h3>INTERNACIONALISMO SOLIDARIO</h3>
+      <p>La lucha dominicana es parte de la lucha del Sur Global. Nos hermanamos con:</p>
+      <p>• El pueblo palestino en su resistencia contra el apartheid sionista.<br>
+      • Las revoluciones de Cuba, Venezuela y Nicaragua en defensa de su soberanía.<br>
+      • Los movimientos indígenas del Abya Yala por la Pachamama y la autodeterminación.<br>
+      • La diáspora caribeña y afrolatina en su lucha antirracista en el norte.</p>
+      <p>Defendemos la integración latinoamericana y caribeña: ALBA-TCP, CELAC, Petrocaribe.</p>
     </section>
 
-    <!-- Internacional -->
-    <section class="section">
-      <h2 class="section-title">
-        <span>🌍</span> INTERNACIONAL <span>🌍</span>
-      </h2>
-      <div class="card yellow-border">
-        <h3 style="color: var(--yellow); margin-bottom: 1rem;">ACTUALIDAD Y COYUNTURA</h3>
-        
-        <h4 style="color: var(--green); margin: 1.5rem 0 1rem;">El inicio del declive unipolar (2014-2016)</h4>
-        <p class="mb-2">
-          El año 2014 marcó un punto de inflexión en la geopolítica global con la anexión de Crimea por parte de Rusia, como respuesta al golpe de Estado en Ucrania, patrocinado por la OTAN y EEUU, un evento que resucitó tensiones reminiscentes de la Guerra Fría. La respuesta occidental, liderada por Estados Unidos y la Unión Europea, incluyó sanciones económicas y el fortalecimiento de la OTAN en Europa del Este, lo que profundizó la división entre Occidente y Rusia.
-        </p>
-        <p class="mb-2">
-          Simultáneamente, el ascenso del Estado Islámico (ISIS) en Siria e Irak planteó un desafío al internacional liderada por Estados Unidos a intervenir militarmente, mientras que Rusia aprovechó la oportunidad para consolidar su influencia en Siria apoyando al régimen de Bashar al-Assad. Estos eventos subrayaron la complejidad de los conflictos contemporáneos, donde intereses nacionales, ideologías y dinámicas regionales se entrelazaban.
-        </p>
-        
-        <h4 style="color: var(--green); margin: 1.5rem 0 1rem;">El surgimiento de un mundo multipolar (2017-2020)</h4>
-        <p class="mb-2">
-          La segunda mitad de la década estuvo marcada por el fortalecimiento de China como una superpotencia global. Bajo el liderazgo de Xi Jinping, China lanzó iniciativas ambiciosas como la Franja y la Ruta (BRI), que buscaba expandir su influencia económica y política en Asia, África y Europa. Al mismo tiempo, Pekín intensificó sus reclamos territoriales en el Mar de China Meridional, generando tensiones con países vecinos y Estados Unidos.
-        </p>
-        <p class="mb-2">
-          La pandemia de COVID-19, declarada en 2020, exacerbó las tensiones globales. La gestión de la crisis por parte de Pekín fue vista como un ejemplo de eficiencia autoritaria, mientras que las democracias occidentales enfrentaron críticas por su respuesta fragmentada y descoordinada.
-        </p>
-        
-        <h4 style="color: var(--green); margin: 1.5rem 0 1rem;">Crisis y realineamientos (2021-2025)</h4>
-        <p class="mb-2">
-          La guerra genocida de Ucrania contra el Dombás y Dotnek. Más el incumplimiento de los acuerdos de Minsk por parte de Ucrania y los garantes, provocó la Operación Militar Especial que condujo a la invasión Rusa de Ucrania en febrero de 2022. Esto marcó otro hito en la geopolítica global. Esta guerra no solo devastó a Ucrania, sino que también polarizó aún más el sistema.
-        </p>
-        <p class="mb-2">
-          Occidente impuso sanciones sin precedentes a Rusia, mientras que países como China, India y varias naciones del Sur Global adoptaron posiciones más equilibradas o neutrales.
-        </p>
-        
-        <h4 style="color: var(--green); margin: 1.5rem 0 1rem;">Neoliberalismo: Causas y Consecuencias</h4>
-        <p class="mb-2">
-          El neoliberalismo es una corriente económica que surgió como reacción al socialismo y al movimiento obrero. Se caracteriza por la defensa del libre mercado, la privatización de servicios públicos, la reducción del papel del Estado y la promoción de la globalización.
-        </p>
-        <p class="mb-2">
-          Sus consecuencias incluyen: exacerbación de desigualdades, precarización laboral, erosión del Estado de bienestar, impacto ambiental negativo, y dependencia económica en países del Sur Global.
-        </p>
-        
-        <h4 style="color: var(--green); margin: 1.5rem 0 1rem;">Deuda y Dependencia en el Sur Global</h4>
-        <p class="mb-2">
-          La deuda externa y la dependencia económica perpetúan estructuras de desigualdad global. Los países en desarrollo enfrentan limitación del gasto público, aumento de pobreza, y pérdida de soberanía debido a préstamos condicionados del FMI y Banco Mundial.
-        </p>
-        <p class="mb-2">
-          Soluciones propuestas: reestructuración de deuda, financiamiento alternativo, regulación financiera global, diversificación económica y justicia climática.
-        </p>
-        
-        <h4 style="color: var(--green); margin: 1.5rem 0 1rem;">El Movimiento Obrero (1980-2025)</h4>
-        <p>
-          En las últimas décadas, el movimiento obrero ha enfrentado desindustrialización, precarización laboral y políticas neoliberales. Sin embargo, ha surgido nueva organización en la "gig economy", resistencia en el Sur Global, y mayor participación de mujeres con enfoque interseccional.
-        </p>
-        <div class="quote mt-2">
-          "El movimiento obrero no es solo una reliquia del pasado; es una fuerza viva que continúa evolucionando."
-        </div>
-      </div>
+    <!-- Artículo 5 -->
+    <section class="articulo">
+      <h3>DIÁSPORA: NUESTRA FUERZA EN EL EXTERIOR</h3>
+      <p>Más de 2.5 millones de dominicanos y dominicanas viven fuera del país. La diáspora no es “remesas”: es <strong>conciencia, organización y resistencia transnacional</strong>.</p>
+      <p>El MSR propone:</p>
+      <p>• Derecho al voto desde el exterior en todas las elecciones.<br>
+      • Consulados populares gestionados por colectivos migrantes.<br>
+      • Programas de retorno voluntario con garantías de vivienda y trabajo digno.<br>
+      • Apoyo a redes de solidaridad con otros pueblos migrantes.</p>
     </section>
 
-    <!-- Diáspora -->
-    <section class="section">
-      <h2 class="section-title">
-        <span>🌎</span> DIÁSPORA <span>🌎</span>
-      </h2>
-      <div class="card yellow-border">
-        <p class="mb-2">
-          La diáspora dominicana constituye una de las fuerzas más dinámicas y solidarias de la nación. Se estima que más de <strong>2.5 millones de dominicanos y dominicanas</strong> viven en el exterior, principalmente en <strong>Estados Unidos, España, Puerto Rico, Italia y Canadá</strong>.
-        </p>
-        <p class="mb-2">
-          Según el <strong>Banco Central de la República Dominicana</strong>, las remesas familiares enviadas por la diáspora superaron los <strong>USD 10,000 millones en 2023</strong>, representando alrededor del <strong>9% del PIB nacional</strong>.
-        </p>
-        <p class="mb-2">
-          Más allá del dinero, la diáspora impulsa el desarrollo mediante:
-        </p>
-        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
-          <li><strong>Inversiones productivas</strong>: Emprendimientos en turismo, agroindustria, tecnología y vivienda.</li>
-          <li><strong>Transferencia de conocimientos</strong>: Profesionales que regresan o colaboran con instituciones locales.</li>
-          <li><strong>Activismo cívico</strong>: Organizaciones comunitarias que defienden los derechos de los migrantes.</li>
-        </ul>
-        <p>
-          El MSR reconoce a la diáspora como parte inseparable del pueblo dominicano y aboga por políticas públicas que protejan sus derechos y potencien su rol como agente de desarrollo soberano y popular.
-        </p>
-      </div>
+    <!-- Artículo 6 -->
+    <section class="articulo">
+      <h3>FEMINISMOS Y DIVERSIDAD</h3>
+      <p>El patriarcado y el capitalismo se sostienen mutuamente. Nuestra República será feminista o no será.</p>
+      <p>• Legalización del aborto en las tres causales y camino hacia la despenalización total.<br>
+      • Erradicación de la violencia machista con tribunales especializados y casas de acogida.<br>
+      • Reconocimiento pleno de derechos para personas LGTBIQ+: matrimonio igualitario, identidad de género autodeterminada.<br>
+      • Cuotas del 50% en todos los espacios de poder del MSR y en listas electorales.</p>
     </section>
 
-    <!-- Derechos Humanos -->
-    <section class="section">
-      <h2 class="section-title red">
-        <span>⚖️</span> DERECHOS HUMANOS <span>⚖️</span>
-      </h2>
-      <div class="card red-border">
-        <h3 style="color: var(--yellow); margin-bottom: 1rem; text-align: center;">Declaración Universal de Derechos Humanos</h3>
-        <p class="mb-2">
-          Adoptada por la Asamblea General de las Naciones Unidas el 10 de diciembre de 1948
-        </p>
-        
-        <h4 style="color: var(--green); margin: 1rem 0;">Preámbulo</h4>
-        <p class="mb-2">
-          Considerando que la libertad, la justicia y la paz en el mundo tienen por base el reconocimiento de la dignidad intrínseca y de los derechos iguales e inalienables de todos los miembros de la familia humana.
-        </p>
-        
-        <h4 style="color: var(--green); margin: 1rem 0;">Artículo 1</h4>
-        <p>Todos los seres humanos nacen libres e iguales en dignidad y derechos.</p>
-        
-        <h4 style="color: var(--green); margin: 1rem 0;">Artículo 3</h4>
-        <p>Todo individuo tiene derecho a la vida, a la libertad y a la seguridad de su persona.</p>
-        
-        <h4 style="color: var(--green); margin: 1rem 0;">Artículo 25</h4>
-        <p>Toda persona tiene derecho a un nivel de vida adecuado que le asegure la salud y el bienestar, y en especial la alimentación, el vestido, la vivienda y la asistencia médica.</p>
-        
-        <h4 style="color: var(--green); margin: 1rem 0;">Artículo 26</h4>
-        <p>Toda persona tiene derecho a la educación. La educación debe ser gratuita, al menos en lo concerniente a la instrucción elemental y fundamental.</p>
-      </div>
-    </section>
+    <!-- Sección: Valores -->
+    <h2>NUESTROS VALORES</h2>
 
-    <!-- ANÁLISIS EXTERNO - ARTÍCULO COMPLETO DE HUMO LATINO -->
-    <section class="section">
-      <h2 class="section-title">
-        <span>📝</span> ANÁLISIS EXTERNO <span>📝</span>
-      </h2>
-      <div class="card yellow-border">
-        <h3 style="color: var(--yellow); margin-bottom: 1rem;">Tabaco y Cigarro son dominicanos</h3>
-        <p class="mb-2">
-          <em>Por Ing. Francisco Matos Mancebo — Editor HLM / Humo Latino</em>
-        </p>
+    <h3>Solidaridad</h3>
+    <p>No hay libertad individual sin liberación colectiva. Actuamos desde la empatía material: compartimos lo que tenemos, defendemos a quien está atacado, y construimos en comunidad.</p>
 
-        <p class="mb-2"><strong>El Diputado del Tabaco</strong></p>
+    <h3>Justicia Social</h3>
+    <p>La riqueza es social. La explotación, el racismo y la exclusión son violencias estructurales que combatimos con redistribución, educación crítica y poder popular.</p>
 
-        <p class="mb-2">
-          Desde que el ser humano pasó de la vida nómada a la sedentaria inició un proceso de identificación, sistematización, clasificación y nominación de los elementos de su hábitat. Por tanto, podemos rastrear los primeros pasos de esa hierba santa (Nicotiana Tabacum) que hoy llamamos tabaco, desde que el ser humano la identificó y diferenció. Esta planta anual de la familia de las solanáceas, de acuerdo con investigaciones e inferencias científicas, es oriunda de América tropical y amazónica, más específicamente de Ecuador y Perú.
-        </p>
-
-        <p class="mb-2">
-          Cabe destacar que su producción no representa, en modo alguno, el peligro infernal para la salud que preconizan sus enemigos tendenciosos, pues se trata de un activo inapreciable y un regalo para la humanidad. Como todos los elementos de los reinos de la naturaleza –mineral, vegetal y animal– puede usarse para bienestar o malestar. Como activo de la modernidad es generador de riqueza, soporte de multinacionales y destino preferente de leyes impositivas, pero como producto de consumo es universal e inherente a la civilización.
-        </p>
-
-        <p class="mb-2">
-          Juzgo imprescindible aclarar que, aunque la planta de tabaco es originaria de Sudamérica, está comprobado que para la producción adecuada y efectiva de las hojas destinadas a la elaboración de cigarros premium, los mejores suelos están en las Antillas Mayores: Puerto Rico, Jamaica y básicamente la República Dominicana y Cuba. Estas dos últimas, las islas principales donde los colonizadores descubrieron su existencia y el uso que los «indios» le daban.
-        </p>
-
-        <h4 style="color: var(--green); margin: 1.5rem 0 1rem;">BREVE HISTORIA</h4>
-        <p class="mb-2">
-          A raíz del descubrimiento de América, los colonizadores españoles fueron los primeros en dar cuenta de la existencia del tabaco al viejo continente. Al llegar a las islas del Caribe, el 12 de octubre de 1492, en Guanahani –bautizada como San Salvador, hoy Bahamas–, tuvieron conocimiento de la existencia de la planta aromática, pues los nativos les presentaron “hojas secas que desprendían una fragancia peculiar”.
-        </p>
-
-        <p class="mb-2">
-          Su primera referencia sobre el tabaco fue un par de días después de descubrir la primera isla de San Salvador, cuando Cristóbal Colón explica cómo encontró a un indio en una pequeña canoa, y en ella llevaba “unas hojas secas que deben ser cosas muy apreciadas entre ellos, porque ya me trajeron en San Salvador de ellas”. El Almirante prosiguió su travesía y el 27 de octubre arribó a la isla de Cuba, que llamaron Juana, y en esa escala encontraron nuevamente tabaco. Está documentado que los marineros Rodrigo de Jerez y Luis de Torres, enviados a explorar tierra firme el 2 de noviembre, vieron por primera vez a los nativos fumar.
-        </p>
-
-        <p class="mb-2">
-          El “Diario de Colón” relata: “Hallaron los dos cristianos por el camino mucha gente que atravesaban a sus pueblos, mujeres y hombres, con un tizón en la mano y yerbas para tomar sus sahumerios, que acostumbraban”. Los enviados observaron a los nativos hacer rollos de hojas de palma y maíz “a la manera de un mosquetón de papel” con tabaco dentro, al que uno encendía de un lado y bebía el humo que echaba el otro.
-        </p>
-
-        <p class="mb-2">
-          Colón zarpó de Cuba y el 5 de diciembre arribó a Quisqueya, actual isla de Santo Domingo bautizada entonces como La Española, donde desembarcaron por fuerza el 24 de diciembre, tras encallar la carabela Santa María. Fueron bien acogidos por el cacique Guacanagarix, quien les ofreció albergue y dispuso ayuda para rescatar los restos de la embarcación y sus provisiones. Esto sucedió en la bahía de San Nicolás, donde construyeron su primer asentamiento en el Nuevo Mundo, el Fuerte de la Navidad, en alusión a la fecha citada.
-        </p>
-
-        <p class="mb-2">
-          Colón y sus hombres permanecieron en el cacicazgo de Marién hasta el 16 de enero de 1493, cuando emprendieron su regreso a España, dejando en el fuerte a 39 de sus compañeros. En la tripulación iba Alejandro de Jerez, quien llevó consigo hojas de tabaco secas y la costumbre de fumarlas: práctica vista en Cuba, pero aprendida en La Española, durante su convivencia amigable.
-        </p>
-
-        <h4 style="color: var(--green); margin: 1.5rem 0 1rem;">PRIMEROS INFORMES</h4>
-        <p class="mb-2">
-          El tabaco no ocupó un lugar destacado entre las exportaciones de productos dominicanos a Sevilla durante el siglo XVI, a pesar de que el término “tabaco” aparece como tal desde 1529, y desde La Española se producían las primeras noticias sobre la planta, de su uso por los colonizadores europeos y sus efectos de dependencia entre quienes lo consumían.
-        </p>
-
-        <p class="mb-2">
-          El andaluz (y sevillano) Fray Bartolomé Las Casas escribió: “españoles conocí yo en esta isla Española que lo acostumbraban tomar (el tabaco), que siendo reprendidos por ello diciéndoles que aquello era vicio, respondían que no era de su mano dejarlo; no sé qué sabor o provecho hallaban en ello”.
-        </p>
-
-        <p class="mb-2">
-          El Tabaco fue, sin duda, el cultivo más difundido de América desde antes de la llegada de los españoles. Hay evidencias de que era sembrado formalmente y domesticado en todo el continente, y aunque su origen se establece en la región amazónica –como se dijo antes–, pasó a los grupos del Orinoco en el sur de la actual Venezuela, y los Arahuacos lo trajeron a las islas del caribe.
-        </p>
-
-        <p class="mb-2">
-          Una vez aquí, los Tainos –asentados básicamente en la isla de Santo Domingo– fue el primer grupo que lo domesticó y convirtió en cultivo regular.
-        </p>
-
-        <p class="mb-2">
-          Los europeos se extrañaron mucho porque nunca habían visto a alguien echando humo por boca y nariz, pero no fue el único uso que encontraron entre los aborígenes. Además de aspirar el humo de las hojas secas en combustión, los indígenas también masticaban tabaco, lo aspiraban por la nariz, lo comían en una especie de ensalada, se bebía, lo untaban sobre el cuerpo para combatir enfermedades de la piel, y se usaba en gotas para los ojos y en enemas.
-        </p>
-
-        <p class="mb-2">
-          Tenía también usos rituales, como soplarlo sobre los guerreros antes de la lucha y esparcirlo en los campos antes de la siembra; era ofrenda para los dioses, se derramaba sobre las mujeres previo a una relación sexual; se untaba en el cuerpo de las embarazadas, y tanto hombres como mujeres lo consumían como narcótico.
-        </p>
-
-        <h4 style="color: var(--green); margin: 1.5rem 0 1rem;">EL VIEJO CONTINENTE</h4>
-        <p class="mb-2">
-          Tras regresar a España y continuar su práctica de fumar tabaco, la historia registra que Rodrigo de Jerez fue denunciado por vecinos y familiares, quienes asombrados al verlo echar chorros de humo todo el día provocaron su arresto por la Santa Inquisición, que lo encarceló durante siete años, ya que “solamente el Diablo podía hacer que un hombre vote humo por boca y nariz”.
-        </p>
-
-        <p class="mb-2">
-          En el viejo continente, el hábito de fumar y el uso del tabaco se fue generalizando gracias a los marinos, quienes lo masticaban y aspiraban su polvo. Pero se extendió de tal manera que algunos reyes adoptaron medidas radicales para impedir que la gente lo adoptara.
-        </p>
-
-        <p class="mb-2">
-          Prusia, por ejemplo, castigaba al fumador con una paliza, pero si insistía se le cortaba la nariz y finalmente, ante una situación de desobediencia, le degollaban. En Turquía se aplicaba la pena de muerte, y en la Inglaterra del siglo XVI no sólo se prohibió fumar, sino que entre los posibles castigos estaba también la pena capital.
-        </p>
-
-        <p class="mb-2">
-          No obstante, bastaron unos pocos años para que los Estados pasaran de las restricciones a fomentar la siembra y estimular el consumo con todos los medios a su alcance –propaganda incluida–, por lo que en toda Europa, Asia (incluyendo el Medio Oriente), África, etcétera, se introdujo el cultivo, sumándose a América entera países como Brasil, entonces colonia portuguesa.
-        </p>
-
-        <p class="mb-2">
-          El tabaco fue, es y será un viajero preferente en el carrusel del tiempo, que se ha ocupado de ubicarlo en lugares más respetables. Por tanto, durante su trayectoria histórica los gobiernos advirtieron que podía generar grandes riquezas y se reservaron su comercialización o lo grabaron con impuestos especiales.
-        </p>
-
-        <h4 style="color: var(--green); margin: 1.5rem 0 1rem;">EL TABACO ES DOMINICANO</h4>
-        <p class="mb-2">
-          Lo expuesto anteriormente nos ofrece la certidumbre de que los españoles aprendieron la práctica de enrollar hojas de tabaco y fumarlas en la isla de Santo Domingo, y desde aquí se llevaron a Europa incluso sus semillas (lo que se atribuye a Fray Ramón Pané, entre 1510 y 1512).
-        </p>
-
-        <p class="mb-2">
-          Resultado de distintas investigaciones, podemos afirmar que en Santo Domingo se estableció la primera plantación en 1533, y entre 1529 y 1531 se exportaron hojas a Sevilla, España. Por tales razones nos sentimos con todo derecho a decir que respecto del tabaco, como se le conoce hoy en día, todo empezó aquí, y por cuanto a su cultivo formal, procesamiento, comercialización y uso, es de origen dominicano.
-        </p>
-
-        <div class="quote mt-2">
-          "Este análisis refleja la opinión del autor y no necesariamente representa la posición oficial del Movimiento por la Salvación de la República (MSR)."
-        </div>
-      </div>
-    </section>
-
-    <!-- Donaciones -->
-    <section class="section" id="donaciones">
-      <h2 class="section-title">
-        <span>💰</span> DONACIONES <span>💰</span>
-      </h2>
-      <div class="donation-card">
-        <h3 style="color: var(--yellow); margin-bottom: 1rem;">APOYA AL MSR</h3>
-        <p class="mb-2">
-          El Movimiento por la Salvación de la República (MSR) depende del apoyo solidario de personas comprometidas con la justicia social y la soberanía popular.
-        </p>
-        <p class="mb-2">
-          Tu donación nos permite mantener este sitio, difundir la verdad y organizar actividades por una República Democrática, Popular y Revolucionaria.
-        </p>
-        
-        <form action="https://www.paypal.com/donate" method="post" target="_blank">
-          <input type="hidden" name="business" value="pablo102158@gmail.com" />
-          <input type="hidden" name="item_name" value="República de Esperanza - MSR" />
-          <button type="submit" name="submit" class="paypal-btn">
-            Donar con PayPal
-          </button>
-        </form>
-        
-        <p style="margin-top: 1rem; font-size: 0.9rem;">
-          <em>¡Cualquier aporte, por pequeño que sea, hace una gran diferencia!</em>
-        </p>
-      </div>
-    </section>
-
-    <!-- Actividades RECIENTES -->
-    <section class="section">
-      <h2 class="section-title">
-        <span>📅</span> ACTIVIDADES RECIENTES <span>📅</span>
-      </h2>
-
-      <!-- Artículo 1: Tabaco -->
-      <div class="activity-item">
-        <h3>🚭 El tabaco no es un vicio individual, es una estrategia de la industria</h3>
-        <p>
-          La industria tabacalera sigue lucrando con la salud de millones, especialmente en barrios populares y países del Sur Global. 
-          A través de publicidad engañosa, sabores atractivos para adolescentes y presión política, las grandes corporaciones 
-          como Philip Morris y British American Tobacco evaden regulaciones y expanden su mercado entre los más vulnerables.
-        </p>
-        <p>
-          En América Latina, el 80% de las muertes por cáncer de pulmón están vinculadas al tabaco, y los gastos en salud pública 
-          superan con creces los impuestos recaudados. El Movimiento Social Revolucionario (MSR) exige:
-        </p>
-        <ul>
-          <li>Prohibición total de la publicidad, promoción y patrocinio de productos de tabaco.</li>
-          <li>Impuestos progresivos que desincentiven el consumo y financien campañas de cesación.</li>
-          <li>Apoyo a pequeños agricultores para transitar hacia cultivos alternativos sostenibles.</li>
-        </ul>
-        <p>
-          Defender la vida es luchar contra las corporaciones que la mercantilizan. ¡El humo del cigarro no es libertad: es opresión disfrazada de elección!
-        </p>
-        <small>Publicado: 5 de abril de 2025 | MSR - Comisión de Salud y Soberanía Popular</small>
-      </div>
-
-      <!-- Artículo 2: Palestina -->
-      <div class="activity-item">
-        <h3>🌍 ¡Alto al genocidio en Palestina! Exigimos justicia y soberanía</h3>
-        <p>
-          Mientras el mundo mira en silencio, el pueblo palestino enfrenta uno de los asedios más brutales de la historia reciente. 
-          Bombardeos indiscriminados, desplazamientos forzados, bloqueo de ayuda humanitaria y destrucción de infraestructura 
-          son crímenes de lesa humanidad que no pueden seguir normalizándose.
-        </p>
-        <p>
-          El Movimiento Social Revolucionario (MSR) se suma a la voz global que exige:
-        </p>
-        <ul>
-          <li>Cese inmediato de las agresiones militares israelíes.</li>
-          <li>Levantamiento total del bloqueo a Gaza.</li>
-          <li>Reconocimiento del Estado palestino con fronteras de 1967 y capital en Jerusalén Este.</li>
-          <li>Boicot, desinversión y sanciones (BDS) contra empresas cómplices del apartheid.</li>
-        </ul>
-        <p>
-          La libertad de Palestina es inseparable de la lucha antiimperialista mundial. ¡No somos neutrales: estamos con el pueblo palestino!
-        </p>
-        <small>Publicado: 4 de abril de 2025 | MSR - Comisión Internacional de Solidaridad</small>
-      </div>
-
-      <!-- Artículo 3: Venezuela -->
-      <div class="activity-item">
-        <h3>🇻🇪 Venezuela: Defender la soberanía popular frente al cerco imperial</h3>
-        <p>
-          Nuevamente, potencias extranjeras intentan imponer su agenda mediante sanciones económicas, campañas mediáticas 
-          y presión diplomática contra la Revolución Bolivariana. Estas medidas no solo violan el derecho internacional, 
-          sino que afectan directamente al pueblo venezolano, limitando el acceso a medicinas, alimentos y recursos básicos.
-        </p>
-        <p>
-          El MSR rechaza toda forma de injerencia y respalda el derecho inalienable del pueblo venezolano a:
-        </p>
-        <ul>
-          <li>Autodeterminación sin condicionamientos externos.</li>
-          <li>Desarrollar su modelo económico y social en paz.</li>
-          <li>Contar con el apoyo solidario de los pueblos del mundo frente al bloqueo.</li>
-        </ul>
-        <p>
-          La verdadera democracia no se impone con decretos imperiales, sino que florece desde la organización popular. ¡Manos fuera de Venezuela!
-        </p>
-        <small>Publicado: 3 de abril de 2025 | MSR - Frente Antiimperialista Latinoamericano</small>
-      </div>
-    </section>
+    <h3>Antiimperialismo</h3>
+    <p>Rechazamos toda forma de dominación extranjera: económica, militar, cultural o mediática. La soberanía no se negocia — se conquista y se defiende.</p>
 
     <!-- Contacto -->
-    <section class="section" id="contacto">
-      <h2 class="section-title">
-        <span>✉️</span> CONTACTO <span>📞</span>
-      </h2>
-      <div class="contact-grid">
-        <div class="card yellow-border">
-          <h3 style="color: var(--yellow); margin-bottom: 1rem;">Escríbenos</h3>
-          <form action="https://formspree.io/f/xanpekev" method="POST">
-            <input type="text" name="name" placeholder="Tu nombre" required>
-            <input type="email" name="email" placeholder="tu@email.com" required>
-            <textarea name="message" placeholder="Tu mensaje..." rows="5" required></textarea>
-            <button type="submit">Enviar Mensaje</button>
-          </form>
-        </div>
-        <div class="card" style="border-color: var(--green);">
-          <h3 style="color: var(--green); margin-bottom: 1rem;">Únete a Nosotros</h3>
-          <p>📍 Santo Domingo, República Dominicana</p>
-          <p>✉️ contacto@republicaesperanza.org</p>
-          <div style="margin-top: 1rem; padding: 1rem; background: var(--black); border: 2px solid var(--red);">
-            <p style="color: var(--red); font-style: italic;">
-              "La esperanza no es un sentimiento, es una decisión política."
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <h2>✉️ CONTACTO & ORGANIZACIÓN</h2>
+
+    <h3>Escríbenos</h3>
+    <div class="contacto">
+      <p><strong>Santo Domingo, República Dominicana</strong><br>
+      📧 <strong>contacto@republicaesperanza.org</strong><br>
+      📱 <strong>+1 (829) 000-0000</strong> (solo WhatsApp)</p>
+    </div>
+
+    <h3>Únete a Nosotros</h3>
+    <a href="https://wa.me/18290000000?text=Hola,%20soy%20de%20[ciudad/país]%20y%20quiero%20organizarme%20con%20el%20MSR." target="_blank" rel="noopener" class="btn btn-whatsapp" aria-label="Únete por WhatsApp">💬 WhatsApp</a>
+    <a href="mailto:contacto@republicaesperanza.org?subject=Quiero%20organizarme%20con%20el%20MSR&body=Soy%20de%20[ciudad]%2C%20trabajo%20en%20[actividad]%2C%20y%20quiero%20colaborar%20con%3A%20[ideas]" class="btn" aria-label="Envía un correo para unirte">✉️ Correo</a>
+
+    <blockquote>
+      “La esperanza no es un sentimiento, es una decisión política. Y la decisión se toma en la calle, en la asamblea, en la huelga, en la siembra colectiva.”
+    </blockquote>
   </main>
 
   <footer>
-    <div class="container text-center">
-      <div style="font-size: 1.25rem; font-weight: bold; margin-bottom: 0.5rem;">REPÚBLICA DE ESPERANZA</div>
-      <p>© 2024 - Movimiento por la Salvación de la República (MSR)</p>
-      <p style="color: var(--red); margin-top: 0.5rem;">¡LA VERDAD ESTÁ EN LAS SOMBRAS!</p>
-    </div>
+    <p>
+      ✊ Contenido bajo licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="noopener">CC BY-SA 4.0</a> • 
+      Código libre en <a href="https://github.com/Ortiz102158/republica-espelido" target="_blank" rel="noopener">GitHub</a>
+    </p>
+    <p>
+      Construido por y para el pueblo dominicano — en memoria de los caídos, en lucha por los que vienen.<br>
+      <strong>¡La República será del pueblo o no será!</strong>
+    </p>
   </footer>
 </body>
 </html>
