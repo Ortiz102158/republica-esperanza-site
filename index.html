@@ -23,6 +23,14 @@
       margin: 2rem auto;
       padding: 0 1.2rem;
     }
+    h1 {
+      color: var(--rojo);
+      text-align: center;
+      margin: 1.5rem 0 1rem;
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
     h2 {
       color: var(--rojo);
       border-bottom: 1px solid #eee;
@@ -73,12 +81,12 @@
     .btn:hover { background: #b71c1c; }
     .btn-whatsapp { background: #25d366; }
     .btn-whatsapp:hover { background: #128c7e; }
-
     .nav-sections {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
       margin: 1.5rem 0;
+      align-items: center;
     }
     .section-link {
       background: #f0f0f0;
@@ -99,8 +107,60 @@
       font-weight: 600;
     }
 
+    /* ✦ Acordeón Interactivo — República Esperanza ✦ */
+    .acordeon-esperanza {
+      max-width: 800px;
+      margin: 1.8rem auto;
+    }
+    .btn-acordeon {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 1rem 1.4rem;
+      background: var(--verde);
+      color: white !important;
+      text-decoration: none;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 1.15rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin: 0.8rem 0;
+      text-align: left;
+    }
+    .btn-acordeon:hover {
+      background: #1b5e20;
+    }
+    .flecha-acordeon {
+      font-size: 1.1rem;
+      transition: transform 0.3s;
+    }
+    .btn-acordeon[aria-expanded="true"] .flecha-acordeon {
+      transform: rotate(180deg);
+    }
+    .contenido-acordeon {
+      background: #fafafa;
+      padding: 0 1.4rem;
+      border-left: 4px solid var(--rojo);
+      margin: 0.6rem 0 1.4rem;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  opacity 0.4s ease,
+                  padding 0.4s ease;
+    }
+    .contenido-acordeon.mostrar {
+      max-height: 4000px;
+      opacity: 1;
+      padding: 1.4rem;
+    }
+
     @media (max-width: 600px) {
       body { padding: 1rem; }
+      h1 { font-size: 1.7rem; }
       h2 { font-size: 1.25rem; }
       .btn { display: block; margin: 0.5rem 0; }
       .nav-sections { flex-direction: column; }
@@ -110,13 +170,34 @@
 </head>
 <body>
 
+<!-- ✦ Encabezado: Logo MSR con M–S–R en puntas + Nombre de la República ✦ -->
 <div class="nav-sections">
+  <!-- Logo MSR (izquierda) -->
+  <div style="display:flex;align-items:center;gap:0.7rem;margin-right:1rem;">
+    <svg width="44" height="44" viewBox="0 0 200 200" style="margin-top: -4px;">
+      <polygon 
+        points="100,10 120,75 190,75 135,115 155,185 100,150 45,185 65,115 10,75 80,75" 
+        fill="#d32f2f" 
+        stroke="#1a1a1a" 
+        stroke-width="2" />
+      <!-- M–S–R en las 3 puntas inferiores -->
+      <text x="42" y="195" font-size="16" font-weight="bold" fill="black" text-anchor="middle" font-family="Arial, sans-serif">M</text>
+      <text x="100" y="195" font-size="16" font-weight="bold" fill="black" text-anchor="middle" font-family="Arial, sans-serif">S</text>
+      <text x="158" y="195" font-size="16" font-weight="bold" fill="black" text-anchor="middle" font-family="Arial, sans-serif">R</text>
+    </svg>
+    <strong style="color:var(--rojo); font-size:1.1rem;">MSR</strong>
+  </div>
+  
+  <!-- Nombre de la República -->
+  <h1 style="margin:0; flex:1; text-align:center;">REPÚBLICA DE LA ESPERANZA</h1>
+</div>
+
+<div class="nav-sections" style="justify-content:center; margin-top:0.5rem;">
   <a href="#sobre" class="section-link">✊ Sobre Nosotros</a>
   <a href="#principios" class="section-link">📜 Principios</a>
   <a href="#valores" class="section-link">✊ Valores</a>
-  <a href="#internacional" class="section-link">🌍 Internacional</a>
+  <a href="#acordeon" class="section-link">🌍 Temas Clave</a>
   <a href="#diaspora" class="section-link">🌎 Diáspora</a>
-  <a href="#derechos" class="section-link">⚖️ Derechos Humanos</a>
   <a href="#donaciones" class="section-link">💰 Donaciones</a>
   <a href="#actividades" class="section-link">📰 Actividades</a>
   <a href="#contacto" class="section-link">✉️ Contacto</a>
@@ -144,156 +225,123 @@
 <p>Nuestro Movimiento está comprometido con la defensa de los recursos naturales renovables y no renovables. Especialmente los bosques, los ríos, los yacimientos minerales, los cuales deben ser explotados y utilizados de manera racional.</p>
 
 <h2 id="valores">NUESTROS VALORES</h2>
-
 <h3>Solidaridad</h3>
 <p>Actuamos con empatía y compromiso con las luchas del pueblo trabajador, campesino y marginado.</p>
-
 <h3>Justicia Social</h3>
 <p>Defendemos la redistribución de la riqueza, la educación y salud públicas, y los derechos de todos los sectores oprimidos.</p>
-
 <h3>Antiimperialismo</h3>
 <p>Rechazamos toda forma de dominación extranjera y luchamos por la soberanía nacional en todos los ámbitos.</p>
 
-<h2 id="internacional">🌍 INTERNACIONAL</h2>
+<!-- ✦ Acordeón — ahora con 3 bloques, incluyendo el artículo del Ing. Matos ✦ -->
+<h2 id="acordeon">🌍 TEMAS CLAVE</h2>
+<div class="acordeon-esperanza" id="acordeon-esperanza">
+  <button class="btn-acordeon" data-target="internacional-content">
+    <span>🌍 INTERNACIONAL — Geopolítica y Neoliberalismo</span>
+    <span class="flecha-acordeon">▼</span>
+  </button>
+  <div id="internacional-content" class="contenido-acordeon">
+    <h3>Actualidad y Coyuntura — Alejandro Ortiz</h3>
+    <p>La geopolítica mundial entre 2014 y 2025 ha sido testigo de una profunda transformación en el orden internacional...</p>
+    <h4>El inicio del declive unipolar (2014–2016)</h4>
+    <p>El año 2014 marcó un punto de inflexión en la geopolítica global con la anexión de Crimea...</p>
+    <h4>El surgimiento de un mundo multipolar (2017–2020)</h4>
+    <p>La segunda mitad de la década estuvo marcada por el fortalecimiento de China...</p>
+    <h4>Crisis y realineamientos (2021–2025)</h4>
+    <p>La guerra genocida de Ucrania contra el Dombás y Dotnek. Más el incumplimiento de los acuerdos de Minsk...</p>
+    <h4>Neoliberalismo: Causas y Consecuencias</h4>
+    <p>El neoliberalismo es una corriente económica que surgió como reacción al socialismo...</p>
+    <h4>Deuda y Dependencia en el Sur Global</h4>
+    <p>La deuda externa y la dependencia económica perpetúan estructuras de desigualdad global...</p>
+    <h4>El Movimiento Obrero (1980–2025)</h4>
+    <p>En las últimas décadas, el movimiento obrero ha enfrentado desindustrialización...</p>
+  </div>
 
-<h3>Actualidad y Coyuntura — Alejandro Ortiz</h3>
-<p>La geopolítica mundial entre 2014 y 2025 ha sido testigo de una profunda transformación en el orden internacional, marcada por la transición de un sistema unipolar liderado por Estados Unidos hacia un mundo multipolar caracterizado por tensiones crecientes entre grandes potencias, la reconfiguración de alianzas y la emergencia de nuevos actores globales. Este período ha estado dominado por conflictos regionales, rivalidades estratégicas, crisis económicas y sociales, y desafíos globales como el cambio climático y la pandemia de COVID-19.</p>
+  <button class="btn-acordeon" data-target="derechos-content">
+    <span>⚖️ DECLARACIÓN UNIVERSAL DE DERECHOS HUMANOS — ONU 1948</span>
+    <span class="flecha-acordeon">▼</span>
+  </button>
+  <div id="derechos-content" class="contenido-acordeon">
+    <p>Texto íntegro, sin omisiones, tal como fue proclamado por la Asamblea General de las Naciones Unidas.</p>
+    <h3>Preámbulo</h3>
+    <p>Considerando que la libertad, la justicia y la paz en el mundo tienen por base el reconocimiento de la dignidad intrínseca y de los derechos iguales e inalienables de todos los miembros de la familia humana...</p>
+    <h3>Artículo 1</h3>
+    <p>Todos los seres humanos nacen libres e iguales en dignidad y derechos.</p>
+    <h3>Artículo 3</h3>
+    <p>Todo individuo tiene derecho a la vida, a la libertad y a la seguridad de su persona.</p>
+    <h3>Artículo 25</h3>
+    <p>Toda persona tiene derecho a un nivel de vida adecuado que le asegure la salud y el bienestar...</p>
+    <h3>Artículo 26</h3>
+    <p>Toda persona tiene derecho a la educación. La educación debe ser gratuita...</p>
+  </div>
 
-<h4>El inicio del declive unipolar (2014–2016)</h4>
-<p>El año 2014 marcó un punto de inflexión en la geopolítica global con la anexión de Crimea por parte de Rusia, como respuesta al golpe de Estado en Ucrania, patrocinado por la OTAN y EE.UU., un evento que resucitó tensiones reminiscentes de la Guerra Fría. La respuesta occidental, liderada por Estados Unidos y la Unión Europea, incluyó sanciones económicas y el fortalecimiento de la OTAN en Europa del Este, lo que profundizó la división entre Occidente y Rusia.</p>
-<p>Simultáneamente, el ascenso del Estado Islámico (ISIS) en Siria e Irak planteó un desafío que condujo a una intervención militar internacional liderada por Estados Unidos, mientras que Rusia aprovechó la oportunidad para consolidar su influencia en Siria apoyando al régimen de Bashar al-Assad. Estos eventos subrayaron la complejidad de los conflictos contemporáneos, donde intereses nacionales, ideologías y dinámicas regionales se entrelazan.</p>
-<p>En paralelo, el Brexit en 2016 representó un golpe significativo para la Unión Europea, exponiendo divisiones internas y debilitando su capacidad de proyectar poder político y económico. Mientras tanto, la elección de Donald Trump como presidente de Estados Unidos introdujo un enfoque más nacionalista y unilateral en la política exterior estadounidense, cuestionando el compromiso de Washington con alianzas tradicionales y acuerdos multilaterales como el Acuerdo de París sobre el clima.</p>
+  <!-- ✅ NUEVO: Artículo del Ing. Francisco Matos Mancebo -->
+  <button class="btn-acordeon" data-target="tabaco-content">
+    <span>🌱 TABACO Y CIGARRO SON DOMINICANOS — Ing. Francisco Matos Mancebo</span>
+    <span class="flecha-acordeon">▼</span>
+  </button>
+  <div id="tabaco-content" class="contenido-acordeon">
+    <h3>Inicio — Mundo de Tabaco</h3>
+    <p><strong>El Diputado del Tabaco</strong><br>Ing. Francisco Matos Mancebo</p>
 
-<h4>El surgimiento de un mundo multipolar (2017–2020)</h4>
-<p>La segunda mitad de la década estuvo marcada por el fortalecimiento de China como superpotencia global. Bajo el liderazgo de Xi Jinping, China lanzó iniciativas ambiciosas como la Franja y la Ruta (BRI), que busca expandir su influencia económica y política en Asia, África y Europa. Al mismo tiempo, Pekín intensificó sus reclamos territoriales en el Mar de China Meridional, generando tensiones con países vecinos y Estados Unidos.</p>
-<p>La pandemia de COVID-19, declarada en 2020, exacerbó las tensiones globales. La gestión de la crisis por parte de Pekín fue vista como un ejemplo de eficiencia autoritaria, mientras que las democracias occidentales enfrentaron críticas por su respuesta fragmentada y descoordinada. La pandemia también aceleró la digitalización de la economía y la sociedad, aumentando la dependencia de tecnologías desarrolladas por empresas chinas como Huawei, lo que generó preocupaciones sobre seguridad y espionaje.</p>
-<p>En América Latina, África y partes de Asia, la competencia entre China y Estados Unidos por la influencia económica y política se intensificó. China ofreció préstamos y ayuda humanitaria durante la pandemia, mientras que Estados Unidos intentó contrarrestar esta influencia mediante iniciativas como el “Build Back Better World” (B3W). Sin embargo, la percepción de muchos países en desarrollo fue que ambas potencias priorizaban sus propios intereses sobre el bienestar local.</p>
+    <p>Desde que el ser humano pasó de la vida nómada a la sedentaria inició un proceso de identificación, sistematización, clasificación y nominación de los elementos de su hábitat. Por tanto, podemos rastrear los primeros pasos de esa hierba santa (<em>Nicotiana Tabacum</em>) que hoy llamamos tabaco, desde que el ser humano la identificó y diferenció.</p>
 
-<h4>Crisis y realineamientos (2021–2025)</h4>
-<p>La guerra genocida de Ucrania contra el Dombás y Donetsk, más el incumplimiento de los acuerdos de Minsk por parte de Ucrania y sus garantes, provocó la Operación Militar Especial que condujo a la intervención rusa en Ucrania en febrero de 2022. Esto marcó otro hito en la geopolítica global. Esta guerra no solo devastó a Ucrania, sino que también polarizó aún más el sistema. Occidente impuso sanciones sin precedentes a Rusia, mientras que países como China, India y varias naciones del Sur Global adoptaron posiciones más equilibradas o neutrales.</p>
-<p>Durante este período, las tensiones entre China y Estados Unidos alcanzaron niveles récord. La visita de Nancy Pelosi a Taiwán en 2022 provocó una escalada militar en el Estrecho de Taiwán, mientras que las restricciones estadounidenses a la exportación de semiconductores avanzados a China intensificaron la carrera tecnológica. En respuesta, China fortaleció sus vínculos con Rusia y otros países no alineados con Occidente, formando un bloque informal conocido como el “BRICS+”.</p>
-<p>En Medio Oriente, el acuerdo entre Israel y varios países árabes mediado por Estados Unidos en 2020 (los Acuerdos de Abraham) alteró las dinámicas regionales, aunque las tensiones entre Irán y Arabia Saudita persistieron. El colapso de Afganistán tras la retirada estadounidense en 2021 dejó un vacío de poder que fue rápidamente ocupado por los talibanes, destacando los límites del intervencionismo occidental.</p>
-<p>Finalmente, la crisis climática y la transición energética emergieron como temas centrales en la agenda global. Las conferencias climáticas anuales (COP) revelaron las dificultades de lograr consensos entre países desarrollados y en desarrollo, mientras que la competencia por recursos críticos como litio, cobalto y tierras raras adquirió una dimensión estratégica.</p>
+    <p>Esta planta anual de la familia de las solanáceas, de acuerdo con investigaciones e inferencias científicas, es oriunda de América tropical y amazónica, más específicamente de Ecuador y Perú.</p>
 
-<h4>Perspectivas hacia 2025</h4>
-<p>Para 2025, el mundo se encuentra en una encrucijada. La era de la hegemonía estadounidense ha dado paso a un sistema multipolar donde China, Rusia, la Unión Europea, India y otras potencias regionales compiten por influencia. Sin embargo, esta multipolaridad no ha traído estabilidad; por el contrario, ha incrementado la incertidumbre y el riesgo de confrontaciones directas.</p>
-<p>Las democracias liberales enfrentan desafíos internos y externos, desde el auge del populismo hasta la erosión de las instituciones multilaterales. Por su parte, las potencias emergentes han demostrado una notable capacidad de adaptación, utilizando tecnología y propaganda para consolidar su poder.</p>
-<p>En este contexto, la cooperación internacional sigue siendo esencial para abordar desafíos globales como el cambio climático, la seguridad alimentaria y la proliferación nuclear. Sin embargo, la falta de confianza entre las grandes potencias dificulta la construcción de soluciones colectivas. El futuro dependerá de la habilidad de los líderes mundiales para navegar este complejo panorama y encontrar puntos de convergencia en medio de la divergencia.</p>
+    <p>Cabe destacar que su producción no representa, en modo alguno, el peligro infernal para la salud que preconizan sus enemigos tendenciosos, pues se trata de un activo inapreciable y un regalo para la humanidad. Como todos los elementos de los reinos de la naturaleza –mineral, vegetal y animal– puede usarse para bienestar o malestar. Como activo de la modernidad es generador de riqueza, soporte de multinacionales y destino preferente de leyes impositivas, pero como producto de consumo es universal e inherente a la civilización.</p>
 
-<h4>Conclusión</h4>
-<p>La geopolítica entre 2014 y 2025 ha sido testigo de cambios fundamentales que han redefinido el orden global. Desde la reunificación de Crimea hasta la guerra en Ucrania, pasando por la pandemia de COVID-19 y la rivalidad entre China y Estados Unidos, estos años han estado marcados por la volatilidad y la incertidumbre. A medida que nos acercamos a 2025, queda claro que el mundo está entrando en una nueva era de competencia estratégica y realineamientos políticos. La pregunta clave es si las naciones podrán superar sus diferencias y trabajar juntas para enfrentar los desafíos compartidos, o si el mundo seguirá fragmentándose en bloques rivales.</p>
+    <p>Juzgo imprescindible aclarar que, aunque la planta de tabaco es originaria de Sudamérica, está comprobado que para la producción adecuada y efectiva de las hojas destinadas a la elaboración de cigarros premium, los mejores suelos están en las Antillas Mayores: Puerto Rico, Jamaica y básicamente la República Dominicana y Cuba. Estas dos últimas, las islas principales donde los colonizadores descubrieron su existencia y el uso que los «indios» le daban.</p>
 
-<h3>Neoliberalismo: causas y consecuencias para la humanidad</h3>
-<p>El <strong>neoliberalismo</strong> es una corriente económica, política y social que surgió en el siglo XX como una reacción al socialismo y, en particular, contra el movimiento obrero —base de sustentación de los Estados socialistas—. La atomización de la clase obrera permitió una lucha potenciada contra los países socialistas, a la vez que impedía el surgimiento de nuevos Estados obreros, socialistas y democracias populares. La tesis central del neoliberalismo es la lucha contra el intervencionismo estatal y las políticas keynesianas, vistas como obstáculos al libre mercado y como despojos de las conquistas del movimiento obrero que predominaron tras la Segunda Guerra Mundial. Se caracteriza por la defensa del libre mercado, la privatización de los servicios públicos, la reducción del papel del Estado en la economía y la promoción de la globalización.</p>
+    <h4>BREVE HISTORIA</h4>
+    <p>A raíz del descubrimiento de América, los colonizadores españoles fueron los primeros en dar cuenta de la existencia del tabaco al viejo continente. Al llegar a las islas del Caribe, el 12 de octubre de 1492, en Guanahani –bautizada como San Salvador, hoy Bahamas–, tuvieron conocimiento de la existencia de la planta aromática, pues los nativos les presentaron “hojas secas que desprendían una fragancia peculiar”.</p>
 
-<h4>Causas del neoliberalismo</h4>
-<ol>
-  <li><strong>Crisis del Estado de Bienestar (keynesianismo)</strong><br>
-  En las décadas de 1970 y 1980, muchos países enfrentaron crisis económicas derivadas de la corrupción, la rapina imperialista y los préstamos colonizantes, lo que colapsó el modelo keynesiano —que implicaba fuerte intervencionismo estatal, política sobre la economía, altos niveles de gasto público y subsidios—. Esto generó inflación elevada, déficits fiscales y estanflación. El neoliberalismo fue presentado como alternativa.</li>
-  <li><strong>Influencia de las escuelas económicas neoliberales</strong><br>
-  Pensadores como Friedrich von Hayek, Milton Friedman y Ludwig von Mises desarrollaron teorías que criticaban el intervencionismo estatal y defendían el libre mercado como mecanismo más eficiente para asignar recursos.</li>
-  <li><strong>Globalización económica</strong><br>
-  La expansión del comercio internacional, las nuevas tecnologías y la integración financiera mundial crearon un entorno propicio para políticas neoliberales. Transnacionales y organismos como el FMI y el Banco Mundial promovieron reformas estructurales.</li>
-  <li><strong>Revolución tecnológica y financiera</strong><br>
-  La digitalización y la desregulación financiera permitieron la movilidad de capital y la acumulación en manos de unos pocos.</li>
-  <li><strong>Políticas de gobiernos clave</strong><br>
-  Margaret Thatcher (Reino Unido) y Ronald Reagan (EE.UU.) implementaron políticas neoliberales en los años 80: privatización, reducción impositiva y flexibilización laboral.</li>
-</ol>
+    <p>Su primera referencia sobre el tabaco fue un par de días después de descubrir la primera isla de San Salvador, cuando Cristóbal Colón explica cómo encontró a un indio en una pequeña canoa, y en ella llevaba “unas hojas secas que deben ser cosas muy apreciadas entre ellos, porque ya me trajeron en San Salvador de ellas”.<sup>[1]</sup></p>
 
-<h4>Consecuencias del neoliberalismo</h4>
-<h5>Aspectos positivos</h5>
-<ul>
-  <li>Crecimiento económico y eficiencia en algunos países mediante liberalización y atracción de inversión.</li>
-  <li>Integración global: conexión de economías, acceso a mercados internacionales.</li>
-  <li>Reducción de la pobreza extrema en regiones como Asia.</li>
-</ul>
+    <p>El Almirante prosiguió su travesía y el 27 de octubre arribó a la isla de Cuba, que llamaron Juana, y en esa escala encontraron nuevamente tabaco. Está documentado que los marineros Rodrigo de Jerez y Luis de Torres, enviados a explorar tierra firme el 2 de noviembre, vieron por primera vez a los nativos fumar.</p>
 
-<h5>Aspectos negativos</h5>
-<ol>
-  <li><strong>Desigualdad social</strong><br>
-  El 1% más rico posee casi dos tercios (66%) de la riqueza global generada desde 2020 (Oxfam, 2023). El 10% más rico captura más del 50% del ingreso global (Banco Mundial). En América Latina, el 10% más rico concentra más del 70% de la riqueza.</li>
-  <li><strong>Precarización laboral</strong><br>
-  Flexibilización laboral → empleos inseguros, mal remunerados, sin derechos.</li>
-  <li><strong>Erosión del Estado de Bienestar</strong><br>
-  Privatización de salud, educación, agua y energía → acceso limitado para clases populares.</li>
-  <li><strong>Impacto ambiental</strong><br>
-  Priorización del crecimiento sobre la sostenibilidad → deforestación, contaminación, cambio climático.</li>
-  <li><strong>Deuda y dependencia en países en desarrollo</strong><br>
-  Políticas impuestas por FMI/Banco Mundial → aumento de deuda, pérdida de soberanía.</li>
-  <li><strong>Crisis financieras recurrentes</strong><br>
-  Desregulación → burbujas especulativas (ej. crisis de 2008).</li>
-  <li><strong>Polarización política y social</strong><br>
-  Descontento con el modelo neoliberal → auge de movimientos reivindicativos y fracturas sociales.</li>
-</ol>
+    <p>El “Diario de Colón” relata: “Hallaron los dos cristianos por el camino mucha gente que atravesaban a sus pueblos, mujeres y hombres, con un tizón en la mano y yerbas para tomar sus sahumerios, que acostumbraban”.<sup>[2]</sup> Los enviados observaron a los nativos hacer rollos de hojas de palma y maíz “a la manera de un mosquetón de papel” con tabaco dentro, al que uno encendía de un lado y bebía el humo que echaba el otro.</p>
 
-<h4>Impacto en la humanidad</h4>
-<p>El neoliberalismo ha tenido un impacto profundo y ambivalente: por un lado, ha permitido avances tecnológicos y cierta reducción de la pobreza; por otro, ha profundizado desigualdades, precarizado el trabajo y puesto en peligro el planeta. Ha transformado la relación entre Estado, mercado y sociedad, generando tanto aceptación como resistencia.</p>
+    <p>Colón zarpó de Cuba y el 5 de diciembre arribó a Quisqueya, actual isla de Santo Domingo bautizada entonces como La Española, donde desembarcaron por fuerza el 24 de diciembre, tras encallar la carabela Santa María. Fueron bien acogidos por el cacique Guacanagarix, quien les ofreció albergue y dispuso ayuda para rescatar los restos de la embarcación y sus provisiones. Esto sucedió en la bahía de San Nicolás, donde construyeron su primer asentamiento en el Nuevo Mundo, el Fuerte de la Navidad, en alusión a la fecha citada.</p>
 
-<h4>Conclusiones</h4>
-<p>El neoliberalismo es un modelo económico cuyo legado es controvertido. Si bien ha generado crecimiento y avances tecnológicos, también ha exacerbado desigualdades y comprometido la sostenibilidad. Para el futuro, es fundamental explorar alternativas que prioricen justicia social, equidad y protección ambiental: economía solidaria, decrecimiento, bienestar común. El debate no es solo económico, sino ético y político.</p>
+    <p>Colón y sus hombres permanecieron en el cacicazgo de Marién hasta el 16 de enero de 1493, cuando emprendieron su regreso a España, dejando en el fuerte a 39 de sus compañeros. En la tripulación iba Alejandro de Jerez, quien llevó consigo hojas de tabaco secas y la costumbre de fumarlas: práctica vista en Cuba, pero aprendida en La Española, durante su convivencia amigable.</p>
 
-<h3>Deuda y dependencia en países en desarrollo: un análisis global</h3>
+    <h4>PRIMEROS INFORMES</h4>
+    <p>El tabaco no ocupó un lugar destacado entre las exportaciones de productos dominicanos a Sevilla durante el siglo XVI, a pesar de que el término “tabaco” aparece como tal desde 1529, y desde La Española se producían las primeras noticias sobre la planta, de su uso por los colonizadores europeos y sus efectos de dependencia entre quienes lo consumían.</p>
 
-<h4>Introducción</h4>
-<p>La deuda externa y la dependencia económica han sido temas centrales en el análisis del desarrollo de los países en desarrollo. Estos fenómenos afectan la capacidad de los gobiernos para implementar políticas públicas y perpetúan estructuras de desigualdad global.</p>
+    <p>El andaluz (y sevillano) Fray Bartolomé Las Casas escribió: “españoles conocí yo en esta isla Española que lo acostumbraban tomar (el tabaco), que siendo reprendidos por ello diciéndoles que aquello era vicio, respondían que no era de su mano dejarlo; no sé qué sabor o provecho hallaban en ello”.<sup>[3]</sup></p>
 
-<h4>La deuda externa en países en desarrollo</h4>
-<ul>
-  <li><strong>¿Qué es?</strong> Dinero que un país debe a acreedores extranjeros (FMI, BM, gobiernos, entidades privadas).</li>
-  <li><strong>Causas:</strong> herencia colonial, políticas neoliberales (ajustes estructurales), crisis globales (2008, pandemia), dependencia de exportaciones primarias (precios volátiles).</li>
-  <li><strong>Impactos:</strong> limitación del gasto público, aumento de la pobreza, fuga de capitales.</li>
-</ul>
+    <p>El Tabaco fue, sin duda, el cultivo más difundido de América desde antes de la llegada de los españoles. Hay evidencias de que era sembrado formalmente y domesticado en todo el continente, y aunque su origen se establece en la región amazónica –como se dijo antes–, pasó a los grupos del Orinoco en el sur de la actual Venezuela, y los Arahuacos lo trajeron a las islas del caribe.</p>
 
-<h4>Dependencia económica y estructural</h4>
-<p>La dependencia se refiere a la incapacidad de alcanzar desarrollo autosuficiente debido a la integración subordinada en la economía global (teoría de la dependencia: Prebisch, Frank). Manifestaciones:</p>
-<ul>
-  <li>Relaciones comerciales asimétricas: exportan materias primas baratas, importan manufacturas caras.</li>
-  <li>Inversión extranjera directa concentrada en sectores extractivos.</li>
-  <li>Transferencia tecnológica limitada.</li>
-</ul>
-<p><strong>Ciclo de dependencia:</strong> exportación de materias primas → baja industrialización → dependencia de importaciones → acumulación de deuda → subdesarrollo.</p>
+    <p>Una vez aquí, los Tainos –asentados básicamente en la isla de Santo Domingo– fueron el primer grupo que lo domesticó y convirtió en cultivo regular.</p>
 
-<h4>Dimensión global</h4>
-<ul>
-  <li><strong>FMI y Banco Mundial:</strong> críticas por imponer condiciones que priorizan el pago de deuda sobre el bienestar social.</li>
-  <li><strong>Deuda odiosa:</strong> contraída por regímenes dictatoriales/corruptos sin beneficio popular (ej: Sudáfrica apartheid, Argentina dictadura 1976–1983).</li>
-  <li><strong>Movimientos por la cancelación:</strong> Campaña Jubileo de la Deuda, Iniciativa HIPC, condonación en África.</li>
-</ul>
+    <p>Los europeos se extrañaron mucho porque nunca habían visto a alguien echando humo por boca y nariz, pero no fue el único uso que encontraron entre los aborígenes. Además de aspirar el humo de las hojas secas en combustión, los indígenas también masticaban tabaco, lo aspiraban por la nariz, lo comían en una especie de ensalada, se bebía, lo untaban sobre el cuerpo para combatir enfermedades de la piel, y se usaba en gotas para los ojos y en enemas.</p>
 
-<h4>Propuestas y soluciones</h4>
-<ul>
-  <li>Reforma del sistema financiero internacional.</li>
-  <li>Promoción de soberanía económica: diversificación productiva, inversión en educación y tecnología.</li>
-  <li>Cooperación Sur-Sur.</li>
-  <li>Educación y concienciación popular.</li>
-</ul>
+    <p>Tenía también usos rituales, como soplarlo sobre los guerreros antes de la lucha y esparcirlo en los campos antes de la siembra; era ofrenda para los dioses, se derramaba sobre las mujeres previo a una relación sexual; se untaba en el cuerpo de las embarazadas, y tanto hombres como mujeres lo consumían como narcótico.</p>
 
-<h4>Conclusión</h4>
-<p>La deuda y la dependencia son problemas estructurales que requieren soluciones integrales. Solo mediante justicia económica y solidaridad global será posible construir un mundo más equitativo y sostenible.</p>
+    <h4>EL VIEJO CONTINENTE</h4>
+    <p>Tras regresar a España y continuar su práctica de fumar tabaco, la historia registra que Rodrigo de Jerez fue denunciado por vecinos y familiares, quienes asombrados al verlo echar chorros de humo todo el día provocaron su arresto por la Santa Inquisición, que lo encarceló durante siete años, ya que “solamente el Diablo podía hacer que un hombre vote humo por boca y nariz”.</p>
 
-<h3>El movimiento obrero en los últimos 30–40 años: transformaciones, desafíos y resistencias</h3>
+    <p>En el viejo continente, el hábito de fumar y el uso del tabaco se fue generalizando gracias a los marinos, quienes lo masticaban y aspiraban su polvo. Pero se extendió de tal manera que algunos reyes adoptaron medidas radicales para impedir que la gente lo adoptara.</p>
 
-<h4>Contexto global: erosión del poder obrero tradicional</h4>
-<p>Las políticas neoliberales desde los años 80 debilitaron a los sindicatos industriales en Occidente (desindustrialización, traslado de fábricas). En América Latina, ajustes estructurales y crisis erosionaron el poder obrero. No obstante, hubo resistencias: Corea del Sur avanzó en derechos; Europa defendió conquistas frente a la precariedad.</p>
+    <p>Prusia, por ejemplo, castigaba al fumador con una paliza, pero si insistía se le cortaba la nariz y finalmente, ante una situación de desobediencia, le degollaban. En Turquía se aplicaba la pena de muerte, y en la Inglaterra del siglo XVI no sólo se prohibió fumar, sino que entre los posibles castigos estaba también la pena capital.</p>
 
-<h4>Nuevas formas de trabajo y precarización</h4>
-<p>La economía de plataformas (Uber, Deliveroo) generó empleos informales, sin seguridad social. Nuevas formas de organización surgieron: sindicatos alternativos, redes digitales, huelgas coordinadas transnacionalmente.</p>
+    <p>No obstante, bastaron unos pocos años para que los Estados pasaran de las restricciones a fomentar la siembra y estimular el consumo con todos los medios a su alcance –propaganda incluida–, por lo que en toda Europa, Asia (incluyendo el Medio Oriente), África, etcétera, se introdujo el cultivo, sumándose a América entera países como Brasil, entonces colonia portuguesa.</p>
 
-<h4>Luchas laborales en el Sur Global</h4>
-<ul>
-  <li><strong>China:</strong> clase obrera migrante protagoniza huelgas por salarios y condiciones.</li>
-  <li><strong>India:</strong> sindicatos masivos en transporte, construcción, agricultura.</li>
-  <li><strong>América Latina:</strong> resurgimiento en Chile (2019), Brasil (educación, salud).</li>
-</ul>
+    <p>El tabaco fue, es y será un viajero preferente en el carrusel del tiempo, que se ha ocupado de ubicarlo en lugares más respetables. Por tanto, durante su trayectoria histórica los gobiernos advirtieron que podía generar grandes riquezas y se reservaron su comercialización o lo grabaron con impuestos especiales.</p>
 
-<h4>El papel de la mujer y la interseccionalidad</h4>
-<p>Mayor participación femenina, especialmente en sectores de cuidado y educación. Convergencia con luchas antirracistas, por derechos de inmigrantes y justicia climática.</p>
+    <h4>EL TABACO ES DOMINICANO</h4>
+    <p>Lo expuesto anteriormente nos ofrece la certidumbre de que los españoles aprendieron la práctica de enrollar hojas de tabaco y fumarlas en la isla de Santo Domingo, y desde aquí se llevaron a Europa incluso sus semillas (lo que se atribuye a Fray Ramón Pané, entre 1510 y 1512).</p>
 
-<h4>Desafíos futuros y perspectivas</h4>
-<p>Automatización e IA amenazan empleos; plataformas evaden responsabilidades laborales. Pero hay señales de esperanza: sindicalización en Starbucks y Amazon (EE.UU.), valorización de trabajadores esenciales post-pandemia.</p>
+    <p>Resultado de distintas investigaciones, podemos afirmar que en Santo Domingo se estableció la primera plantación en 1533, y entre 1529 y 1531 se exportaron hojas a Sevilla, España. Por tales razones nos sentimos con todo derecho a decir que respecto del tabaco, como se le conoce hoy en día, todo empezó aquí, y por cuanto a su cultivo formal, procesamiento, comercialización y uso, es de origen dominicano.</p>
 
-<h4>Conclusión</h4>
-<p>El movimiento obrero ha sufrido retrocesos, pero también ha demostrado capacidad de adaptación y resistencia. No es una reliquia del pasado: es una fuerza viva que evoluciona. Su futuro depende de su capacidad para construir agendas inclusivas y alianzas con otros movimientos sociales. En un mundo de desigualdades crecientes, sigue siendo vital para la justicia y la dignidad.</p>
+    <h4>Referencias</h4>
+    <ol>
+      <li><a href="https://hoy.com.do/el-tabaco-y-los-tainos/" target="_blank">El tabaco y los taínos</a> — HOY</li>
+      <li>INTABACO. <a href="https://www.intabaco.gob.do/transparencia/index.php/publicaciones-oficiales" target="_blank">El tabaco negro en República Dominicana: cultivo, procesamiento y manufactura</a>, 2013</li>
+      <li>GUTIÉRREZ ESCUDERO, Antonio. <a href="https://digital.csic.es/bitstream/10261/61449/1/El%20tabaco%20de%20Santo%20Domingo.pdf" target="_blank">El Tabaco de Santo Domingo y su exportación a Cádiz y Sevilla (Siglos XVI–XVIII)</a></li>
+    </ol>
+  </div>
+</div>
+<!-- ✦ Fin del Acordeón ✦ -->
 
 <h2 id="diaspora">🌎 DIÁSPORA</h2>
 <p>La diáspora dominicana constituye una de las fuerzas más dinámicas y solidarias de la nación. Se estima que más de <strong>2.5 millones de dominicanos y dominicanas</strong> viven en el exterior, principalmente en <strong>Estados Unidos, España, Puerto Rico, Italia y Canadá</strong>.</p>
@@ -306,128 +354,6 @@
 </ul>
 <p>El MSR reconoce a la diáspora como parte inseparable del pueblo dominicano y aboga por políticas públicas que protejan sus derechos y potencien su rol como agente de desarrollo soberano y popular.</p>
 
-<h2 id="derechos">⚖️ DECLARACIÓN UNIVERSAL DE DERECHOS HUMANOS — ONU, 10 de diciembre de 1948</h2>
-<p>Texto íntegro, sin omisiones, tal como fue proclamado por la Asamblea General de las Naciones Unidas.</p>
-
-<h3>Preámbulo</h3>
-<p>Considerando que la libertad, la justicia y la paz en el mundo tienen por base el reconocimiento de la dignidad intrínseca y de los derechos iguales e inalienables de todos los miembros de la familia humana;</p>
-<p>Considerando que el desconocimiento y el menosprecio de los derechos humanos han originado actos de barbarie ultrajantes para la conciencia de la humanidad, y que se ha proclamado, como la aspiración más elevada del hombre, el advenimiento de un mundo en que los seres humanos, liberados del temor y de la miseria, disfruten de la libertad de palabra y de la libertad de creencias;</p>
-<p>Considerando esencial que los derechos humanos sean protegidos por un régimen de Derecho, a fin de que el hombre no se vea compelido al supremo recurso de la rebelión contra la tiranía y la opresión;</p>
-<p>Considerando también esencial promover el desarrollo de relaciones amistosas entre las naciones;</p>
-<p>Considerando que los pueblos de las Naciones Unidas han reafirmado en la Carta su fe en los derechos fundamentales del hombre, en la dignidad y el valor de la persona humana y en la igualdad de derechos de hombres y mujeres, y se han declarado resueltos a promover el progreso social y a elevar el nivel de vida dentro de un concepto más amplio de la libertad;</p>
-<p>Considerando que los Estados Miembros se han comprometido a asegurar, en cooperación con la Organización de las Naciones Unidas, el respeto universal y efectivo a los derechos y libertades fundamentales del hombre;</p>
-<p>Considerando que una concepción común de estos derechos y libertades es de la mayor importancia para el pleno cumplimiento de dicho compromiso;</p>
-
-<h3>Artículo 1</h3>
-<p>Todos los seres humanos nacen libres e iguales en dignidad y derechos y, dotados como están de razón y conciencia, deben comportarse fraternalmente los unos con los otros.</p>
-
-<h3>Artículo 2</h3>
-<p>Toda persona tiene todos los derechos y libertades proclamados en esta Declaración, sin distinción alguna de raza, color, sexo, idioma, religión, opinión política o de cualquier otra índole, origen nacional o social, posición económica, nacimiento o cualquier otra condición.</p>
-<p>Además, no se hará distinción alguna fundada en la condición política, jurídica o internacional del país o territorio de cuya jurisdicción dependa una persona, tanto si se trata de un país independiente, como de un territorio bajo administración fiduciaria, no autónomo o sometido a cualquier otra limitación de soberanía.</p>
-
-<h3>Artículo 3</h3>
-<p>Todo individuo tiene derecho a la vida, a la libertad y a la seguridad de su persona.</p>
-
-<h3>Artículo 4</h3>
-<p>Nadie estará sometido a esclavitud ni a servidumbre; la esclavitud y la trata de esclavos están prohibidas en todas sus formas.</p>
-
-<h3>Artículo 5</h3>
-<p>Nadie será sometido a torturas ni a penas o tratos crueles, inhumanos o degradantes.</p>
-
-<h3>Artículo 6</h3>
-<p>Todo ser humano tiene derecho, en todas partes, al reconocimiento de su personalidad jurídica.</p>
-
-<h3>Artículo 7</h3>
-<p>Todos son iguales ante la ley y tienen, sin distinción, derecho a igual protección de la ley. Todos tienen derecho a igual protección contra toda discriminación que infrinja esta Declaración y contra toda provocación a tal discriminación.</p>
-
-<h3>Artículo 8</h3>
-<p>Toda persona tiene derecho a un recurso efectivo ante los tribunales nacionales competentes, que la ampare contra actos que violen sus derechos fundamentales reconocidos por la constitución o por la ley.</p>
-
-<h3>Artículo 9</h3>
-<p>Nadie podrá ser arbitrariamente detenido, preso ni desterrado.</p>
-
-<h3>Artículo 10</h3>
-<p>Toda persona tiene derecho, en condiciones de plena igualdad, a ser oída públicamente y con justicia por un tribunal independiente e imparcial, para la determinación de sus derechos y obligaciones o para el examen de cualquier acusación contra ella en materia penal.</p>
-
-<h3>Artículo 11</h3>
-<p>1. Toda persona acusada de delito tiene derecho a que se presuma su inocencia mientras no se pruebe su culpabilidad, conforme a la ley y en juicio público en el que se le hayan asegurado todas las garantías necesarias para su defensa.</p>
-<p>2. Nadie será condenado por actos u omisiones que en el momento de cometerse no fueron delictivos según el Derecho nacional o internacional. Tampoco se impondrá pena más grave que la aplicable en el momento de la comisión del delito.</p>
-
-<h3>Artículo 12</h3>
-<p>Nadie será objeto de injerencias arbitrarias en su vida privada, su familia, su domicilio o su correspondencia, ni de ataques a su honra o a su reputación. Toda persona tiene derecho a la protección de la ley contra tales injerencias o ataques.</p>
-
-<h3>Artículo 13</h3>
-<p>1. Toda persona tiene derecho a circular libremente y a elegir su residencia en el territorio de un Estado.</p>
-<p>2. Toda persona tiene derecho a salir de cualquier país, inclusive del propio, y a regresar a su país.</p>
-
-<h3>Artículo 14</h3>
-<p>1. En caso de persecución, toda persona tiene derecho a buscar asilo, y a disfrutar de él, en cualquier país.</p>
-<p>2. Este derecho no podrá ser invocado contra una acción judicial realmente originada por delitos comunes o por actos contrarios a los propósitos y principios de las Naciones Unidas.</p>
-
-<h3>Artículo 15</h3>
-<p>1. Toda persona tiene derecho a una nacionalidad.</p>
-<p>2. A nadie se privará arbitrariamente de su nacionalidad ni del derecho a cambiar de nacionalidad.</p>
-
-<h3>Artículo 16</h3>
-<p>1. Los hombres y las mujeres, a partir de la edad núbil, tienen derecho, sin restricción alguna por motivos de raza, nacionalidad o religión, a casarse y fundar una familia; y disfrutarán de iguales derechos en cuanto al matrimonio, durante el matrimonio y en caso de disolución del matrimonio.</p>
-<p>2. Solo mediante libre y pleno consentimiento de los futuros cónyuges podrá contraerse el matrimonio.</p>
-<p>3. La familia es el elemento natural y fundamental de la sociedad y tiene derecho a la protección de la sociedad y del Estado.</p>
-
-<h3>Artículo 17</h3>
-<p>1. Toda persona tiene derecho a la propiedad, individual y colectivamente.</p>
-<p>2. Nadie será privado arbitrariamente de su propiedad.</p>
-
-<h3>Artículo 18</h3>
-<p>Toda persona tiene derecho a la libertad de pensamiento, de conciencia y de religión; este derecho incluye la libertad de cambiar de religión o de creencia, así como la libertad de manifestar su religión o su creencia, individual y colectivamente, tanto en público como en privado, por la enseñanza, la práctica, el culto y la observancia.</p>
-
-<h3>Artículo 19</h3>
-<p>Todo individuo tiene derecho a la libertad de opinión y de expresión; este derecho incluye el de no ser molestado a causa de sus opiniones, el de investigar y recibir informaciones y opiniones, y el de difundirlas, sin limitación de fronteras, por cualquier medio de expresión.</p>
-
-<h3>Artículo 20</h3>
-<p>1. Toda persona tiene derecho a la libertad de reunión y de asociación pacíficas.</p>
-<p>2. Nadie podrá ser obligado a pertenecer a una asociación.</p>
-
-<h3>Artículo 21</h3>
-<p>1. Toda persona tiene derecho a participar en el gobierno de su país, directamente o por medio de representantes libremente escogidos.</p>
-<p>2. Toda persona tiene el derecho de acceso, en condiciones de igualdad, a las funciones públicas de su país.</p>
-<p>3. La voluntad del pueblo es la base de la autoridad del poder público; esta voluntad se expresará mediante elecciones auténticas que habrán de celebrarse periódicamente, por sufragio universal e igual y por voto secreto u otro procedimiento equivalente que garantice la libertad del voto.</p>
-
-<h3>Artículo 22</h3>
-<p>Toda persona, como miembro de la sociedad, tiene derecho a la seguridad social, y a obtener, mediante el esfuerzo nacional y la cooperación internacional, habida cuenta de la organización y los recursos de cada Estado, la satisfacción de los derechos económicos, sociales y culturales, indispensables a su dignidad y al libre desarrollo de su personalidad.</p>
-
-<h3>Artículo 23</h3>
-<p>1. Toda persona tiene derecho al trabajo, a la libre elección de su trabajo, a condiciones equitativas y satisfactorias de trabajo y a la protección contra el desempleo.</p>
-<p>2. Toda persona tiene derecho, sin discriminación alguna, a igual salario por trabajo igual.</p>
-<p>3. Toda persona que trabaja tiene derecho a una remuneración equitativa y satisfactoria, que le asegure, así como a su familia, una existencia conforme a la dignidad humana y que será completada, en caso necesario, por cualesquiera otros medios de protección social.</p>
-<p>4. Toda persona tiene derecho a fundar sindicatos y a sindicalizarse para la defensa de sus intereses.</p>
-
-<h3>Artículo 24</h3>
-<p>Toda persona tiene derecho al descanso, al disfrute del tiempo libre, a una limitación razonable de la duración del trabajo y a vacaciones periódicas pagadas.</p>
-
-<h3>Artículo 25</h3>
-<p>1. Toda persona tiene derecho a un nivel de vida adecuado que le asegure, así como a su familia, la salud y el bienestar, y en especial la alimentación, el vestido, la vivienda, la asistencia médica y los servicios sociales necesarios; tiene asimismo derecho a los seguros en caso de desempleo, enfermedad, invalidez, viudez, vejez u otros casos de pérdida de sus medios de subsistencia por circunstancias independientes de su voluntad.</p>
-<p>2. La maternidad y la infancia tienen derecho a cuidados y asistencia especiales. Todos los niños, nacidos de matrimonio o fuera de matrimonio, tienen derecho a igual protección social.</p>
-
-<h3>Artículo 26</h3>
-<p>1. Toda persona tiene derecho a la educación. La educación debe ser gratuita, al menos en lo concerniente a la instrucción elemental y fundamental. La instrucción elemental será obligatoria. La instrucción técnica y profesional habrá de ser generalizada; el acceso a los estudios superiores será igual para todos, en función de los méritos respectivos.</p>
-<p>2. La educación tendrá por objeto el pleno desarrollo de la personalidad humana y el fortalecimiento del respeto a los derechos humanos y a las libertades fundamentales; favorecerá la comprensión, la tolerancia y la amistad entre todas las naciones y todos los grupos étnicos o religiosos; y promoverá el desarrollo de las actividades de las Naciones Unidas para el mantenimiento de la paz.</p>
-<p>3. Los padres tendrán derecho preferente a escoger el tipo de educación que habrá de darse a sus hijos.</p>
-
-<h3>Artículo 27</h3>
-<p>1. Toda persona tiene derecho a tomar parte libremente en la vida cultural de la comunidad, a gozar de las artes y a participar en el progreso científico y en los beneficios que de él resulten.</p>
-<p>2. Toda persona tiene derecho a la protección de los intereses morales y materiales que le correspondan por razón de las producciones científicas, literarias o artísticas de que sea autora.</p>
-
-<h3>Artículo 28</h3>
-<p>Toda persona tiene derecho a que se establezca un orden social y internacional en que los derechos y libertades proclamados en esta Declaración se hagan plenamente efectivos.</p>
-
-<h3>Artículo 29</h3>
-<p>1. Toda persona tiene deberes respecto a la comunidad, puesto que solo en ella puede desarrollar libre y plenamente su personalidad.</p>
-<p>2. En el ejercicio de sus derechos y libertades, toda persona estará solamente sujeta a las limitaciones establecidas por la ley con el único fin de asegurar el reconocimiento y el respeto de los derechos y libertades de los demás, y de satisfacer las justas exigencias de la moral, del orden público y del bienestar general en una sociedad democrática.</p>
-<p>3. Estos derechos y libertades no podrán, en ningún caso, ser ejercidos en oposición a los propósitos y principios de las Naciones Unidas.</p>
-
-<h3>Artículo 30</h3>
-<p>Nada en esta Declaración podrá interpretarse en el sentido de que confiere derecho alguno al Estado, a un grupo o a una persona, para emprender y desarrollar actividades o realizar actos tendientes a la supresión de cualquiera de los derechos y libertades proclamados en esta Declaración.</p>
-
 <h2 id="donaciones">💰 DONACIONES</h2>
 <h3>APOYA AL MSR</h3>
 <p>El Movimiento por la Salvación de la República (MSR) depende del apoyo solidario de personas comprometidas con la justicia social y la soberanía popular.</p>
@@ -435,8 +361,7 @@
 <p><em>¡Cualquier aporte, por pequeño que sea, hace una gran diferencia!</em></p>
 
 <h2 id="actividades">📰 ACTIVIDADES RECIENTES</h2>
-
-<h3>El tabaco no es un vicio individual, es una estrategia de la industria</h3>
+<h3>🌱 El tabaco no es un vicio individual, es una estrategia de la industria</h3>
 <p>La industria tabacalera sigue lucrando con la salud de millones, especialmente en barrios populares y países del Sur Global. A través de publicidad engañosa, sabores atractivos para adolescentes y presión política, las grandes corporaciones como Philip Morris y British American Tobacco evaden regulaciones y expanden su mercado entre los más vulnerables.</p>
 <p>En América Latina, el 80% de las muertes por cáncer de pulmón están vinculadas al tabaco, y los gastos en salud pública superan con creces los impuestos recaudados. El Movimiento Social Revolucionario (MSR) exige:</p>
 <ul>
@@ -444,10 +369,10 @@
   <li>Impuestos progresivos que desincentiven el consumo y financien campañas de cesación.</li>
   <li>Apoyo a pequeños agricultores para transitar hacia cultivos alternativos sostenibles.</li>
 </ul>
-<blockquote>“Defender la vida es luchar contra las corporaciones que la mercantilizan. ¡El humo del cigarro no es libertad: es opresión disfrazada de elección!”</blockquote>
+<p>Defender la vida es luchar contra las corporaciones que la mercantilizan. ¡El humo del cigarro no es libertad: es opresión disfrazada de elección!</p>
 <p><em>Publicado: 5 de abril de 2025 | MSR - Comisión de Salud y Soberanía Popular</em></p>
 
-<h3>¡Alto al genocidio en Palestina! Exigimos justicia y soberanía</h3>
+<h3>✊ ¡Alto al genocidio en Palestina! Exigimos justicia y soberanía</h3>
 <p>Mientras el mundo mira en silencio, el pueblo palestino enfrenta uno de los asedios más brutales de la historia reciente. Bombardeos indiscriminados, desplazamientos forzados, bloqueo de ayuda humanitaria y destrucción de infraestructura son crímenes de lesa humanidad que no pueden seguir normalizándose.</p>
 <p>El Movimiento Social Revolucionario (MSR) se suma a la voz global que exige:</p>
 <ul>
@@ -456,10 +381,10 @@
   <li>Reconocimiento del Estado palestino con fronteras de 1967 y capital en Jerusalén Este.</li>
   <li>Boicot, desinversión y sanciones (BDS) contra empresas cómplices del apartheid.</li>
 </ul>
-<blockquote>“La libertad de Palestina es inseparable de la lucha antiimperialista mundial. ¡No somos neutrales: estamos con el pueblo palestino!”</blockquote>
+<p>La libertad de Palestina es inseparable de la lucha antiimperialista mundial. ¡No somos neutrales: estamos con el pueblo palestino!</p>
 <p><em>Publicado: 4 de abril de 2025 | MSR - Comisión Internacional de Solidaridad</em></p>
 
-<h3>Venezuela: Defender la soberanía popular frente al cerco imperial</h3>
+<h3>✊ Venezuela: Defender la soberanía popular frente al cerco imperial</h3>
 <p>Nuevamente, potencias extranjeras intentan imponer su agenda mediante sanciones económicas, campañas mediáticas y presión diplomática contra la Revolución Bolivariana. Estas medidas no solo violan el derecho internacional, sino que afectan directamente al pueblo venezolano, limitando el acceso a medicinas, alimentos y recursos básicos.</p>
 <p>El MSR rechaza toda forma de injerencia y respalda el derecho inalienable del pueblo venezolano a:</p>
 <ul>
@@ -467,39 +392,66 @@
   <li>Desarrollar su modelo económico y social en paz.</li>
   <li>Contar con el apoyo solidario de los pueblos del mundo frente al bloqueo.</li>
 </ul>
-<blockquote>“La verdadera democracia no se impone con decretos imperiales, sino que florece desde la organización popular. ¡Manos fuera de Venezuela!”</blockquote>
+<p>La verdadera democracia no se impone con decretos imperiales, sino que florece desde la organización popular. ¡Manos fuera de Venezuela!</p>
 <p><em>Publicado: 3 de abril de 2025 | MSR - Frente Antiimperialista Latinoamericano</em></p>
 
 <h2 id="contacto">✉️ CONTACTO</h2>
-<h3>Escríbenos</h3>
 <div class="contacto">
+  <h3>Escríbenos</h3>
   <p>Santo Domingo, República Dominicana<br>
-  <strong>✉️ contacto@republicaesperanza.org</strong></p>
+  ✉️ contacto@republicaesperanza.org</p>
+  <p><em>“La esperanza no es un sentimiento, es una decisión política.”</em></p>
 </div>
-
-<h3>Únete a Nosotros</h3>
-<a href="https://wa.me/18290000000?text=Hola,%20quiero%20unirme%20al%20MSR" target="_blank" class="btn btn-whatsapp">💬 WhatsApp</a>
-<a href="mailto:contacto@republicaesperanza.org" class="btn">✉️ Enviar Correo</a>
-
-<blockquote>
-  “La esperanza no es un sentimiento, es una decisión política.”
-</blockquote>
 
 <footer style="text-align:center; margin-top:3rem; padding-top:1.5rem; border-top:1px solid #eee; color:#666; font-size:0.9rem;">
   <p>Contenido bajo licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" style="color:var(--verde);">CC BY-SA 4.0</a> • Código en <a href="https://github.com/Ortiz102158/republica-esperanza-site" style="color:var(--rojo);">GitHub</a></p>
 </footer>
 
 <script>
+  // ✦ Acordeón Interactivo ✦
+  document.getElementById('acordeon-esperanza')?.addEventListener('click', function(e) {
+    const btn = e.target.closest('.btn-acordeon');
+    if (!btn) return;
+    const id = btn.getAttribute('data-target');
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    this.querySelectorAll('.contenido-acordeon').forEach(el => {
+      if (el !== target) {
+        el.classList.remove('mostrar');
+        el.style.maxHeight = '0';
+        const b = this.querySelector(`[data-target="${el.id}"]`);
+        if (b) b.querySelector('.flecha-acordeon').textContent = '▼';
+      }
+    });
+
+    const open = target.classList.toggle('mostrar');
+    btn.querySelector('.flecha-acordeon').textContent = open ? '▲' : '▼';
+    if (open) {
+      target.style.maxHeight = target.scrollHeight + 'px';
+    } else {
+      target.style.maxHeight = '0';
+    }
+  });
+
+  // ✦ Navegación por anclas ✦
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
       const targetId = this.getAttribute('href');
       if (targetId === '#') return;
-
+      
       document.querySelectorAll('.section-link').forEach(link => {
         link.classList.remove('active');
       });
       this.classList.add('active');
+
+      if (targetId === '#acordeon') {
+        const firstBtn = document.querySelector('.btn-acordeon');
+        if (firstBtn && !firstBtn.closest('.contenido-acordeon')?.classList.contains('mostrar')) {
+          firstBtn.click();
+        }
+      }
 
       const target = document.querySelector(targetId);
       if (target) {
