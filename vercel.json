@@ -1,14 +1,1 @@
-{
-  "builds": [
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "index.html"
-    }
-  ]
-}
+{"rewrites":[{"source":"/en","destination":"/en/index.html"},{"source":"/ht","destination":"/ht/index.html"},{"source":"/es","destination":"/es/index.html"}],"redirects":[{"source":"/","destination":"/es","permanent":true}]}
