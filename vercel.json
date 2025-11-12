@@ -1,1 +1,6 @@
-{"rewrites":[{"source":"/en","destination":"/en/index.html"},{"source":"/ht","destination":"/ht/index.html"},{"source":"/es","destination":"/es/index.html"}],"redirects":[{"source":"/","destination":"/es","permanent":true}]}
+{
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "headers": [
+    { "source": "/(.*)", "headers": [{ "key": "Content-Type", "value": "text/html; charset=utf-8" }] }
+  ]
+}{"rewrites":[{"source":"/en","destination":"/en/index.html"},{"source":"/ht","destination":"/ht/index.html"},{"source":"/es","destination":"/es/index.html"}],"redirects":[{"source":"/","destination":"/es","permanent":true}]}
