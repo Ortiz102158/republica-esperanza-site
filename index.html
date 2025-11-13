@@ -1,38 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>República de la Esperanza — MSR</title>
-  <meta name="description" content="Movimiento por la Salvación de la República — Por la justicia, la soberanía y la esperanza del pueblo.">
+  <meta name="description" content="Movimiento por la Salvación de la República: justicia social, soberanía, memoria histórica y democracia popular.">
   <meta property="og:title" content="República de la Esperanza — MSR">
-  <meta property="og:description" content="Construyendo una República democrática, popular y antiimperialista desde el Caribe.">
+  <meta property="og:description" content="Construyendo una República democrática, popular y revolucionaria.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://republica-esperanza-site.vercel.app/">
-  <meta property="og:site_name" content="MSR">
-  <meta name="robots" content="index, follow">
-
-  <!-- ✅ Plausible Analytics — ético, sin cookies -->
-  <script defer data-domain="republica-esperanza-site.vercel.app" src="https://plausible.io/js/script.js"></script>
-
   <style>
-    body { font-family: Georgia, serif; line-height: 1.6; max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
-    h1, h2, h3 { color: #000; }
-    h1 { text-align: center; margin-bottom: 1.5rem; }
-    h2 { margin-top: 2rem; border-bottom: 1px solid #ccc; padding-bottom: 0.3rem; }
-    nav.lang { text-align: center; margin-bottom: 1.5rem; font-size: 0.95rem; }
-    nav.lang a { margin: 0 0.6rem; text-decoration: none; color: #1a5fb4; }
-    nav.lang a:hover { text-decoration: underline; }
-    ul { padding-left: 1.5rem; }
-    footer { margin-top: 3rem; text-align: center; font-size: 0.9rem; color: #666; }
+    :root {
+      --rojo: #d32f2f;
+      --verde: #2e7d32;
+      --negro: #1a1a1a;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--negro);
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1.2rem;
+    }
+    h1 {
+      color: var(--rojo);
+      text-align: center;
+      margin: 1.2rem 0 1rem;
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    h2 {
+      color: var(--rojo);
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.35rem;
+      margin: 2.2rem 0 1rem;
+      font-size: 1.4rem;
+    }
+    h3 {
+      color: var(--verde);
+      margin: 1.4rem 0 0.8rem;
+      font-size: 1.15rem;
+    }
+    h4 {
+      color: var(--negro);
+      margin: 1.2rem 0 0.7rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    strong {
+      color: var(--verde);
+      font-weight: 600;
+    }
+    blockquote {
+      font-style: italic;
+      border-left: 4px solid var(--rojo);
+      padding: 1rem 1.3rem;
+      margin: 2rem 0;
+      background: #fff9f9;
+      color: var(--negro);
+    }
+    .contacto {
+      background: #f8f9fa;
+      padding: 1.2rem;
+      border-radius: 6px;
+      margin-top: 1.5rem;
+    }
     .btn {
       display: inline-block;
-      background: #1a5fb4;
+      background: var(--rojo);
       color: white !important;
-      padding: 0.5rem 1rem;
-      margin: 0.3rem 0;
       text-decoration: none;
+      padding: 0.65rem 1.3rem;
       border-radius: 4px;
+      margin: 0.5rem 0.5rem 0 0;
+      font-weight: 500;
+      transition: background 0.2s;
     }
-    .btn:hover { background: #0f4c99; }
+    .btn:hover { background: #b71c1c; }
+    .btn-whatsapp { background: #25d366; }
+    .btn-whatsapp:hover { background: #128c7e; }
+    .nav-sections {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+      align-items: center;
+    }
+    .section-link {
+      background: #f0f0f0;
+      color: var(--rojo) !important;
+      text-decoration: none;
+      padding: 0.5rem 0.9rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+    .section-link:hover {
+      background: var(--rojo);
+      color: white !important;
+    }
+    .section-link.active {
+      background: var(--verde);
+      color: white !important;
+      font-weight: 600;
+    }
+    .accordion {
+      margin: 1.2rem 0;
+      border: 1px solid #eee;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .accordion-btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 1rem 1.2rem;
+      background: #f8f9fa;
+      color: var(--rojo);
+      font-weight: 600;
+      font-size: 1.05rem;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .accordion-btn:hover {
+      background: #f0f0f0;
+    }
+    .accordion-btn:focus {
+      outline: 2px solid var(--rojo);
+      outline-offset: 2px;
+    }
+    .accordion-btn[aria-expanded="true"] {
+      background: var(--rojo);
+      color: white;
+    }
+    .accordion-btn .arrow {
+      font-size: 1.1rem;
+      transition: transform 0.3s;
+    }
+    .accordion-btn[aria-expanded="true"] .arrow {
+      transform: rotate(180deg);
+    }
+    .accordion-content {
+      padding: 0 1.2rem;
+      background: white;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s;
+    }
+    .accordion-content[hidden] {
+      max-height: 0;
+      padding: 0 1.2rem;
+    }
+    @media (max-width: 600px) {
+      body { padding: 1rem; }
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.25rem; }
+      .btn { display: block; margin: 0.5rem 0; }
+      .nav-sections { flex-direction: column; }
+      .section-link { text-align: center; }
+    }
   </style>
 </head>
 <body>
@@ -303,8 +433,7 @@
 <div class="contacto">
   <p>Santo Domingo, República Dominicana<br>
   <strong>✉️ contacto@republicaesperanza.org</strong></p>
-<a href="mailto:republica.esperanza@proton.me" class="btn">✉️ Contacto Institucional</a>
-<strong>✉️ republica.esperanza@proton.me</strong></div>
+</div>
 <h3>Únete a Nosotros</h3>
 <a href="https://wa.me/18290000000?text=Hola,%20quiero%20unirme%20al%20MSR" target="_blank" class="btn btn-whatsapp">💬 WhatsApp</a>
 <a href="mailto:contacto@republicaesperanza.org" class="btn">✉️ Enviar Correo</a>
@@ -313,16 +442,6 @@
   “La esperanza no es un sentimiento, es una decisión política.”
 </blockquote>
 
-  <p style="text-align:center; margin:2rem 0 1.5rem; font-size:0.95rem; color:#555;">
-  <p style="text-align:center; margin:2.5rem 0 1.5rem; font-size:0.95rem; color:#555;">
-    🌍 ¿Deseas leer en otro idioma?<br>
-    <a href="en.html">English</a> · 
-    <a href="ht.html">Kreyòl</a>
-  </p>    🌍 ¿Deseas leer en otro idioma?<br>
-    <a href="en.html">English</a> ·
-    <a href="ht.html">Kreyòl</a>
-  </p>  <p style="text-align:center; margin:2rem 0 1.5rem; font-size:0.95rem; color:#555;">
-    
 <footer style="text-align:center; margin-top:3rem; padding-top:1.5rem; border-top:1px solid #eee; color:#666; font-size:0.9rem;">
   <p>Contenido bajo licencia <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">CC BY-SA 4.0</a> • Código en <a href="https://github.com/Ortiz102158/republica-esperanza-site">GitHub</a></p>
 </footer>
