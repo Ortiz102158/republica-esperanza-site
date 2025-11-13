@@ -1,0 +1,23 @@
+<h2 id="teologia">✝️ THEOLOGY OF LIBERATION</h2>
+<p>La Teología de Liberación es un acto de fe comprometida con los pobres, nacida en América Latina como respuesta cristiana a la opresión estructural, la pobreza masiva y el imperialismo.</p>
+
+<div class="accordion">
+  <button class="accordion-btn" aria-expanded="false">
+    Camilo Torres Restrepo: sacerdote y revolucionario <span class="arrow">▼</span>
+  </button>
+  <div class="accordion-content" hidden>
+    <p><strong>Camilo Torres</strong> (1929–1966), sacerdote y sociólogo colombiano, militó en el ELN y afirmó: <em>“Si Jesús estuviera vivo, sería guerrillero.”</em> Para él, el amor eficaz al prójimo es la justicia social.</p>
+  </div>
+</div>
+
+<div class="accordion">
+  <button class="accordion-btn" aria-expanded="false">
+    En República Dominicana <span class="arrow">▼</span>
+  </button>
+  <div class="accordion-content" hidden>
+    <p>Sacerdotes como el <strong>P. José Antonio Cruz</strong> y comunidades rurales vinculadas a la Pastoral Social han defendido derechos campesinos y acompañado a dominico-haitianos. El MSR reconoce esta herencia ética: <strong>fe sin justicia es idolatría</strong>.</p>
+  </div>
+</div>
+<h3>Solidaridad</h3><p>Actuamos con empatía y compromiso con las luchas del pueblo trabajador...</p>
+<h3>Justicia Social</h3><p>Defendemos la redistribución de la riqueza...</p>
+<h3>Antiimperialismo</h3><p>Rechazamos toda forma de dominación extranjera...</p>
