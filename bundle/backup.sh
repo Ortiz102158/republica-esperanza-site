@@ -1,7 +1,5 @@
 #!/bin/bash
-# backup.sh — respaldo seguro con SHA256 + GPG (como tú usas)
 set -euo pipefail
-
 GPG_KEY="${GPG_KEY:-pablo102158@gmail.com}"
 TIMESTAMP=$(date -u +%Y%m%dT%H%M%SZ)
 BACKUP_DIR="backup_$TIMESTAMP"
