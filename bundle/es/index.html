@@ -30,23 +30,51 @@
 
   <main>
     <h2>¿Por qué donar?</h2>
-    <ul><li>Capacitar en energías renovables fuera de red</li></ul>
-    <h2>Donación</h2>
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+    <p>Tu apoyo nos permite:</p>
+    <ul>
+      <li>Capacitar en energías renovables fuera de red</li>
+      <li>Desarrollar herramientas de soberanía digital</li>
+      <li>Crear documentación accesible en español y criollo haitiano</li>
+      <li>Mantener servidores libres y descentralizados</li>
+    </ul>
+
+    <h2>Donación única o recurrente</h2>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="YOUR_HOSTED_BUTTON_ID">
       <input type="hidden" name="business" value="pablo102158@gmail.com">
-      <input type="image" src="https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donateCC_LG.gif" alt="Donar">
+      <input type="hidden" name="lc" value="ES">
+      <input type="hidden" name="item_name" value="Apoyo a República de Esperanza">
+      <input type="hidden" name="no_note" value="0">
+      <input type="hidden" name="currency_code" value="USD">
+      <input type="image" src="https://www.paypalobjects.com/es_ES/ES/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="Donar con PayPal">
+      <img alt="" border="0" src="https://www.paypalobjects.com/es_ES/i/scr/pixel.gif" width="1" height="1">
     </form>
   </main>
 
+  <footer>
+    <p>© 2025 República de Esperanza — Proyecto sin fines de lucro</p>
+    <p><a href="https://github.com/Ortiz102158">Código abierto</a></p>
+  </footer>
+
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const s = document.getElementById("langSwitcher");
-      if (!s) return;
-      s.querySelectorAll("a").forEach(a => {
-        if (location.pathname.startsWith("/" + a.href.split("/")[3] + "/")) a.classList.add("active");
-        a.addEventListener("click", e => {
+    document.addEventListener('DOMContentLoaded', () => {
+      const switcher = document.getElementById('langSwitcher');
+      if (!switcher) return;
+      const links = switcher.querySelectorAll('a');
+      const currentPath = location.pathname;
+      const hash = location.hash || '';
+
+      links.forEach(link => {
+        const lang = link.getAttribute('href').split('/')[1];
+        if (currentPath.startsWith('/' + lang + '/')) {
+          link.classList.add('active');
+        }
+        link.addEventListener('click', e => {
           e.preventDefault();
-          location.href = a.href + location.hash;
+          const url = new URL(link.href + hash, location.origin);
+          history.pushState(null, '', url);
+          location.href = url;
         });
       });
     });
