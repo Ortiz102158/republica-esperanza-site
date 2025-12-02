@@ -2,82 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>República de Esperanza — Donations</title>
-  <style>
-    :root { --primary: #0066cc; --text: #333; --bg: #fff; --lang-switch-bg: #f5f5f5; }
-    body { font-family: system-ui, sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); margin: 2rem 1rem; max-width: 800px; margin-inline: auto; }
-    header { text-align: center; margin-bottom: 2rem; }
-    h1 { font-size: 2.2rem; color: var(--primary); }
-    .lang-switcher { text-align: center; padding: 0.75rem; background: var(--lang-switch-bg); border-radius: 6px; margin: 1.5rem 0; }
-    .lang-switcher a { margin: 0 0.5rem; text-decoration: none; color: #006; font-weight: bold; }
-    .lang-switcher a.active { text-decoration: underline; color: var(--primary); }
-    form { text-align: center; margin: 1.5rem 0; }
-    footer { margin-top: 3rem; text-align: center; font-size: 0.9rem; color: #666; }
-  </style>
+  <style> :root{--primary:#0066cc;--text:#333;--bg:#fff;--lang-switch-bg:#f5f5f5} body{font-family:system-ui,sans-serif;line-height:1.6;color:var(--text);background:var(--bg);margin:2rem 1rem;max-width:800px;margin-inline:auto} header{text-align:center;margin-bottom:2rem} h1{font-size:2.2rem;color:var(--primary)} .lang-switcher{text-align:center;padding:.75rem;background:var(--lang-switch-bg);border-radius:6px;margin:1.5rem 0} .lang-switcher a{margin:0 .5rem;text-decoration:none;color:#006;font-weight:bold} .lang-switcher a.active{text-decoration:underline;color:var(--primary)} form{text-align:center;margin:1.5rem 0} footer{margin-top:3rem;text-align:center;font-size:.9rem;color:#666} </style>
 </head>
 <body>
-  <header>
-    <h1>🌟 República de Esperanza</h1>
-    <p>Building digital sovereignty for Latin American communities</p>
-  </header>
-
+  <header><h1>🌟 República de Esperanza</h1><p>Building digital sovereignty</p></header>
   <div class="lang-switcher" id="langSwitcher">
     <a href="/es/" lang="es">ES</a>
     <a href="/en/" class="active" lang="en">EN</a>
     <a href="/ht/" lang="ht">HT</a>
   </div>
-
-  <main>
-    <h2>Why donate?</h2>
-    <p>Your support enables us to:</p>
-    <ul>
-      <li>Train communities in off-grid renewable energy</li>
-      <li>Develop tools for digital sovereignty</li>
-      <li>Produce accessible documentation in Spanish and Haitian Creole</li>
-      <li>Maintain free and decentralized infrastructure</li>
-    </ul>
-
-    <h2>One-time or recurring donation</h2>
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-      <input type="hidden" name="cmd" value="_s-xclick">
-      <input type="hidden" name="hosted_button_id" value="YOUR_HOSTED_BUTTON_ID">
-      <input type="hidden" name="business" value="pablo102158@gmail.com">
-      <input type="hidden" name="lc" value="US">
-      <input type="hidden" name="item_name" value="Support República de Esperanza">
-      <input type="hidden" name="no_note" value="0">
-      <input type="hidden" name="currency_code" value="USD">
-      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="Donate via PayPal">
-      <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-    </form>
-  </main>
-
-  <footer>
-    <p>© 2025 República de Esperanza — Non-profit initiative</p>
-    <p><a href="https://github.com/Ortiz102158">Open source</a></p>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const switcher = document.getElementById('langSwitcher');
-      if (!switcher) return;
-      const links = switcher.querySelectorAll('a');
-      const currentPath = location.pathname;
-      const hash = location.hash || '';
-
-      links.forEach(link => {
-        const lang = link.getAttribute('href').split('/')[1];
-        if (currentPath.startsWith('/' + lang + '/')) {
-          link.classList.add('active');
-        }
-        link.addEventListener('click', e => {
-          e.preventDefault();
-          const url = new URL(link.href + hash, location.origin);
-          history.pushState(null, '', url);
-          location.href = url;
-        });
-      });
-    });
-  </script>
+  <main><h2>Why donate?</h2><ul><li>Train communities in off-grid energy</li></ul><h2>Donate</h2><form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="business" value="pablo102158@gmail.com"><input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" alt="Donate"></form></main>
+  <script>document.addEventListener("DOMContentLoaded",()=>{const s=document.getElementById("langSwitcher");if(!s)return;s.querySelectorAll("a").forEach(a=>{if(location.pathname.startsWith("/"+a.href.split("/")[3]+"/"))a.classList.add("active");a.addEventListener("click",e=>{e.preventDefault();location.href=a.href+location.hash})})});</script>
 </body>
 </html>
