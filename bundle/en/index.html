@@ -1,675 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Pablo Ortiz">
-  <meta name="email" content="republica-esperanza@proton.me">
-  <meta name="description" content="República de Esperanza — MSR: por una República Democrática, Popular y Revolucionaria." />
-  <title>República de Esperanza — MSR</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>República de Esperanza — Donations</title>
   <style>
-    :root {
-      --verde: #006400;
-      --rojo: #d32f2f;
-      --negro: #000;
-      --gris-claro: #f9f9f9;
-      --gris-oscuro: #333;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: var(--gris-oscuro);
-      background-color: #fff;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--rojo);
-      color: white;
-      padding: 0.8rem 1rem;
-      margin-bottom: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-    .logo-container {
-      display: flex;
-      align-items: center;
-      min-width: 180px;
-    }
-    .logo-container svg {
-      height: 50px;
-      margin-right: 12px;
-    }
-    .site-title {
-      font-size: 1.2rem;
-      font-weight: bold;
-      text-align: center;
-      flex: 1;
-      margin: 0 15px;
-    }
-    .slogan {
-      font-size: 0.9rem;
-      max-width: 300px;
-      display: none;
-    }
-    .section-nav {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #eee;
-      margin-bottom: 1.5rem;
-    }
-    .section-btn {
-      background: var(--rojo);
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 0.9rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      white-space: nowrap;
-    }
-    .section-btn:hover {
-      background: #b71c1c;
-      transform: translateY(-1px);
-    }
-    .section-btn:focus {
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.5);
-    }
-
-    /* ✅ Acordeones personalizados */
-    .accordion {
-      background-color: #eee;
-      color: var(--gris-oscuro);
-      cursor: pointer;
-      padding: 14px;
-      width: 100%;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 1.1rem;
-      font-weight: bold;
-      transition: 0.3s;
-      margin: 1.2rem 0;
-      border-radius: 4px;
-    }
-    .accordion:hover {
-      background-color: #ddd;
-    }
-    .accordion.open {
-      background-color: var(--rojo);
-      color: white;
-    }
-    .panel {
-      padding: 1rem 1.5rem;
-      display: none;
-      overflow: hidden;
-      background-color: #fafafa;
-      border-left: 4px solid var(--rojo);
-      border-radius: 0 4px 4px 0;
-      margin-bottom: 1rem;
-    }
-    .panel.show {
-      display: block;
-    }
-
-    /* ✅ Botón de donación */
-    .donation-btn {
-      display: inline-block;
-      background: var(--rojo);
-      color: white !important;
-      padding: 0.8rem 1.5rem;
-      border-radius: 4px;
-      font-weight: bold;
-      text-decoration: none;
-      margin: 1rem 0;
-      transition: background 0.3s;
-      border: none;
-      cursor: pointer;
-    }
-    .donation-btn:hover {
-      background: #b71c1c;
-      transform: translateY(-2px);
-    }
-
-    main {
-      margin-bottom: 3rem;
-    }
-    h1, h2, h3 {
-      margin-bottom: 0.75rem;
-      color: var(--rojo);
-    }
-    h1 {
-      font-size: 1.8rem;
-    }
-    h2 {
-      font-size: 1.5rem;
-      border-bottom: 2px solid var(--verde);
-      padding-bottom: 0.3rem;
-      margin-top: 1.5rem;
-    }
-    h3 {
-      font-size: 1.3rem;
-      margin-top: 1rem;
-    }
-    p, li {
-      margin-bottom: 1rem;
-    }
-    ul {
-      padding-left: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    a {
-      color: var(--rojo);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    section {
-      margin-bottom: 2rem;
-    }
-    details {
-      background: #fafafa;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      margin: 1.2rem 0;
-      overflow: hidden;
-    }
-    summary {
-      font-weight: bold;
-      padding: 0.8rem 1.2rem;
-      cursor: pointer;
-      background: #f0f0f0;
-      user-select: none;
-    }
-    summary:hover {
-      background: #e8e8e8;
-    }
-    summary::after {
-      content: "▶";
-      float: right;
-      transition: transform 0.3s;
-    }
-    details[open] summary::after {
-      transform: rotate(90deg);
-    }
-    details[open] summary {
-      background: #e3f2fd;
-    }
-    details > *:not(summary) {
-      padding: 1rem 1.2rem;
-    }
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      color: #666;
-      border-top: 1px solid #eee;
-      margin-top: 2rem;
-    }
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .site-title {
-        margin: 0.5rem 0;
-        font-size: 1.1rem;
-      }
-      .slogan {
-        display: block;
-        margin-top: 0.5rem;
-        font-size: 0.8rem;
-      }
-      .section-nav {
-        justify-content: center;
-      }
-      .section-btn {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.8rem;
-      }
-    }
+    :root { --primary: #0066cc; --text: #333; --bg: #fff; --lang-switch-bg: #f5f5f5; }
+    body { font-family: system-ui, sans-serif; line-height: 1.6; color: var(--text); background: var(--bg); margin: 2rem 1rem; max-width: 800px; margin-inline: auto; }
+    header { text-align: center; margin-bottom: 2rem; }
+    h1 { font-size: 2.2rem; color: var(--primary); }
+    .lang-switcher { text-align: center; padding: 0.75rem; background: var(--lang-switch-bg); border-radius: 6px; margin: 1.5rem 0; }
+    .lang-switcher a { margin: 0 0.5rem; text-decoration: none; color: #006; font-weight: bold; }
+    .lang-switcher a.active { text-decoration: underline; color: var(--primary); }
+    form { text-align: center; margin: 1.5rem 0; }
+    footer { margin-top: 3rem; text-align: center; font-size: 0.9rem; color: #666; }
   </style>
 </head>
 <body>
-<header>
-  <div class="logo-container">
-    <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg" width="100%" height="50">
-      <rect width="300" height="50" y="0" fill="#006400"/>
-      <rect width="300" height="50" y="50" fill="#d32f2f"/>
-      <rect width="300" height="50" y="100" fill="#000"/>
-      <polygon fill="white" points="150,65 158,93 186,93 163,110 171,138 150,121 129,138 137,110 114,93 142,93"/>
-      <polygon fill="#d32f2f" points="150,70 156,89 175,89 160,105 166,124 150,108 134,124 140,105 125,89 144,89"/>
-      <text x="150" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="white">MSR</text>
-    </svg>
+  <header>
+    <h1>🌟 República de Esperanza</h1>
+    <p>Building digital sovereignty for Latin American communities</p>
+  </header>
+
+  <div class="lang-switcher" id="langSwitcher">
+    <a href="/es/" lang="es">ES</a>
+    <a href="/en/" class="active" lang="en">EN</a>
+    <a href="/ht/" lang="ht">HT</a>
   </div>
-  <div class="site-title">
-    República de Esperanza — MSR
-  </div>
-  <div class="slogan">
-    JOIN THE STRUGGLE FOR A DEMOCRATIC, POPULAR, AND REVOLUTIONARY REPUBLIC!
-  </div>
-</header>
-<div class="section-nav">
-  <button class="section-btn" data-target="sobre-nosotros">Sobre Nosotros</button>
-  <button class="section-btn" data-target="principios">Principios</button>
-  <button class="section-btn" data-target="valores">Valores</button>
-  <button class="section-btn" data-target="internacional">Internacional</button>
-  <button class="section-btn" data-target="diaspora">Diáspora</button>
-  <button class="section-btn" data-target="derechos-humanos">Derechos Humanos</button>
-  <button class="section-btn" data-target="actividades">Actividades</button>
-  <button class="section-btn" data-target="teologia">Teología</button>
-  <button class="section-btn" data-target="donaciones">Donaciones</button>
-</div>
-<main>
-<section id="sobre-nosotros">
-  <h2>✊ SOBRE NOSOTROS ✊</h2>
-  <p>El Movimiento por la Salvación de la República (MSR) nace como respuesta a la crisis moral, política y económica que asfixia a nuestro pueblo.</p>
-  <p>Inspirados en el pensamiento de Hostos, los restauradores y las luchas populares del siglo XX, nos proponemos construir una República que garantice la justicia, la soberanía y la dignidad humana.</p>
-  <h3>Consejo Directivo del MSR</h3>
-  <ul>
-    <li><strong>Alejandro Ortiz</strong> — Coordinador General y Portavoz Nacional</li>
-    <li><strong>Dolores Ricart</strong> — Secretaria de Organización y Movilización Popular</li>
-    <li><strong>Nelson Díaz</strong> — Responsable de Relaciones Internacionales y Solidaridad Antiimperialista</li>
-  </ul>
-</section>
-<section id="principios">
-  <h2>DECLARACIÓN DE PRINCIPIOS</h2>
-  <p><em>Del Movimiento Por la Salvación de la República (MSR)</em></p>
-  <p>En este momento en donde todo parece necesitar nuevas definiciones, donde las aspiraciones y las esperanzas parecen inalcanzables para los pobres (obreros (as), campesinos (as), mujeres, dominico-haitianos (as), chiriperos (as), jóvenes, niños y niñas). Hombres y Mujeres que hemos soñados por más de dos décadas con una República Democrática, Popular, Revolucionaria, humana, Nos resistimos a dejar de soñar y luchar contra la desigualdad, el individualismo, la opresión del capitalismo salvaje, local e imperial.</p>
-  <p>Por tal razón nos constituimos en una expresión política, democrática, revolucionaria, anti-imperialista, solidaria e internacionalista, con el nombre de Movimiento Por la Salvación de la República (MSR), que enarbole y rescate los aportes de las generaciones de luchadores (as) que nos precedieron y los que nos acompañaron en la lucha por alcanzar una República Democrática, Popular, Revolucionaria.</p>
-  <p>MSR se propone lanzar una campaña permanente por una Republica que revierta el concepto nacionalista del chovinismo estrecho a una noción de Soberanía Popular, que extienda el concepto de Republica más allá de las fronteras territoriales hasta cubrir a los que se consideran parte del pueblo dominicano aún hallan nacido o vivan en el exterior.</p>
-  <p>Creemos y abogamos por los valores fundamentales de La libertad solidaria y de La justicia. Lo hacemos conforme a nuestra concepción del hombre y de la mujer en la sociedad actual porque creemos que son seres libres. Pero esa libertad tiene una forma responsable de expresarse y un límite moral en función de la concepción ética que tenga La sociedad.</p>
-  <p>La libertad no debe ser obstaculizada por las condiciones bajas que vive el ser humano. Por ello consideramos una tarea de nuestro Partido. Hacer oposición a la Opresión, a la Miseria, a la Dependencia, Luchar contra todas las limitaciones que impidan el libre desarrollo del pueblo dominicana y que se garanticen las condiciones materiales de la libertad.</p>
-  <p>Creemos que es necesario. Como fuerza política popular y de masas tener conciencia de los graves problemas que afectan al mundo. Creemos en el trascendental compromiso de convertirnos en el Movimiento promotor de un nuevo orden social, que sea un proyecto histórico a la satisfacción de todos. Nuestras aspiraciones por la justicia nos llevan al diseño de una política operativa. Basada en los valores fundamentales de los fundadores, restauradores, Raza Inmortal, Minerva, Manolo, Amaury, Caamaño y otros/as héroes y mártires de nuestra república.</p>
-  <p>Creemos que la educación y la salud deben ser derechos que correspondan en igualdad de condiciones a todos. El régimen político que aspiramos a construir. Necesitará de ciudadanos capacitados y preparados técnica, científica y culturalmente...</p>
-  <p>Creemos que es importante que el sector público se haga cargo de la mayoría de los servicios colectivos y juegue un papel significativo en los sectores estratégicos de la industria. Las materias primas. La energía y el crédito.</p>
-  <p>La política fiscal debe estar al servicio de tales objetivos al desarrollo económico, social para garantizar una justa distribución de las riqueza a todos/as los ciudadanos/as.</p>
-  <p>Creemos en el principio universal de la Autodeterminación de los pueblos, de decidir las políticas necesarias para alcanzar su desarrollo.</p>
-  <p>Nuestro Movimiento está comprometido con la defensa de los recursos naturales renovables y no renovables. Especialmente los bosques, los ríos, los yacimientos minerales, los cuales deben ser explotados y utilizados de manera racional.</p>
-</section>
-<section id="valores">
-  <h2>NUESTROS VALORES</h2>
-  <ul>
-    <li><strong>Solidaridad</strong><br>Actuamos con empatía y compromiso con las luchas del pueblo trabajador, campesino y marginado.</li>
-    <li><strong>Justicia Social</strong><br>Defendemos la redistribución de la riqueza, la educación y salud públicas, y los derechos de todos los sectores oprimidos.</li>
-    <li><strong>Antiimperialismo</strong><br>Rechazamos toda forma de dominación extranjera y luchamos por la soberanía nacional en todos los ámbitos.</li>
-  </ul>
-</section>
 
-<!-- ✅ Acordeón: Actualidad y Coyuntura — abierto por defecto -->
-<button class="accordion open" id="btn-internacional">🗞️ Actualidad y Coyuntura — Alejandro Ortiz</button>
-<div class="panel show" id="panel-internacional">
-  <p>La geopolítica mundial entre 2014 y 2025 ha sido testigo de una profunda transformación en el orden internacional, marcada por la transición de un sistema unipolar liderado por Estados Unidos hacia un mundo multipolar caracterizado por tensiones crecientes entre grandes potencias, la reconfiguración de alianzas y la emergencia de nuevos actores globales. Este período ha estado dominado por conflictos regionales, rivalidades estratégicas, crisis económicas y sociales, y desafíos globales como el cambio climático y la pandemia de COVID-19. A continuación, se analizan los principales eventos y tendencias que han definido esta década crítica.</p>
-  <h4>El inicio del declive unipolar (2014-2016)</h4>
-  <p>El año 2014 marcó un punto de inflexión en la geopolítica global con la anexión de Crimea por parte de Rusia, como respuesta al golpe de Estado en Ucrania, patrocinado por la OTAN y EE.UU., un evento que resucitó tensiones reminiscentes de la Guerra Fría. La respuesta occidental, liderada por Estados Unidos y la Unión Europea, incluyó sanciones económicas y el fortalecimiento de la OTAN en Europa del Este, lo que profundizó la división entre Occidente y Rusia.</p>
-  <p>Simultáneamente, el ascenso del Estado Islámico (ISIS) en Siria e Irak planteó un desafío que condujo a una intervención militar internacional liderada por Estados Unidos, mientras que Rusia aprovechó la oportunidad para consolidar su influencia en Siria apoyando al régimen de Bashar al-Assad. Estos eventos subrayaron la complejidad de los conflictos contemporáneos, donde intereses nacionales, ideologías y dinámicas regionales se entrelazan.</p>
-  <p>En paralelo, el Brexit en 2016 representó un golpe significativo para la Unión Europea, exponiendo divisiones internas y debilitando su capacidad de proyectar poder político y económico. Mientras tanto, la elección de Donald Trump como presidente de Estados Unidos introdujo un enfoque más nacionalista y unilateral en la política exterior estadounidense, cuestionando el compromiso de Washington con alianzas tradicionales y acuerdos multilaterales como el Acuerdo de París sobre el clima.</p>
-  <h4>El surgimiento de un mundo multipolar (2017-2020)</h4>
-  <p>La segunda mitad de la década estuvo marcada por el fortalecimiento de China como una superpotencia global. Bajo el liderazgo de Xi Jinping, China lanzó iniciativas ambiciosas como la Franja y la Ruta (BRI), que busca expandir su influencia económica y política en Asia, África y Europa. Al mismo tiempo, Pekín intensificó sus reclamos territoriales en el Mar de China Meridional, generando tensiones con países vecinos y Estados Unidos.</p>
-  <p>La pandemia de COVID-19, declarada en 2020, exacerbó las tensiones globales. La gestión de la crisis por parte de Pekín fue vista como un ejemplo de eficiencia autoritaria, mientras que las democracias occidentales enfrentaron críticas por su respuesta fragmentada y descoordinada. La pandemia también aceleró la digitalización de la economía y la sociedad, aumentando la dependencia de tecnologías desarrolladas por empresas chinas como Huawei, lo que generó preocupaciones sobre seguridad y espionaje.</p>
-  <p>En América Latina, África y partes de Asia, la competencia entre China y Estados Unidos por la influencia económica y política se intensificó. China ofreció préstamos y ayuda humanitaria durante la pandemia, mientras que Estados Unidos intentó contrarrestar esta influencia mediante iniciativas como el "Build Back Better World" (B3W). Sin embargo, la percepción de muchos países en desarrollo fue que ambas potencias priorizaban sus propios intereses sobre el bienestar local.</p>
-  <h4>Crisis y realineamientos (2021-2025)</h4>
-  <p>La guerra genocida de Ucrania contra el Dombás y Donetsk, más el incumplimiento de los acuerdos de Minsk por parte de Ucrania y sus garantes, provocó la Operación Militar Especial que condujo a la intervención rusa en Ucrania en febrero de 2022. Esto marcó otro hito en la geopolítica global. Esta guerra no solo devastó a Ucrania, sino que también polarizó aún más el sistema. Occidente impuso sanciones sin precedentes a Rusia, mientras que países como China, India y varias naciones del Sur Global adoptaron posiciones más equilibradas o neutrales.</p>
-  <p>Durante este período, las tensiones entre China y Estados Unidos alcanzaron niveles récord. La visita de Nancy Pelosi a Taiwán en 2022 provocó una escalada militar en el Estrecho de Taiwán, mientras que las restricciones estadounidenses a la exportación de semiconductores avanzados a China intensificaron la carrera tecnológica. En respuesta, China fortaleció sus vínculos con Rusia y otros países no alineados con Occidente, formando un bloque informal conocido como el "BRICS+".</p>
-  <p>En Medio Oriente, el acuerdo entre Israel y varios países árabes mediado por Estados Unidos en 2020 (los Acuerdos de Abraham) alteró las dinámicas regionales, aunque las tensiones entre Irán y Arabia Saudita persistieron. El colapso de Afganistán tras la retirada estadounidense en 2021 dejó un vacío de poder que fue rápidamente ocupado por los talibanes, destacando los límites del intervencionismo occidental.</p>
-  <p>Finalmente, la crisis climática y la transición energética emergieron como temas centrales en la agenda global. Las conferencias climáticas anuales (COP) revelaron las dificultades de lograr consensos entre países desarrollados y en desarrollo, mientras que la competencia por recursos críticos como litio, cobalto y tierras raras adquirió una dimensión estratégica.</p>
-  <h4>Perspectivas hacia 2025</h4>
-  <p>Para 2025, el mundo se encuentra en una encrucijada. La era de la hegemonía estadounidense ha dado paso a un sistema multipolar donde China, Rusia, la Unión Europea, India y otras potencias regionales compiten por influencia. Sin embargo, esta multipolaridad no ha traído estabilidad; por el contrario, ha incrementado la incertidumbre y el riesgo de confrontaciones directas.</p>
-  <p>Las democracias liberales enfrentan desafíos internos y externos, desde el auge del populismo hasta la erosión de las instituciones multilaterales. Por su parte, las potencias emergentes han demostrado una notable capacidad de adaptación, utilizando tecnología y propaganda para consolidar su poder.</p>
-  <p>En este contexto, la cooperación internacional sigue siendo esencial para abordar desafíos globales como el cambio climático, la seguridad alimentaria y la proliferación nuclear. Sin embargo, la falta de confianza entre las grandes potencias dificulta la construcción de soluciones colectivas. El futuro dependerá de la habilidad de los líderes mundiales para navegar este complejo panorama y encontrar puntos de convergencia en medio de la divergencia.</p>
-  <h4>Conclusión</h4>
-  <p>La geopolítica entre 2014 y 2025 ha sido testigo de cambios fundamentales que han redefinido el orden global. Desde la reunificación de Crimea hasta la guerra en Ucrania, pasando por la pandemia de COVID-19 y la rivalidad entre China y Estados Unidos, estos años han estado marcados por la volatilidad y la incertidumbre. A medida que nos acercamos a 2025, queda claro que el mundo está entrando en una nueva era de competencia estratégica y realineamientos políticos. La pregunta clave es si las naciones podrán superar sus diferencias y trabajar juntas para enfrentar los desafíos compartidos, o si el mundo seguirá fragmentándose en bloques rivales.</p>
-  <h3>Neoliberalismo: Causas y Consecuencias para la Humanidad</h3>
-  <p>El neoliberalismo es una corriente económica, política y social que surgió en el siglo XX como una reacción al socialismo y en particular contra el movimiento obrero por ser la base de sustentación del mismo, la atomización de la clase obrera permitió una lucha potencializada contra los países socialistas a vez que impedía el surgimiento de nuevos Estados obrero, socialistas y democracias populares, la tesis de lucha contra intervencionismo estatal y a las políticas keynesianas como despojos de las conquistas de movimiento que predominaron tras la Segunda Guerra Mundial. Se caracteriza por la defensa del libre mercado, la privatización de los servicios públicos, la reducción del papel del Estado en la economía y la promoción de la globalización.</p>
-  <h4>Causas del Neoliberalismo</h4>
-  <p><strong>1. Crisis del Estado de Bienestar (Keynesianismo)</strong>: En las décadas de 1970 y 1980, muchos países enfrentaron crisis económicas derivadas de la corrupción, rapina imperialista y los préstamos colonizantes. Hizo colapsar el modelo keynesiano, que implicaba un fuerte intervencionismo estatal, la política sobre la economía, altos niveles de gasto público y subsidios. Esto generó inflación elevada, déficits fiscales y estancamiento económico (estanflación). El neoliberalismo fue presentado como una alternativa para resolver estos problemas.</p>
-  <p><strong>2. Influencia de las Escuelas Económicas Neoliberales</strong>: Pensadores como Friedrich von Hayek, Milton Friedman y Ludwig von Mises desarrollaron teorías que criticaban el intervencionismo estatal y defendían el libre mercado como el mecanismo más eficiente para asignar recursos. Sus ideas ganaron popularidad en círculos académicos y políticos.</p>
-  <p><strong>3. Globalización Económica</strong>: La expansión del comercio internacional, las nuevas tecnologías y la integración financiera mundial crearon un entorno propicio para la adopción de políticas neoliberales. Las empresas transnacionales y los organismos internacionales (como el FMI y el Banco Mundial) promovieron reformas estructurales basadas en principios neoliberales.</p>
-  <p><strong>4. Revolución Tecnológica y Financiera</strong>: La digitalización y la desregulación financiera permitieron la creación de mercados globales de capital, lo que facilitó la movilidad de inversiones y la acumulación de riqueza en manos de unos pocos. Esto reforzó la idea de que el mercado debía ser el principal regulador de la economía.</p>
-  <p><strong>5. Políticas de Gobiernos Clave</strong>: Líderes como Margaret Thatcher en el Reino Unido y Ronald Reagan en Estados Unidos implementaron políticas neoliberales en los años 80, consolidando este modelo como el paradigma dominante en Occidente. Estas políticas incluyeron la privatización de empresas públicas, la reducción de impuestos y la flexibilización laboral.</p>
-  <h4>Consecuencias del Neoliberalismo</h4>
-  <p><strong>Aspectos Positivos</strong></p>
-  <p><strong>1. Crecimiento Económico y Eficiencia</strong>: El neoliberalismo ha impulsado el crecimiento económico en algunos países mediante la liberalización de mercados y la atracción de inversiones extranjeras. La competencia empresarial ha fomentado la innovación y la mejora de productos y servicios.</p>
-  <p><strong>2. Integración Global</strong>: La globalización neoliberal ha conectado economías y culturas, facilitando el intercambio de bienes, servicios e ideas. Ha permitido que países en desarrollo accedan a mercados internacionales y diversifiquen sus economías.</p>
-  <p><strong>3. Reducción de la Pobreza Extrema</strong>: En algunas regiones, como Asia, el neoliberalismo ha contribuido a reducir la pobreza extrema gracias a la industrialización y la apertura comercial.</p>
-  <p><strong>Aspectos Negativos</strong></p>
-  <p><strong>1. Desigualdad Social</strong>: Una de las críticas más frecuentes al neoliberalismo es que ha exacerbado las desigualdades económicas y sociales. Mientras que una minoría acumula grandes fortunas, millones de personas viven en condiciones precarias. Según datos del Banco Mundial y Oxfam, la riqueza global está concentrada en manos de un pequeño porcentaje de la población. El 1% más rico de la población mundial posee casi dos tercios (66%) de la riqueza global generada desde 2020.</p>
-  <p><strong>2. Precarización Laboral</strong>: La flexibilización laboral y la desregulación han llevado a la proliferación de empleos inseguros, mal remunerados y sin derechos laborales básicos. Los trabajadores enfrentan mayor inestabilidad y menor poder de negociación frente a las empresas.</p>
-  <p><strong>3. Erosión del Estado de Bienestar</strong>: La privatización de servicios públicos (salud, educación, agua, energía) ha limitado el acceso de las clases populares a estos derechos fundamentales. La reducción del gasto público ha debilitado programas sociales esenciales, afectando especialmente a los sectores más vulnerables.</p>
-  <p><strong>4. Impacto Ambiental</strong>: El neoliberalismo prioriza el crecimiento económico sobre la sostenibilidad ambiental. Esto ha acelerado la explotación de recursos naturales, la deforestación y la contaminación. El cambio climático y la pérdida de biodiversidad son consecuencias directas de este modelo insostenible.</p>
-  <p><strong>5. Deuda y Dependencia en Países en Desarrollo</strong>: Muchos países en desarrollo han adoptado políticas neoliberales bajo presión de organismos internacionales como el FMI y el Banco Mundial. Esto ha generado dependencia económica, aumento de la deuda externa y pérdida de soberanía.</p>
-  <p><strong>6. Crisis Financieras Recurrentes</strong>: La desregulación financiera ha provocado burbujas especulativas y crisis económicas, como la Gran Recesión de 2008, que tuvo un impacto devastador en millones de personas en todo el mundo.</p>
-  <p><strong>7. Polarización Política y Social</strong>: El descontento con las políticas neoliberales ha alimentado movimientos reivindicativos en varios países. La polarización política y social es una consecuencia indirecta de las tensiones generadas por este modelo.</p>
-  <h4>Impacto en la Humanidad</h4>
-  <p>El neoliberalismo ha tenido un impacto profundo y ambivalente en la humanidad: por un lado, ha permitido avances tecnológicos, mayor integración global y cierta reducción de la pobreza en algunas regiones. Sin embargo, estos logros no se han distribuido equitativamente. Por otro lado, ha profundizado las desigualdades, erosionado los derechos laborales y sociales, y puesto en peligro el futuro del planeta debido a su enfoque extractivista y consumista.</p>
-  <h3>Deuda y Dependencia en Países en Desarrollo: Un Análisis Global</h3>
-  <p>La deuda externa y la dependencia económica han sido temas centrales en el análisis del desarrollo económico y social de los países en desarrollo. Estos fenómenos no solo afectan la capacidad de los gobiernos para implementar políticas públicas efectivas, sino que también perpetúan estructuras de desigualdad global. En este contexto, es crucial entender cómo la deuda y la dependencia se interrelacionan y cómo impactan tanto a nivel nacional como internacional.</p>
-  <p><strong>1. La Deuda Externa en Países en Desarrollo</strong></p>
-  <p>La deuda externa se refiere al dinero que un país debe a acreedores extranjeros, ya sea en forma de préstamos, bonos o créditos. Esta deuda puede ser contraída con instituciones financieras internacionales (como el Fondo Monetario Internacional - FMI o el Banco Mundial), gobiernos extranjeros o entidades privadas. Las causas de la acumulación de deuda incluyen el colonialismo y herencia histórica, políticas económicas neoliberales, crisis globales y dependencia de exportaciones primarias.</p>
-  <p><strong>2. Dependencia Económica y Estructural</strong></p>
-  <p>La dependencia económica se refiere a la incapacidad de un país para alcanzar un desarrollo autosuficiente debido a su integración subordinada en la economía global. Este concepto fue desarrollado principalmente por teóricos de la dependencia, como Raúl Prebisch y Andre Gunder Frank, quienes argumentaban que las relaciones económicas internacionales perpetúan desigualdades entre países ricos y pobres.</p>
-  <p><strong>3. La Dimensión Global de la Deuda y Dependencia</strong></p>
-  <p>El FMI y el Banco Mundial han jugado un papel central en la gestión de la deuda externa, aunque sus políticas han sido criticadas por imponer condiciones que priorizan el pago de la deuda sobre el bienestar social. Algunos analistas argumentan que gran parte de la deuda externa de los países en desarrollo es "odiosa", es decir, fue contraída bajo regímenes dictatoriales o corruptos que no beneficiaron a la población.</p>
-  <p><strong>Conclusión</strong></p>
-  <p>La deuda y la dependencia en países en desarrollo son problemas complejos y multifacéticos que requieren soluciones integrales. Mientras que las reformas estructurales y la cooperación internacional son esenciales, también es necesario cuestionar las dinámicas de poder que perpetúan estas desigualdades. Solo a través de un enfoque centrado en la justicia económica y la solidaridad global será posible construir un mundo más equitativo y sostenible.</p>
-  <h3>El Movimiento Obrero en los Últimos 30 o 40 Años: Transformaciones, Desafíos y Resistencias</h3>
-  <p>El movimiento obrero ha sido una fuerza central en la configuración de las relaciones laborales, los derechos sociales y las dinámicas políticas desde la Revolución Industrial. Sin embargo, en las últimas tres o cuatro décadas, el panorama del trabajo y las luchas obreras ha cambiado drásticamente debido a factores como la globalización, la digitalización, la desindustrialización y las reformas neoliberales.</p>
-  <p><strong>1. Contexto Global: La Erosión del Poder Obrero Tradicional</strong></p>
-  <p>En las décadas de 1980 y 1990, las economías avanzadas y en desarrollo experimentaron un giro hacia políticas neoliberales que priorizaban la desregulación, la privatización y la flexibilización laboral. Estas políticas tuvieron un impacto devastador sobre las organizaciones sindicales tradicionales, especialmente en sectores industriales como la minería, el acero y la automoción. La desindustrialización en países como Estados Unidos, Reino Unido y Alemania llevó al cierre de fábricas y al traslado de la producción a regiones con mano de obra más barata, lo que debilitó a los sindicatos industriales que habían sido pilares del movimiento obrero.</p>
-  <p><strong>2. Nuevas Formas de Trabajo y Precarización</strong></p>
-  <p>Uno de los cambios más notables en las últimas décadas ha sido la transformación del mercado laboral impulsada por la globalización y la tecnología. El auge de la economía de servicios, el trabajo a distancia y las plataformas digitales ha creado nuevas categorías de empleo, como los "trabajadores de la gig economy" (conductores de Uber, repartidores de aplicaciones, etc.). Estos trabajadores enfrentan condiciones laborales precarias, falta de seguridad social y la ausencia de vínculos contractuales formales.</p>
-  <p><strong>3. Luchas Laborales en el Sur Global</strong></p>
-  <p>Mientras que en Occidente el movimiento obrero ha enfrentado una pérdida de poder relativa, en muchas partes del Sur Global las luchas laborales han continuado siendo intensas y, en algunos casos, han logrado avances significativos. En China, por ejemplo, el rápido crecimiento económico ha generado una nueva clase obrera industrial, compuesta principalmente por migrantes rurales. Los trabajadores chinos han protagonizado numerosas huelgas y protestas en demanda de mejores salarios y condiciones laborales.</p>
-  <p><strong>4. El Papel de la Mujer y la Interseccionalidad</strong></p>
-  <p>Otro cambio importante en el movimiento obrero ha sido la creciente participación de las mujeres y la incorporación de perspectivas interseccionales. Históricamente, el movimiento obrero ha estado dominado por hombres, pero en las últimas décadas las mujeres han jugado un papel cada vez más visible en las luchas laborales. Esto es particularmente evidente en sectores como el cuidado, la educación y el trabajo doméstico, donde las mujeres constituyen la mayoría de la fuerza laboral.</p>
-  <p><strong>5. Desafíos Futuros y Perspectivas</strong></p>
-  <p>El movimiento obrero enfrenta múltiples desafíos en el futuro cercano. La automatización y la inteligencia artificial amenazan con eliminar millones de empleos en sectores como la manufactura, el transporte y los servicios. Al mismo tiempo, las empresas transnacionales y las plataformas digitales continúan explotando lagunas legales para evitar responsabilidades laborales.</p>
-  <p><strong>Conclusión</strong></p>
-  <p>En las últimas tres o cuatro décadas, el movimiento obrero ha atravesado un período de profunda transformación. Aunque ha enfrentado importantes retrocesos debido a la globalización, la precarización y las políticas neoliberales, también ha demostrado una notable capacidad de adaptación y resistencia. Desde las fábricas tradicionales hasta las plataformas digitales, los trabajadores han encontrado nuevas formas de organizarse y luchar por sus derechos.</p>
-  <p>El futuro del movimiento obrero dependerá de su capacidad para enfrentar los desafíos de la era digital y construir una agenda inclusiva que refleje las necesidades de todos los trabajadores. En un mundo donde las desigualdades siguen aumentando, el movimiento obrero sigue siendo una fuerza vital para la justicia social y la dignidad laboral.</p>
-</div>
-
-<section id="diaspora">
-  <h2>DIÁSPORA</h2>
-  <p>La diáspora dominicana constituye una de las fuerzas más dinámicas y solidarias de la nación. Se estima que más de 2.5 millones de dominicanos y dominicanas viven en el exterior, principalmente en Estados Unidos, España, Puerto Rico, Italia y Canadá.</p>
-  <p>Según el Banco Central de la República Dominicana, las remesas familiares enviadas por la diáspora superaron los USD 10,000 millones en 2023, representando alrededor del 9% del PIB nacional.</p>
-  <p>Más allá del dinero, la diáspora impulsa el desarrollo mediante:</p>
-  <ul>
-    <li><strong>Inversiones productivas:</strong> Emprendimientos en turismo, agroindustria, tecnología y vivienda.</li>
-    <li><strong>Transferencia de conocimientos:</strong> Profesionales que regresan o colaboran con instituciones locales.</li>
-    <li><strong>Activismo cívico:</strong> Organizaciones comunitarias que defienden los derechos de los migrantes.</li>
-  </ul>
-  <p>El MSR reconoce a la diáspora como parte inseparable del pueblo dominicano y aboga por políticas públicas que protejan sus derechos y potencien su rol como agente de desarrollo soberano y popular.</p>
-</section>
-
-<!-- ✅ Acordeón DDHH — íntegro, abierto por defecto -->
-<button class="accordion open" id="btn-ddhh">⚖️ Derechos Humanos — Declaración Universal (ONU, 1948)</button>
-<div class="panel show" id="panel-ddhh">
-  <div style="background-color: #222; border: 4px solid #CE1126; margin: 1rem 0; padding: 1.5rem; color: #f9f9f9; border-radius: 6px;">
-    <h3 style="color: #FEDD00; text-align: center; margin-bottom: 1.5rem; font-size: 1.5rem;">
-      Declaración Universal de Derechos Humanos
-    </h3>
-    <p style="font-style: italic; margin-bottom: 1.5rem; color: #FEDD00; text-align: center;">
-      Adoptada y proclamada por la Resolución 217 A (III) de la Asamblea General de las Naciones Unidas del 10 de diciembre de 1948
-    </p>
-    <h4 style="color: #009B3A; margin: 1.2rem 0 0.8rem;">Preámbulo</h4>
-    <p>Considerando que la libertad, la justicia y la paz en el mundo tienen por base el reconocimiento de la dignidad intrínseca y de los derechos iguales e inalienables de todos los miembros de la familia humana;</p>
-    <p>Considerando que el desconocimiento y el menosprecio de los derechos humanos han originado actos de barbarie ultrajantes para la conciencia de la humanidad, y que se ha proclamado, como la aspiración más elevada del hombre, el advenimiento de un mundo en que los seres humanos, liberados del temor y de la miseria, disfruten de la libertad de palabra y de la libertad de creencias;</p>
-    <p>Considerando esencial que los derechos humanos sean protegidos por un régimen de Derecho, a fin de que el hombre no se vea compelido al supremo recurso de la rebelión contra la tiranía y la opresión;</p>
-    <p>Considerando también esencial promover el desarrollo de relaciones amistosas entre las naciones;</p>
-    <p>Considerando que los pueblos de las Naciones Unidas han reafirmado en la Carta su fe en los derechos fundamentales del hombre, en la dignidad y el valor de la persona humana y en la igualdad de derechos de hombres y mujeres, y se han declarado resueltos a promover el progreso social y a elevar el nivel de vida dentro de un concepto más amplio de la libertad;</p>
-    <p>Considerando que los Estados Miembros se han comprometido a asegurar, en cooperación con la Organización de las Naciones Unidas, el respeto universal y efectivo a los derechos y libertades fundamentales del hombre;</p>
-    <p>Considerando que una concepción común de estos derechos y libertades es de la mayor importancia para el pleno cumplimiento de dicho compromiso;</p>
-
-    <!-- Artículos 1 a 30 -->
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 1</h4>
-    <p>Todos los seres humanos nacen libres e iguales en dignidad y derechos y, dotados como están de razón y conciencia, deben comportarse fraternalmente los unos con los otros.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 2</h4>
-    <p>Toda persona tiene todos los derechos y libertades proclamados en esta Declaración, sin distinción alguna de raza, color, sexo, idioma, religión, opinión política o de cualquier otra índole, origen nacional o social, posición económica, nacimiento o cualquier otra condición.</p>
-    <p>Además, no se hará distinción alguna fundada en la condición política, jurídica o internacional del país o territorio de cuya jurisdicción dependa una persona, tanto si se trata de un país independiente, como de un territorio bajo administración fiduciaria, no autónomo o sometido a cualquier otra limitación de soberanía.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 3</h4>
-    <p>Todo individuo tiene derecho a la vida, a la libertad y a la seguridad de su persona.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 4</h4>
-    <p>Nadie estará sometido a esclavitud ni a servidumbre; la esclavitud y la trata de esclavos están prohibidas en todas sus formas.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 5</h4>
-    <p>Nadie será sometido a torturas ni a penas o tratos crueles, inhumanos o degradantes.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 6</h4>
-    <p>Toda persona tiene derecho, en todas partes, al reconocimiento de su personalidad jurídica.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 7</h4>
-    <p>Todos son iguales ante la ley y tienen, sin distinción, derecho a igual protección de la ley. Todos tienen derecho a igual protección contra toda discriminación que infrinja esta Declaración y contra toda provocación a tal discriminación.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 8</h4>
-    <p>Toda persona tiene derecho a un recurso efectivo, ante los tribunales nacionales competentes, que la ampare contra actos que violen sus derechos fundamentales reconocidos por la constitución o por la ley.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 9</h4>
-    <p>Nadie podrá ser arbitrariamente detenido, preso ni desterrado.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 10</h4>
-    <p>Toda persona tiene derecho, en condiciones de plena igualdad, a ser oída públicamente y con justicia por un tribunal independiente e imparcial, para la determinación de sus derechos y obligaciones o para el examen de cualquier acusación contra ella en materia penal.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 11</h4>
-    <p>1. Toda persona acusada de delito tiene derecho a que se presuma su inocencia mientras no se pruebe su culpabilidad, conforme a la ley y en juicio público en el que se le hayan asegurado todas las garantías necesarias para su defensa.<br>
-       2. Nadie será condenado por actos u omisiones que en el momento de cometerse no fueron delictivos según el derecho nacional o internacional. Tampoco se impondrá pena más grave que la aplicable en el momento de la comisión del delito.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 12</h4>
-    <p>Nadie será objeto de injerencias arbitrarias en su vida privada, su familia, su domicilio o su correspondencia, ni de ataques a su honra o a su reputación. Toda persona tiene derecho a la protección de la ley contra tales injerencias o ataques.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 13</h4>
-    <p>1. Toda persona tiene derecho a circular libremente y a elegir su residencia en el territorio de un Estado.<br>
-       2. Toda persona tiene derecho a salir de cualquier país, incluso del propio, y a regresar a su país.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 14</h4>
-    <p>1. Toda persona tiene derecho a buscar asilo, y a disfrutar de él, en cualquier país, a causa de persecuciones.<br>
-       2. Este derecho no podrá ser invocado contra una acción judicial realmente originada por delitos comunes o por actos opuestos a los propósitos y principios de las Naciones Unidas.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 15</h4>
-    <p>1. Toda persona tiene derecho a una nacionalidad.<br>
-       2. A nadie se privará arbitrariamente de su nacionalidad ni del derecho a cambiar de nacionalidad.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 16</h4>
-    <p>1. Los hombres y las mujeres, a partir de la edad núbil, tienen derecho, sin restricción alguna por motivos de raza, nacionalidad o religión, a casarse y fundar una familia; y disfrutarán de iguales derechos en cuanto al matrimonio, durante el matrimonio y en caso de disolución del mismo.<br>
-       2. Solo mediante libre y pleno consentimiento de los futuros esposos podrá contraerse el matrimonio.<br>
-       3. La familia es el elemento natural y fundamental de la sociedad y tiene derecho a la protección de la sociedad y del Estado.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 17</h4>
-    <p>1. Toda persona tiene derecho a la propiedad, individual y colectivamente.<br>
-       2. Nadie será privado arbitrariamente de su propiedad.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 18</h4>
-    <p>Toda persona tiene derecho a la libertad de pensamiento, de conciencia y de religión; este derecho incluye la libertad de cambiar de religión o de creencia, así como la libertad de manifestar su religión o su creencia, individual y colectivamente, tanto en público como en privado, por la enseñanza, la práctica, el culto y la observancia.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 19</h4>
-    <p>Todo individuo tiene derecho a la libertad de opinión y de expresión; este derecho incluye el de no ser molestado a causa de sus opiniones, el de investigar y recibir informaciones y opiniones, y el de difundirlas, sin limitación de fronteras, por cualquier medio de expresión.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 20</h4>
-    <p>1. Toda persona tiene derecho a la libertad de reunión y de asociación pacíficas.<br>
-       2. Nadie podrá ser obligado a pertenecer a una asociación.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 21</h4>
-    <p>1. Toda persona tiene derecho a participar en el gobierno de su país, directamente o por medio de representantes libremente escogidos.<br>
-       2. Toda persona tiene el derecho de acceso, en condiciones de igualdad, a las funciones públicas de su país.<br>
-       3. La voluntad del pueblo es la base de la autoridad del poder público; esta voluntad se expresará mediante elecciones auténticas que habrán de celebrarse periódicamente, por sufragio universal e igual y por voto secreto u otro procedimiento equivalente que garantice la libertad del voto.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 22</h4>
-    <p>Toda persona, como miembro de la sociedad, tiene derecho a la seguridad social, y a obtener, mediante el esfuerzo nacional y la cooperación internacional, habida cuenta de la organización y los recursos de cada Estado, la satisfacción de los derechos económicos, sociales y culturales, indispensables a su dignidad y al libre desarrollo de su personalidad.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 23</h4>
-    <p>1. Toda persona tiene derecho al trabajo, a la libre elección de su trabajo, a condiciones equitativas y satisfactorias de trabajo y a la protección contra el desempleo.<br>
-       2. Toda persona tiene derecho, sin discriminación alguna, a igual salario por trabajo igual.<br>
-       3. Toda persona que trabaja tiene derecho a una remuneración equitativa y satisfactoria, que le asegure, así como a su familia, una existencia conforme a la dignidad humana y que será completada, en caso necesario, por cualesquiera otros medios de protección social.<br>
-       4. Toda persona tiene derecho a fundar sindicatos y a sindicalizarse para la defensa de sus intereses.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 24</h4>
-    <p>Toda persona tiene derecho al descanso, al disfrute del tiempo libre, a una limitación razonable de la duración del trabajo y a vacaciones periódicas pagadas.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 25</h4>
-    <p>1. Toda persona tiene derecho a un nivel de vida adecuado que le asegure, así como a su familia, la salud y el bienestar, y en especial la alimentación, el vestido, la vivienda, la asistencia médica y los servicios sociales necesarios; tiene asimismo derecho a los seguros en caso de desempleo, enfermedad, invalidez, viudez, vejez u otros casos de pérdida de sus medios de subsistencia por circunstancias independientes de su voluntad.<br>
-       2. La maternidad y la infancia tienen derecho a cuidados y asistencia especiales. Todos los niños, nacidos de matrimonio o fuera de matrimonio, tienen derecho a igual protección social.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 26</h4>
-    <p>1. Toda persona tiene derecho a la educación. La educación debe ser gratuita, al menos en lo concerniente a la instrucción elemental y fundamental. La instrucción elemental será obligatoria. La instrucción técnica y profesional habrá de ser generalizada; el acceso a los estudios superiores será igual para todos, en función de los méritos respectivos.<br>
-       2. La educación tendrá por objeto el pleno desarrollo de la personalidad humana y el fortalecimiento del respeto a los derechos humanos y a las libertades fundamentales; favorecerá la comprensión, la tolerancia y la amistad entre todas las naciones y todos los grupos étnicos o religiosos; y promoverá el desarrollo de las actividades de las Naciones Unidas para el mantenimiento de la paz.<br>
-       3. Los padres tendrán derecho preferente a escoger el tipo de educación que habrá de darse a sus hijos.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 27</h4>
-    <p>1. Toda persona tiene derecho a tomar parte libremente en la vida cultural de la comunidad, a gozar de las artes y a participar en el progreso científico y en los beneficios que de él resulten.<br>
-       2. Toda persona tiene derecho a la protección de los intereses morales y materiales que le correspondan por razón de las producciones científicas, literarias o artísticas de que sea autora.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 28</h4>
-    <p>Toda persona tiene derecho a que se establezca un orden social e internacional en que los derechos y libertades proclamados en esta Declaración se hagan plenamente efectivos.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 29</h4>
-    <p>1. Toda persona tiene deberes respecto a la comunidad, puesto que solo en ella puede desarrollar libre y plenamente su personalidad.<br>
-       2. En el ejercicio de sus derechos y en el goce de sus libertades, toda persona estará solamente sujeta a las limitaciones establecidas por la ley con el único fin de asegurar el reconocimiento y el respeto de los derechos y libertades de los demás, y de satisfacer las justas exigencias de la moral, del orden público y del bienestar general en una sociedad democrática.<br>
-       3. Estos derechos y libertades no podrán, en ningún caso, ser ejercidos en oposición a los propósitos y principios de las Naciones Unidas.</p>
-
-    <h4 style="color: #009B3A; margin: 1.5rem 0 0.8rem;">Artículo 30</h4>
-    <p>Nada en esta Declaración se interpretará en el sentido de que confiere derecho alguno al Estado, a un grupo o a una persona, para emprender y desarrollar actividades o realizar actos tendientes a la supresión de cualquiera de los derechos y libertades proclamados en esta Declaración.</p>
-  </div>
-</div>
-
-<section id="actividades">
-  <h2>ACTIVIDADES RECIENTES</h2>
-  <details open>
-    <summary><strong>🌿 Tabaco y Cigarro son dominicano</strong></summary>
-    <p><em>Por el Ing. Francisco Matos Mancebo</em></p>
-    <p>Desde que el ser humano pasó de la vida nómada a la sedentaria inició un proceso de identificación, sistematización, clasificación y nominación de los elementos de su hábitat. Por tanto, podemos rastrear los primeros pasos de esa hierba santa (<em>Nicotiana Tabacum</em>) que hoy llamamos tabaco, desde que el ser humano la identificó y diferenció. Esta planta anual de la familia de las solanáceas, de acuerdo con investigaciones e inferencias científicas, es oriunda de América tropical y amazónica, más específicamente de Ecuador y Perú.</p>
-    <p>Cabe destacar que su producción no representa, en modo alguno, el peligro infernal para la salud que preconizan sus enemigos tendenciosos, pues se trata de un activo inapreciable y un regalo para la humanidad. Como todos los elementos de los reinos de la naturaleza —mineral, vegetal y animal— puede usarse para bienestar o malestar. Como activo de la modernidad es generador de riqueza, soporte de multinacionales y destino preferente de leyes impositivas, pero como producto de consumo es universal e inherente a la civilización.</p>
-    <p>Juzgo imprescindible aclarar que, aunque la planta de tabaco es originaria de Sudamérica, está comprobado que para la producción adecuada y efectiva de las hojas destinadas a la elaboración de cigarros <em>premium</em>, los mejores suelos están en las Antillas Mayores: Puerto Rico, Jamaica y básicamente la República Dominicana y Cuba. Estas dos últimas, las islas principales donde los colonizadores descubrieron su existencia y el uso que los «indios» le daban.</p>
-    <h4>BREVE HISTORIA</h4>
-    <p>A raíz del descubrimiento de América, los colonizadores españoles fueron los primeros en dar cuenta de la existencia del tabaco al viejo continente. Al llegar a las islas del Caribe, el 12 de octubre de 1492, en Guanahani —bautizada como San Salvador, hoy Bahamas—, tuvieron conocimiento de la existencia de la planta aromática, pues los nativos les presentaron «unas hojas secas que desprendían una fragancia peculiar».</p>
-    <p>Su primera referencia sobre el tabaco fue un par de días después de descubrir la primera isla de San Salvador, cuando Cristóbal Colón explica cómo encontró a un indio en una pequeña canoa, y en ella llevaba «unas hojas secas que deben ser cosas muy apreciadas entre ellos, porque ya me trajeron en San Salvador de ellas».</p>
-    <p>El Almirante prosiguió su travesía y el 27 de octubre arribó a la isla de Cuba, que llamaron Juana, y en esa escala encontraron nuevamente tabaco. Está documentado que los marineros Rodrigo de Jerez y Luis de Torres, enviados a explorar tierra firme el 2 de noviembre, vieron por primera vez a los nativos fumar.</p>
-    <p>El «Diario de Colón» relata: «Hallaron los dos cristianos por el camino mucha gente que atravesaban a sus pueblos, mujeres y hombres, con un tizón en la mano y yerbas para tomar sus sahumerios, que acostumbraban».</p>
-    <p>Colón zarpó de Cuba y el 5 de diciembre arribó a Quisqueya, actual isla de Santo Domingo bautizada entonces como La Española, donde desembarcaron por fuerza el 24 de diciembre, tras encallar la carabela Santa María. Fueron bien acogidos por el cacique Guacanagarix, quien les ofreció albergue y dispuso ayuda para rescatar los restos de la embarcación y sus provisiones. Esto sucedió en la bahía de San Nicolás, donde construyeron su primer asentamiento en el Nuevo Mundo, el Fuerte de la Navidad, en alusión a la fecha citada.</p>
-    <p>Colón y sus hombres permanecieron en el cacicazgo de Marién hasta el 16 de enero de 1493, cuando emprendieron su regreso a España, dejando en el fuerte a 39 de sus compañeros. En la tripulación iba Alejandro de Jerez, quien llevó consigo hojas de tabaco secas y la costumbre de fumarlas: práctica vista en Cuba, pero aprendida en La Española, durante su convivencia amigable.</p>
-    <h4>PRIMEROS INFORMES</h4>
-    <p>El tabaco no ocupó un lugar destacado entre las exportaciones de productos dominicanos a Sevilla durante el siglo XVI, a pesar de que el término «tabaco» aparece como tal desde 1529, y desde La Española se producían las primeras noticias sobre la planta, de su uso por los colonizadores europeos y sus efectos de dependencia entre quienes lo consumían.</p>
-    <p>El andaluz (y sevillano) Fray Bartolomé Las Casas escribió: «españoles conocí yo en esta isla Española que lo acostumbraban tomar (el tabaco), que siendo reprendidos por ello diciéndoles que aquello era vicio, respondían que no era de su mano dejarlo; no sé qué sabor o provecho hallaban en ello».</p>
-    <p>El Tabaco fue, sin duda, el cultivo más difundido de América desde antes de la llegada de los españoles. Hay evidencias de que era sembrado formalmente y domesticado en todo el continente, y aunque su origen se establece en la región amazónica —como se dijo antes—, pasó a los grupos del Orinoco en el sur de la actual Venezuela, y los Arahuacos lo trajeron a las islas del caribe.</p>
-    <p>Una vez aquí, los Tainos —asentados básicamente en la isla de Santo Domingo— fue el primer grupo que lo domesticó y convirtió en cultivo regular.</p>
-    <h4>EL VIEJO CONTINENTE</h4>
-    <p>Tras regresar a España y continuar su práctica de fumar tabaco, la historia registra que Rodrigo de Jerez fue denunciado por vecinos y familiares, quienes asombrados al verlo echar chorros de humo todo el día provocaron su arresto por la Santa Inquisición, que lo encarceló durante siete años, ya que «solamente el Diablo podía hacer que un hombre vote humo por boca y nariz».</p>
-    <h4>EL TABACO ES DOMINICANO</h4>
-    <p>Lo expuesto anteriormente nos ofrece la certidumbre de que los españoles aprendieron la práctica de enrollar hojas de tabaco y fumarlas en la isla de Santo Domingo, y desde aquí se llevaron a Europa incluso sus semillas (lo que se atribuye a Fray Ramón Pané, entre 1510 y 1512).</p>
-    <p>Resultado de distintas investigaciones, podemos afirmar que en Santo Domingo se estableció la primera plantación en 1533, y entre 1529 y 1531 se exportaron hojas a Sevilla, España. Por tales razones nos sentimos con todo derecho a decir que respecto del tabaco, como se le conoce hoy en día, todo empezó aquí, y por cuanto a su cultivo formal, procesamiento, comercialización y uso, es de origen dominicano.</p>
-    <p><strong>Referencias:</strong></p>
+  <main>
+    <h2>Why donate?</h2>
+    <p>Your support enables us to:</p>
     <ul>
-      <li><a href="https://hoy.com.do/el-tabaco-y-los-tainos/" target="_blank" rel="noopener noreferrer">https://hoy.com.do/el-tabaco-y-los-tainos/</a></li>
-      <li>INTABACO. <em>El tabaco negro en República Dominicana: cultivo, procesamiento y manufactura</em>, 2013. <a href="https://www.intabaco.gob.do/transparencia/index.php/publicaciones-oficiales" target="_blank" rel="noopener noreferrer">Enlace</a></li>
-      <li>GUTIÉRREZ ESCUDERO, Antonio. <em>El Tabaco de Santo Domingo y su exportación a Cádiz y Sevilla (Siglos XVI–XVIII)</em>. <a href="https://digital.csic.es/bitstream/10261/61449/1/El%20tabaco%20de%20Santo%20Domingo.pdf" target="_blank" rel="noopener noreferrer">Enlace</a></li>
+      <li>Train communities in off-grid renewable energy</li>
+      <li>Develop tools for digital sovereignty</li>
+      <li>Produce accessible documentation in Spanish and Haitian Creole</li>
+      <li>Maintain free and decentralized infrastructure</li>
     </ul>
-    <p><em>Publicado: 2 de abril de 2024 | Humo Latino</em></p>
-  </details>
-  <details>
-    <summary><strong>✊ ¡Alto al genocidio en Palestina! Exigimos justicia y soberanía</strong></summary>
-    <p>Mientras el mundo mira en silencio, el pueblo palestino enfrenta uno de los asedios más brutales de la historia reciente. Bombardeos indiscriminados, desplazamientos forzados, bloqueo de ayuda humanitaria y destrucción de infraestructura son crímenes de lesa humanidad que no pueden seguir normalizándose.</p>
-    <p>El Movimiento Social Revolucionario (MSR) se suma a la voz global que exige:</p>
-    <ul>
-      <li>Cese inmediato de las agresiones militares israelíes.</li>
-      <li>Levantamiento total del bloqueo a Gaza.</li>
-      <li>Reconocimiento del Estado palestino con fronteras de 1967 y capital en Jerusalén Este.</li>
-      <li>Boicot, desinversión y sanciones (BDS) contra empresas cómplices del apartheid.</li>
-    </ul>
-    <p>La libertad de Palestina es inseparable de la lucha antiimperialista mundial. ¡No somos neutrales: estamos con el pueblo palestino!</p>
-    <p><em>Publicado: 4 de abril de 2025 | MSR - Comisión Internacional de Solidaridad</em></p>
-  </details>
-  <details>
-    <summary><strong>🇻🇪 Venezuela: Defender la soberanía popular frente al cerco imperial</strong></summary>
-    <p>Nuevamente, potencias extranjeras intentan imponer su agenda mediante sanciones económicas, campañas mediáticas y presión diplomática contra la Revolución Bolivariana. Estas medidas no solo violan el derecho internacional, sino que afectan directamente al pueblo venezolano, limitando el acceso a medicinas, alimentos y recursos básicos.</p>
-    <p>El MSR rechaza toda forma de injerencia y respalda el derecho inalienable del pueblo venezolano a:</p>
-    <ul>
-      <li>Autodeterminación sin condicionamientos externos.</li>
-      <li>Desarrollar su modelo económico y social en paz.</li>
-      <li>Contar con el apoyo solidario de los pueblos del mundo frente al bloqueo.</li>
-    </ul>
-    <p>La verdadera democracia no se impone con decretos imperiales, sino que florece desde la organización popular. ¡Manos fuera de Venezuela!</p>
-    <p><em>Publicado: 3 de abril de 2025 | MSR - Frente Antiimperialista Latinoamericano</em></p>
-  </details>
-</section>
-<section id="teologia">
-  <h2>✝️ TEOLOGÍA DE LIBERACIÓN</h2>
-  <details>
-    <summary><strong>Fe sin justicia es idolatría</strong></summary>
-    <p>La Teología de Liberación es un acto de fe comprometida con los pobres, nacida en América Latina como respuesta cristiana a la opresión estructural, la pobreza masiva y el imperialismo. No es una ideología, sino una pastoral: leer la Biblia con los ojos de los crucificados de la historia.</p>
-    <p><strong>Gustavo Gutiérrez (Perú)</strong><br>En <em>Teología de la Liberación</em> (1971) afirmó: <em>«La fe no es una huida del mundo, sino un compromiso histórico con los pobres.»</em> El pecado no es solo personal, sino también estructural: la injusticia es idolatría.</p>
-    <p><strong>Monseñor Óscar Romero (El Salvador)</strong><br>Mártir y profeta: <em>«Si me matan, resucitaré en el pueblo.»</em> Denunció la violencia de Estado, defendió a campesinos y organizaciones populares. Canonizado por el pueblo antes que por Roma.</p>
-    <p><strong>En el Caribe: Haití y República Dominicana</strong><br>Curas y laicos acompañan a trabajadores azucareros, dominico-haitianos y comunidades rurales. La Iglesia Popular rechaza la "teología del orden" que justifica la miseria como voluntad divina, y proclama: <strong>la justicia es el culto verdadero</strong>.</p>
-    <p><strong>Camilo Torres Restrepo (Colombia)</strong><br>Sacerdote, sociólogo y guerrillero (1929–1966): <em>«El cristianismo auténtico conduce inevitablemente a la revolución.»</em> <em>«Si Jesús estuviera vivo, sería guerrillero.»</em></p>
-    <p>El MSR honra esta herencia: <strong>no hay evangelio sin liberación material</strong>.</p>
-  </details>
-</section>
 
-<!-- ✅ Sección Donaciones -->
-<section id="donaciones">
-  <h2>💚 DONACIONES</h2>
-  <p>Apoya la construcción de la República Democrática, Popular y Revolucionaria. Cada aporte fortalece nuestras campañas de educación, soberanía energética y defensa de los derechos humanos.</p>
-  <p><strong>Tu donación es 100% soberana:</strong><br>
-  — Sin intermediarios corporativos<br>
-  — Sin recopilación de datos personales<br>
-  — Transparencia en el uso de fondos (informes trimestrales)</p>
-  <a href="https://www.paypal.com/donate/?hosted_button_id=ZJEQK8DVDB8EY" 
-     target="_blank" rel="noopener noreferrer" 
-     class="donation-btn">
-    🌱 DONAR AHORA — desde $1
-  </a>
-  <p><em>También aceptamos transferencias en criptomonedas soberanas (BTC, XMR, LTC) — escríbenos a <a href="mailto:republica-esperanza@proton.me">republica-esperanza@proton.me</a></em></p>
-</section>
-</main>
-<footer>
-  <p>Santo Domingo, República Dominicana</p>
-  <p>✉️ <a href="mailto:republica-esperanza@proton.me">republica-esperanza@proton.me</a></p>
-  <p><em>República de Esperanza — MSR: por una República Democrática, Popular y Revolucionaria.</em></p>
-</footer>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // ✅ Acordeones personalizados
-    const accordions = document.querySelectorAll('.accordion');
-    accordions.forEach(button => {
-      button.addEventListener('click', function() {
-        this.classList.toggle('open');
-        const panel = this.nextElementSibling;
-        panel.classList.toggle('show');
-      });
-    });
+    <h2>One-time or recurring donation</h2>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="YOUR_HOSTED_BUTTON_ID">
+      <input type="hidden" name="business" value="pablo102158@gmail.com">
+      <input type="hidden" name="lc" value="US">
+      <input type="hidden" name="item_name" value="Support República de Esperanza">
+      <input type="hidden" name="no_note" value="0">
+      <input type="hidden" name="currency_code" value="USD">
+      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="Donate via PayPal">
+      <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+    </form>
+  </main>
 
-    // ✅ Abrir *Actualidad y Coyuntura* y *Derechos Humanos* al cargar
-    const internacionalBtn = document.getElementById('btn-internacional');
-    const internacionalPanel = document.getElementById('panel-internacional');
-    const ddhhBtn = document.getElementById('btn-ddhh');
-    const ddhhPanel = document.getElementById('panel-ddhh');
-    if (internacionalBtn && internacionalPanel) {
-      internacionalBtn.classList.add('open');
-      internacionalPanel.classList.add('show');
-    }
-    if (ddhhBtn && ddhhPanel) {
-      ddhhBtn.classList.add('open');
-      ddhhPanel.classList.add('show');
-    }
+  <footer>
+    <p>© 2025 República de Esperanza — Non-profit initiative</p>
+    <p><a href="https://github.com/Ortiz102158">Open source</a></p>
+  </footer>
 
-    // ✅ Navegación por secciones
-    const sectionButtons = document.querySelectorAll('.section-btn');
-    sectionButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        const targetId = this.getAttribute('data-target');
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) {
-          targetSection.scrollIntoView({ behavior: 'smooth' });
-          window.history.pushState({}, '', `#${targetId}`);
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const switcher = document.getElementById('langSwitcher');
+      if (!switcher) return;
+      const links = switcher.querySelectorAll('a');
+      const currentPath = location.pathname;
+      const hash = location.hash || '';
+
+      links.forEach(link => {
+        const lang = link.getAttribute('href').split('/')[1];
+        if (currentPath.startsWith('/' + lang + '/')) {
+          link.classList.add('active');
         }
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          const url = new URL(link.href + hash, location.origin);
+          history.pushState(null, '', url);
+          location.href = url;
+        });
       });
     });
-
-    // Hash navigation
-    if (window.location.hash) {
-      const id = window.location.hash.substring(1);
-      const el = document.getElementById(id);
-      if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 300);
-    }
-  });
-</script>
+  </script>
 </body>
 </html>
