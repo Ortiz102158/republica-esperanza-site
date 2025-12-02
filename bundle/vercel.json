@@ -1,6 +1,12 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/es/index.html" }
+    { "source": "/", "destination": "/es/index.html" },
+    { "source": "/es", "destination": "/es/index.html" },
+    { "source": "/es/(.*)", "destination": "/es/index.html" },
+    { "source": "/en", "destination": "/en/index.html" },
+    { "source": "/en/(.*)", "destination": "/en/index.html" },
+    { "source": "/ht", "destination": "/ht/index.html" },
+    { "source": "/ht/(.*)", "destination": "/ht/index.html" }
   ],
   "headers": [
     {
