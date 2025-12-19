@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/en", "destination": "/en/index.html" },
+    { "source": "/ht", "destination": "/ht/index.html" }
+  ]
+}
