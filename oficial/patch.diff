@@ -1,0 +1,233 @@
+@@ -1,97 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Pablo Ortiz">
+  <meta name="email" content="republica-esperanza@proton.me">
+  <meta name="description" content="República de Esperanza — MSR: por una República Democrática, Popular y Revolucionaria." />
+  <title>República de Esperanza — MSR</title>
+  <style>
+    :root {
+      --verde: #006400;
+      --rojo: #d32f2f;
+      --negro: #000;
+      --gris-claro: #f9f9f9;
+      --gris-oscuro: #333;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--gris-oscuro);
+      background-color: #fff;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--rojo);
+      color: white;
+      padding: 0.8rem 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      min-width: 180px;
+    }
+    .logo-container svg {
+      height: 50px;
+      margin-right: 12px;
+    }
+    .site-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: center;
+      flex: 1;
+      margin: 0 15px;
+    }
+    .slogan {
+      font-size: 0.9rem;
+      max-width: 300px;
+      display: none;
+    }
+    .section-nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 1.5rem;
+    }
+    .section-btn {
+      background: var(--rojo);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .accordion {
+      background-color: #eee;
+      color: var(--gris-oscuro);
+      cursor: pointer;
+      padding: 14px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      transition: 0.3s;
+      margin: 1.2rem 0;
+      border-radius: 4px;
+    }
+    .accordion.open {
+      background-color: var(--rojo);
+      color: white;
+    }
+    .panel {
+      padding: 1rem 1.5rem;
+      display: none;
+      overflow: hidden;
+      background-color: #fafafa;
+      border-left: 4px solid var(--rojo);
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 1rem;
+    }
+    .panel.show {
+      display: block;
+    }
+    .donation-btn {
+      display: inline-block;
+      background: var(--rojo);
+      color: white !important;
+      padding: 0.8rem 1.5rem;
+      border-radius: 4px;
+      font-weight: bold;
+      text-decoration: none;
+      margin: 1rem 0;
+      transition: background 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    main {
+      margin-bottom: 3rem;
+    }
+@@ -192,7 +248,6 @@
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo-container">
+    <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg" width="100%" height="50">
+@@ -205,13 +260,12 @@
+    </svg>
+  </div>
+  <div class="site-title">
+    REPÚBLICA DE ESPERANZA
+    República de Esperanza — MSR
+  </div>
+  <div class="slogan">
+    ¡ÚNETE A LA LUCHA POR UNA REPÚBLICA DEMOCRÁTICA, POPULAR Y REVOLUCIONARIA!
+  </div>
+</header>
+<div class="section-nav">
+  <button class="section-btn" data-target="sobre-nosotros">Sobre Nosotros</button>
+  <button class="section-btn" data-target="principios">Principios</button>
+@@ -221,10 +275,9 @@
+  <button class="section-btn" data-target="derechos-humanos">Derechos Humanos</button>
+  <button class="section-btn" data-target="actividades">Actividades</button>
+  <button class="section-btn" data-target="teologia">Teología</button>
+  <button class="section-btn" data-target="donaciones">Donaciones</button>
+</div>
+<main>
+<section id="sobre-nosotros">
+  <h2>✊ SOBRE NOSOTROS ✊</h2>
+  <p>El Movimiento por la Salvación de la República (MSR) nace como respuesta a la crisis moral, política y económica que asfixia a nuestro pueblo.</p>
+@@ -236,7 +289,6 @@
+    <li><strong>Nelson Díaz</strong> — Responsable de Relaciones Internacionales y Solidaridad Antiimperialista</li>
+  </ul>
+</section>
+<section id="principios">
+  <h2>DECLARACIÓN DE PRINCIPIOS</h2>
+  <p><em>Del Movimiento Por la Salvación de la República (MSR)</em></p>
+@@ -252,7 +304,6 @@
+  <p>Creemos en el principio universal de la Autodeterminación de los pueblos, de decidir las políticas necesarias para alcanzar su desarrollo.</p>
+  <p>Nuestro Movimiento está comprometido con la defensa de los recursos naturales renovables y no renovables. Especialmente los bosques, los ríos, los yacimientos minerales, los cuales deben ser explotados y utilizados de manera racional.</p>
+</section>
+<section id="valores">
+  <h2>NUESTROS VALORES</h2>
+  <ul>
+@@ -262,126 +313,78 @@
+  </ul>
+</section>
+<section id="internacional">
+  <h2>INTERNACIONAL</h2>
+  <h3>Actualidad y Coyuntura — Alejandro Ortiz</h3>
+<button class="accordion open" id="btn-internacional">🗞️ Actualidad y Coyuntura — Alejandro Ortiz</button>
+<div class="panel show" id="panel-internacional">
+  <p>La geopolítica mundial entre 2014 y 2025 ha sido testigo de una profunda transformación...</p>
+</div>
+<button class="accordion open" id="btn-ddhh">⚖️ Derechos Humanos — Declaración Universal (ONU, 1948)</button>
+<div class="panel show" id="panel-ddhh">
+  <div style="background-color: #222; border: 4px solid #CE1126; margin: 1rem 0; padding: 1.5rem; color: #f9f9f9; border-radius: 6px;">
+    <h3 style="color: #FEDD00; text-align: center;">Declaración Universal de Derechos Humanos</h3>
+    <p style="font-style: italic; color: #FEDD00; text-align: center;">Adoptada por la ONU, 10 de diciembre de 1948</p>
+  </div>
+</div>
+<section id="donaciones">
+  <h2>💚 DONACIONES</h2>
+  <p>Apoya la construcción de la República Democrática, Popular y Revolucionaria.</p>
+  <a href="https://www.paypal.com/donate/?hosted_button_id=ZJEQK8DVDB8EY" target="_blank" class="donation-btn">
+    🌱 DONAR AHORA — desde $1
+  </a>
+  <p><em>También aceptamos criptomonedas soberanas (BTC, XMR, LTC) — <a href="mailto:republica-esperanza@proton.me">republica-esperanza@proton.me</a></em></p>
+</section>
+</main>
+<footer>
+  <p>Santo Domingo, República Dominicana</p>
+  <p>✉️ <a href="mailto:republica-esperanza@proton.me">republica-esperanza@proton.me</a></p>
+  <p><em>República de Esperanza — MSR: por una República Democrática, Popular y Revolucionaria.</em></p>
+</footer>
+<script>
+  document.querySelectorAll('.accordion').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('open');
+      btn.nextElementSibling.classList.toggle('show');
+    });
+  });
+  ['#btn-internacional', '#btn-ddhh'].forEach(id => {
+    const btn = document.querySelector(id);
+    if (btn) btn.classList.add('open');
+    const panel = btn?.nextElementSibling;
+    if (panel) panel.classList.add('show');
+  });
+  document.querySelectorAll('.section-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.target;
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({behavior: 'smooth'});
+    });
+  });
+</script>
+</body>
+</html>
