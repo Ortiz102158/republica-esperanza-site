@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Alejandro Ortiz">
+  <meta name="author" content="Pablo Ortiz">
   <meta name="email" content="republica-esperanza@proton.me">
-  <meta name="description" content="Republic of Hope — MSR: por una República Democrática, Popular y Revolucionaria." />
-  <title>Republic of Hope — MSR</title>
+  <meta name="description" content="República de Esperanza — MSR: por una República Democrática, Popular y Revolucionaria." />
+  <title>República de Esperanza — MSR</title>
   <style>
     :root {
       --primary: #d32f2f;
@@ -353,7 +353,7 @@
   </main>
 
   <footer>
-    <p>&copy; Republic of Hope — MSR, 2025. Todos los derechos reservados.</p>
+    <p>&copy; República de Esperanza — MSR, 2025. Todos los derechos reservados.</p>
     <p>Este sitio es una herramienta de soberanía popular. Código abierto para la lucha.</p>
   </footer>
 </body>
