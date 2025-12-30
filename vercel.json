@@ -2,5 +2,6 @@
   "rewrites": [],
   "redirects": [],
   "headers": [],
-  "trailingSlash": false
+  "trailingSlash": false,
+  "cleanUrls": true
 }
