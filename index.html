@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Alejandro Ortiz">
+  <meta name="author" content="Pablo Ortiz">
   <meta name="email" content="republica-esperanza@proton.me">
   <meta name="description" content="República de Esperanza — MSR: por una República Democrática, Popular y Revolucionaria." />
   <title>República de Esperanza — MSR</title>
@@ -22,15 +22,56 @@
       background-color: #fff;
     }
     header {
-      background: var(--primary);
+      background: #1f7a3d;
       color: white;
-      text-align: center;
       padding: 1.5rem 1rem;
     }
-    header svg {
-      display: block;
-      margin: 0 auto 0.5rem;
-      height: 20px;
+    .header-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 1rem;
+      max-width: 900px;
+      margin: 0 auto 1rem;
+    }
+    .header-logo {
+      width: 64px;
+      min-height: 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      border-radius: 14px;
+      padding: 0.5rem;
+      color: #1f7a3d;
+    }
+    .header-logo svg {
+      width: 28px;
+      height: 28px;
+      margin-bottom: 0.2rem;
+    }
+    .logo-caption {
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: #1f7a3d;
+    }
+    .header-title {
+      flex: 1 1 auto;
+      min-width: 220px;
+    }
+    .header-title h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: white;
+      letter-spacing: 0.01em;
+    }
+    .header-title p {
+      margin: 0.5rem 0 0;
+      color: rgba(255,255,255,0.95);
+      line-height: 1.4;
     }
     main { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
     section {
@@ -63,16 +104,20 @@
 </head>
 <body>
   <header>
-  <svg viewBox="0 0 120 24" xmlns="http://www.w3.org/2000/svg" style="display:block; margin:0 auto 0.5rem; height:20px;">
-    <rect width="40" height="24" fill="#002d62"/>
-    <rect x="40" width="40" height="24" fill="#fff"/>
-    <rect x="80" width="40" height="24" fill="#ce1126"/>
-    <text x="60" y="16" font-size="7" font-weight="bold" fill="#333" text-anchor="middle">MSR</text>
-  </svg>
-  <h1>REPÚBLICA DE ESPERANZA</h1>
-  <p>¡ÚNETE A LA LUCHA POR UNA REPÚBLICA DEMOCRÁTICA, POPULAR Y REVOLUCIONARIA!</p>
-  <p>El Movimiento por la Salvación de la República convoca a todas las fuerzas populares a organizarse, resistir y construir el futuro que merecemos.</p>
-</header>
+    <div class="header-top">
+      <div class="header-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <polygon points="12,2 14.7,9.1 22.3,9.6 16.5,14.5 18.3,21.9 12,17.9 5.7,21.9 7.5,14.5 1.7,9.6 9.3,9.1" fill="#ce1126" />
+        </svg>
+        <div class="logo-caption">MSR</div>
+      </div>
+      <div class="header-title">
+        <h1>REPÚBLICA DE ESPERANZA</h1>
+        <p>¡ÚNETE A LA LUCHA POR UNA REPÚBLICA DEMOCRÁTICA, POPULAR Y REVOLUCIONARIA!</p>
+      </div>
+    </div>
+    <p style="max-width: 900px; margin: 0 auto; color: rgba(255,255,255,0.95);">El Movimiento por la Salvación de la República convoca a todas las fuerzas populares a organizarse, resistir y construir el futuro que merecemos.</p>
+  </header>
 
   <main>
     <!-- SOBRE NOSOTROS -->
@@ -187,29 +232,48 @@
     </section>
 
     <!-- DERECHOS HUMANOS — ONU íntegra -->
-   <section id="derechos-humanos">
-  <h2>⚖️ DERECHOS HUMANOS</h2>
-  <p>Reafirmamos la <strong>Declaración Universal de los Derechos Humanos (ONU, 1948)</strong> como piedra angular ética y jurídica.</p>
+    <section id="derechos-humanos">
+      <h2>⚖️ DERECHOS HUMANOS</h2>
+      <p>Reafirmamos la <strong>Declaración Universal de los Derechos Humanos (ONU, 1948)</strong> como piedra angular ética y jurídica.</p>
 
-  <h3>Preámbulo</h3>
-  <p>Considerando que la libertad, la justicia y la paz en el mundo tienen por base el reconocimiento de la dignidad intrínseca y de los derechos iguales e inalienables de todos los miembros de la familia humana…</p>
+      <h3>Preámbulo</h3>
+      <p>Considerando que la libertad, la justicia y la paz en el mundo tienen por base el reconocimiento de la dignidad intrínseca y de los derechos iguales e inalienables de todos los miembros de la familia humana…</p>
+      <p>Considerando que el desconocimiento y menosprecio de los derechos humanos han originado actos de barbarie ultrajantes para la conciencia de la humanidad, y que se ha proclamado, como la aspiración más elevada del hombre, el advenimiento de un mundo en el que los seres humanos disfruten de la libertad de palabra y de creencia y de la libertad de vivir libres del miedo y de la miseria…</p>
+      <p>Considerando que es esencial que los derechos humanos se protejan mediante un régimen de derecho, de modo que el hombre no se vea compelido, en última instancia, a recurrir, como recurso de desesperación, a la rebelión contra la tiranía y la opresión.</p>
 
-  <ul>
-    <li><strong>Art. 1:</strong> Todos los seres humanos nacen libres e iguales en dignidad y derechos.</li>
-    <li><strong>Art. 2:</strong> Sin distinción alguna de raza, color, sexo, idioma, religión, opinión política…</li>
-    <li><strong>Art. 3:</strong> Derecho a la vida, libertad y seguridad.</li>
-    <li><strong>Art. 5:</strong> Nadie será sometido a tortura ni tratos crueles.</li>
-    <li><strong>Art. 6:</strong> Derecho al reconocimiento de la personalidad jurídica.</li>
-    <li><strong>Art. 19:</strong> Libertad de opinión y expresión.</li>
-    <li><strong>Art. 20:</strong> Libertad de reunión y asociación pacíficas.</li>
-    <li><strong>Art. 21:</strong> Derecho a participar en el gobierno.</li>
-    <li><strong>Art. 22:</strong> Derecho a la seguridad social.</li>
-    <li><strong>Art. 25:</strong> Derecho a un nivel de vida adecuado (alimentación, vivienda, salud).</li>
-    <li><strong>Art. 26:</strong> Derecho a la educación gratuita y fundamental.</li>
-    <li><strong>Art. 29:</strong> Deberes respecto a la comunidad.</li>
-  </ul>
-</section>
-</section>
+      <ul>
+        <li><strong>Art. 1:</strong> Todos los seres humanos nacen libres e iguales en dignidad y derechos.</li>
+        <li><strong>Art. 2:</strong> Sin distinción alguna de raza, color, sexo, idioma, religión, opinión política, origen nacional o social, posición económica, nacimiento o cualquier otra condición.</li>
+        <li><strong>Art. 3:</strong> Derecho a la vida, la libertad y a la seguridad de su persona.</li>
+        <li><strong>Art. 4:</strong> Nadie estará sometido a esclavitud ni a servidumbre; la esclavitud y la trata de esclavos están prohibidas en todas sus formas.</li>
+        <li><strong>Art. 5:</strong> Nadie será sometido a torturas ni a penas o tratos crueles, inhumanos o degradantes.</li>
+        <li><strong>Art. 6:</strong> Todo ser humano tiene derecho, en todas partes, al reconocimiento de su personalidad jurídica.</li>
+        <li><strong>Art. 7:</strong> Todos son iguales ante la ley y tienen, sin distinción, derecho a igual protección de la ley.</li>
+        <li><strong>Art. 8:</strong> Toda persona tiene derecho a un recurso eficaz ante los tribunales nacionales competentes que la amparen contra actos que violen sus derechos fundamentales.</li>
+        <li><strong>Art. 9:</strong> Nadie podrá ser arbitrariamente detenido, preso ni desterrado.</li>
+        <li><strong>Art. 10:</strong> Toda persona tiene derecho, en condiciones de plena igualdad, a ser oída públicamente y con justicia por un tribunal independiente e imparcial.</li>
+        <li><strong>Art. 11:</strong> Toda persona acusada de un delito tiene derecho a que se presuma su inocencia mientras no se pruebe su culpabilidad.</li>
+        <li><strong>Art. 12:</strong> Nadie será objeto de injerencias arbitrarias en su vida privada, su familia, su domicilio o su correspondencia.</li>
+        <li><strong>Art. 13:</strong> Toda persona tiene derecho a circular libremente y a elegir su residencia en el territorio de un Estado.</li>
+        <li><strong>Art. 14:</strong> En caso de persecución, toda persona tiene derecho a buscar asilo y a disfrutar de él en otros países.</li>
+        <li><strong>Art. 15:</strong> Toda persona tiene derecho a una nacionalidad.</li>
+        <li><strong>Art. 16:</strong> Los adultos tienen derecho a casarse y fundar una familia, con igualdad de derechos.</li>
+        <li><strong>Art. 17:</strong> Toda persona tiene derecho a la propiedad, individual y colectivamente.</li>
+        <li><strong>Art. 18:</strong> Toda persona tiene derecho a la libertad de pensamiento, de conciencia y de religión.</li>
+        <li><strong>Art. 19:</strong> Derecho a la libertad de opinión y de expresión.</li>
+        <li><strong>Art. 20:</strong> Derecho a la libertad de reunión y asociación pacíficas.</li>
+        <li><strong>Art. 21:</strong> Derecho a participar en el gobierno de su país, directamente o por medio de representantes libremente escogidos.</li>
+        <li><strong>Art. 22:</strong> Derecho a la seguridad social y a obtener la satisfacción de los derechos económicos, sociales y culturales indispensables a su dignidad y al libre desarrollo de su personalidad.</li>
+        <li><strong>Art. 23:</strong> Derecho al trabajo, a elegir libremente su empleo, a condiciones equitativas y satisfactorias de trabajo y a la protección contra el desempleo.</li>
+        <li><strong>Art. 24:</strong> Derecho al descanso y al disfrute del tiempo libre.</li>
+        <li><strong>Art. 25:</strong> Derecho a un nivel de vida adecuado, que asegure la salud y el bienestar, incluyendo alimentación, vestido, vivienda, asistencia médica y servicios sociales necesarios.</li>
+        <li><strong>Art. 26:</strong> Derecho a la educación.</li>
+        <li><strong>Art. 27:</strong> Derecho a tomar parte libremente en la vida cultural de la comunidad.</li>
+        <li><strong>Art. 28:</strong> Derecho a un orden social e internacional en el que los derechos y libertades proclamados en esta Declaración se hagan plenamente efectivos.</li>
+        <li><strong>Art. 29:</strong> Todo individuo tiene deberes respecto a la comunidad que le permitan desarrollar libre y plenamente su personalidad.</li>
+        <li><strong>Art. 30:</strong> Nada en esta Declaración podrá interpretarse en el sentido de conferir a ningún Estado, grupo o persona derechos para emprender actividades o realizar actos tendientes a la supresión de cualquiera de los derechos y libertades proclamados en ella.</li>
+      </ul>
+    </section>
 
     <!-- TEOLOGÍA DE LIBERACIÓN -->
     <section id="teologia">
@@ -253,6 +317,7 @@
       <p>El Movimiento por la Salvación de la República (MSR) depende del apoyo solidario de personas comprometidas con la justicia social y la soberanía popular.</p>
       <p>Tu donación nos permite mantener este sitio, difundir la verdad y organizar actividades por una República Democrática, Popular y Revolucionaria.</p>
       <p class="highlight">¡Cualquier aporte, por pequeño que sea, hace una gran diferencia!</p>
+      <a class="button button-primary" href="https://www.paypal.com/donate?business=pablo102158%40gmail.com" target="_blank" rel="noopener noreferrer">Donar con PayPal</a>
     </section>
 
     <!-- ACTIVIDADES RECIENTES — con Matos íntegro -->
@@ -338,26 +403,23 @@
           <p>La verdadera democracia no se impone con decretos imperiales, sino que florece desde la organización popular. ¡Manos fuera de Venezuela!</p>
           <p><em>Publicado: 3 de abril de 2025 | MSR - Frente Antiimperialista Latinoamericano</em></p>
         </div>
-      </details
+      </details>
     </section>
- 
 
     <!-- CONTACTO -->
     <section id="contacto">
-      ✉️ CONTACTO<br>
+      <h2>✉️ CONTACTO</h2>
+      <p><strong>Escríbenos</strong><br>
       Santo Domingo, República Dominicana<br>
       ✉️ <a href="mailto:republica-esperanza@proton.me">republica-esperanza@proton.me</a><br>
-      🌐 <a href="en.html">English</a> | <a href="ht.html">Kreyòl</a>
-      ✉️ <a href="mailto:republica-esperanza@proton.me">republica-esperanza@proton.me</a><br>
-      🌐 <a href="en.html">English</a> | <a href="ht.html">Kreyòl</a>
-      ✉️ <a href="mailto:republica-esperanza@proton.me">republica-esperanza@proton.me</a><br>
-      🌐 <a href="en.html">English</a> | <a href="ht.html">Kreyòl</a>
-      ✉️ <a href="mailto:republica-esperanza@proton.me">republica-esperanza@proton.me</a><br>
-      🌐 <a href="en.html">English</a> | <a href="ht.html">Kreyòl</a><br>
-      ✉️ republica-esperanza@proton.me | contacto@republicaesperanza.org | contacto@msr.org.do<br>🌐 <a href="en.html">English</a> | <a href="ht.html">Kreyòl</a><br>
-      🌍 <a href="en.html">English</a> | <a href="ht.html">Kreyòl</a>
+      ✉️ <a href="mailto:contacto@republicaesperanza.org">contacto@republicaesperanza.org</a><br>
+      ✉️ <a href="mailto:contacto@msr.org.do">contacto@msr.org.do</a></p>
     </section>
   </main>
+
   <footer>
+    <p>&copy; República de Esperanza — MSR, 2025. Todos los derechos reservados.</p>
+    <p>Este sitio es una herramienta de soberanía popular. Código abierto para la lucha.</p>
+  </footer>
 </body>
 </html>
