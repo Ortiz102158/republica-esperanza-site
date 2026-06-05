@@ -54,6 +54,32 @@
       color: var(--gray);
       font-size: 0.9rem;
     }
+
+    .lang-switcher {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.4rem;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .lang-switcher a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .lang-switcher a:hover {
+      color: #fff8e1;
+      text-decoration: underline;
+    }
+
+    .lang-switcher span {
+      color: rgba(255,255,255,0.75);
+    }
     @media (max-width: 600px) {
       h2 { font-size: 1.5rem; }
       h3 { font-size: 1.25rem; }
@@ -72,6 +98,14 @@
   <h1>REPÚBLICA DE ESPERANZA</h1>
   <p>¡ÚNETE A LA LUCHA POR UNA REPÚBLICA DEMOCRÁTICA, POPULAR Y REVOLUCIONARIA!</p>
   <p>El Movimiento por la Salvación de la República convoca a todas las fuerzas populares a organizarse, resistir y construir el futuro que merecemos.</p>
+  <div class="lang-switcher">
+    <span>🌐</span>
+    <a href="index.html">Español</a>
+    <span>|</span>
+    <a href="en.html">English</a>
+    <span>|</span>
+    <a href="ht.html">Kreyòl</a>
+  </div>
 </header>
 
   <main>

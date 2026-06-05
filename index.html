@@ -501,6 +501,32 @@
       border-radius: 12px;
       text-align: center;
     }
+
+    .lang-switcher {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.4rem;
+      color: rgba(245,245,245,0.92);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .lang-switcher a {
+      color: var(--blanco);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .lang-switcher a:hover {
+      color: var(--verde-claro);
+      text-decoration: underline;
+    }
+
+    .lang-switcher span {
+      color: rgba(245,245,245,0.65);
+    }
   </style>
 </head>
 <body>
@@ -524,11 +550,14 @@
     <a href="https://www.paypal.com/donate?business=pablo102158%40gmail.com&no_recurring=0&item_name=Apoya+la+Rep%C3%BAblica+de+Esperanza" target="_blank" rel="noreferrer noopener" class="btn">Donar ahora</a>
     <a href="#principios" class="btn-outline">Lee nuestros principios</a>
   </div>
-</header>
-
-<nav>
-  <div class="nav-container">
-    <a href="#sobre-nosotros">Sobre Nosotros</a>
+    <div class="lang-switcher">
+      <span>🌐</span>
+      <a href="index.html">Español</a>
+      <span>|</span>
+      <a href="en.html">English</a>
+      <span>|</span>
+      <a href="ht.html">Kreyòl</a>
+    </div>
     <a href="#principios">Principios</a>
     <a href="#internacional">Internacional</a>
     <a href="#biblioteca-virtual">Biblioteca Virtual</a>
