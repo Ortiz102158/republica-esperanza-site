@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="República Esperanza: una web social comunitaria para vecinos, proyectos y eventos solidarios." />
+  <title>República Esperanza | Comunidad</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-mark">RE</div>
+        <div>
+          <strong>República</strong>
+          <span>Esperanza</span>
+        </div>
+      </div>
+      <nav class="site-nav" aria-label="Menú principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#comunidad">Comunidad</a>
+        <a href="#muro">Muro</a>
+        <a href="#eventos">Eventos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <div class="auth-controls">
+        <button id="login-button" class="button button-secondary">Iniciar sesión</button>
+        <div id="user-info" class="user-info hidden">
+          <span>Bienvenido, <strong id="user-name"></strong></span>
+          <button id="logout-button" class="button button-secondary">Cerrar sesión</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="inicio" class="hero-section">
+        <div>
+          <p class="eyebrow">Construyendo una red de esperanza</p>
+          <h1>República Esperanza</h1>
+          <p class="hero-copy">La plataforma comunitaria para vecinos, emprendedores y colectivos que quieren compartir noticias, eventos y acciones solidarias.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#muro">Ir al muro</a>
+            <a class="button button-secondary" href="#eventos">Ver eventos</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="card-summary">
+            <strong>120+</strong>
+            <span>Miembros activos</span>
+          </div>
+          <div class="card-summary">
+            <strong>35</strong>
+            <span>Proyectos comunitarios</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="comunidad" class="section section-light">
+        <div class="section-heading">
+          <p class="eyebrow">Nuestra comunidad</p>
+          <h2>Conecta, comparte y actúa</h2>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <h3>Muro abierto</h3>
+            <p>Publica ideas, solicitudes de ayuda y noticias del barrio para que todos puedan participar.</p>
+          </article>
+          <article>
+            <h3>Eventos locales</h3>
+            <p>Promovemos encuentros, talleres, ferias y jornadas de voluntariado en tu comunidad.</p>
+          </article>
+          <article>
+            <h3>Proyectos</h3>
+            <p>Impulsamos iniciativas de cultura, huertos urbanos, reciclaje y apoyo mutuo.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="muro" class="section section-white">
+        <div class="section-heading">
+          <p class="eyebrow">Muro comunitario</p>
+          <h2>Noticias recientes</h2>
+          <p>Comparte tu voz y responde a las publicaciones de la comunidad.</p>
+        </div>
+        <form id="post-form" class="post-form">
+          <label for="post-message">Escribe una publicación</label>
+          <textarea id="post-message" rows="4" placeholder="¿Qué quieres compartir hoy?" required></textarea>
+          <button type="submit" class="button button-primary">Publicar</button>
+        </form>
+        <p id="post-hint" class="post-hint">Inicia sesión para publicar en el muro.</p>
+        <div id="feed-list" class="feed-list"></div>
+      </section>
+
+      <section id="eventos" class="section section-light">
+        <div class="section-heading">
+          <p class="eyebrow">Próximos eventos</p>
+          <h2>Encuentros para construir juntos</h2>
+        </div>
+        <div class="event-grid">
+          <article class="event-card">
+            <h3>Taller de huerto urbano</h3>
+            <p>Aprende a cultivar alimentos en espacios reducidos y conecta con tus vecinos.</p>
+            <span>27 de junio · 10:00</span>
+          </article>
+          <article class="event-card">
+            <h3>Intercambio de libros</h3>
+            <p>Trae un libro y llévate uno nuevo para seguir creando comunidad lectora.</p>
+            <span>5 de julio · 17:00</span>
+          </article>
+          <article class="event-card">
+            <h3>Red de apoyo vecinal</h3>
+            <p>Organizamos un grupo de ayuda para necesidades cotidianas y compras solidarias.</p>
+            <span>12 de julio · 18:30</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="contacto" class="section section-dark">
+        <div class="contact-card">
+          <div>
+            <p class="eyebrow light">Únete a República Esperanza</p>
+            <h2>Haz que tu comunidad crezca</h2>
+            <p>Regístrate en la plataforma, participa en los eventos y comparte tus ideas para mejorar el barrio.</p>
+          </div>
+          <div>
+            <a class="button button-secondary" href="mailto:republica.esperanza@proton.me">Contactar</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 República Esperanza · Comunidad social y solidaria</p>
+      <p>Correo: <a href="mailto:republica.esperanza@proton.me">republica.esperanza@proton.me</a></p>
+    </footer>
+  </div>
+
+  <div id="login-modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-labelledby="login-title" aria-modal="true">
+      <button id="login-close" class="modal-close" aria-label="Cerrar">×</button>
+      <h2 id="login-title">Iniciar sesión</h2>
+      <p>Accede para publicar en el muro comunitario.</p>
+      <form id="login-form" class="login-form">
+        <label for="login-username">Nombre</label>
+        <input id="login-username" type="text" autocomplete="username" required />
+        <label for="login-password">Contraseña</label>
+        <input id="login-password" type="password" autocomplete="current-password" required />
+        <button type="submit" class="button button-primary">Entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
