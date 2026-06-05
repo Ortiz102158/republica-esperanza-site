@@ -1,2 +1,6 @@
 .vercel
 .env*.local
+
+# Ignore backup and temporary files
+*.bak
+*.b64
