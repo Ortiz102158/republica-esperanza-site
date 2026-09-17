@@ -8,306 +8,83 @@
   <meta name="description" content="República de Esperanza — MSR: por una República Democrática, Popular y Revolucionaria." />
   <title>República de Esperanza — MSR</title>
   <style>
-    :root {
-      --verde: #006400;
-      --rojo: #d32f2f;
-      --negro: #000;
-      --gris-claro: #f9f9f9;
-      --gris-oscuro: #333;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: var(--gris-oscuro);
-      background-color: #fff;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--rojo);
-      color: white;
-      padding: 0.8rem 1rem;
-      margin-bottom: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-    .logo-container {
-      display: flex;
-      align-items: center;
-      min-width: 180px;
-    }
-    .logo-container svg {
-      height: 50px;
-      margin-right: 12px;
-    }
-    .site-title {
-      font-size: 1.2rem;
-      font-weight: bold;
-      text-align: center;
-      flex: 1;
-      margin: 0 15px;
-    }
-    .slogan {
-      font-size: 0.9rem;
-      max-width: 300px;
-      display: none;
-    }
-    .section-nav {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #eee;
-      margin-bottom: 1.5rem;
-    }
-    .section-btn {
-      background: var(--rojo);
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 0.9rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      white-space: nowrap;
-    }
-    .section-btn:hover {
-      background: #b71c1c;
-      transform: translateY(-1px);
-    }
-    .section-btn:focus {
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.5);
-    }
-
-    /* ✅ Acordeones personalizados */
-    .accordion {
-      background-color: #eee;
-      color: var(--gris-oscuro);
-      cursor: pointer;
-      padding: 14px;
-      width: 100%;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 1.1rem;
-      font-weight: bold;
-      transition: 0.3s;
-      margin: 1.2rem 0;
-      border-radius: 4px;
-    }
-    .accordion:hover {
-      background-color: #ddd;
-    }
-    .accordion.open {
-      background-color: var(--rojo);
-      color: white;
-    }
-    .panel {
-      padding: 1rem 1.5rem;
-      display: none;
-      overflow: hidden;
-      background-color: #fafafa;
-      border-left: 4px solid var(--rojo);
-      border-radius: 0 4px 4px 0;
-      margin-bottom: 1rem;
-    }
-    .panel.show {
-      display: block;
-    }
-
-    /* ✅ Botón de donación */
-    .donation-btn {
-      display: inline-block;
-      background: var(--rojo);
-      color: white !important;
-      padding: 0.8rem 1.5rem;
-      border-radius: 4px;
-      font-weight: bold;
-      text-decoration: none;
-      margin: 1rem 0;
-      transition: background 0.3s;
-      border: none;
-      cursor: pointer;
-    }
-    .donation-btn:hover {
-      background: #b71c1c;
-      transform: translateY(-2px);
-    }
-
-    main {
-      margin-bottom: 3rem;
-    }
-    h1, h2, h3 {
-      margin-bottom: 0.75rem;
-      color: var(--rojo);
-    }
-    h1 {
-      font-size: 1.8rem;
-    }
-    h2 {
-      font-size: 1.5rem;
-      border-bottom: 2px solid var(--verde);
-      padding-bottom: 0.3rem;
-      margin-top: 1.5rem;
-    }
-    h3 {
-      font-size: 1.3rem;
-      margin-top: 1rem;
-    }
-    p, li {
-      margin-bottom: 1rem;
-    }
-    ul {
-      padding-left: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    a {
-      color: var(--rojo);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    section {
-      margin-bottom: 2rem;
-    }
-    details {
-      background: #fafafa;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      margin: 1.2rem 0;
-      overflow: hidden;
-    }
-    summary {
-      font-weight: bold;
-      padding: 0.8rem 1.2rem;
-      cursor: pointer;
-      background: #f0f0f0;
-      user-select: none;
-    }
-    summary:hover {
-      background: #e8e8e8;
-    }
-    summary::after {
-      content: "▶";
-      float: right;
-      transition: transform 0.3s;
-    }
-    details[open] summary::after {
-      transform: rotate(90deg);
-    }
-    details[open] summary {
-      background: #e3f2fd;
-    }
-    details > *:not(summary) {
-      padding: 1rem 1.2rem;
-    }
-    footer {
-      text-align: center;
-      padding: 1.5rem;
-      color: #666;
-      border-top: 1px solid #eee;
-      margin-top: 2rem;
-    }
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .site-title {
-        margin: 0.5rem 0;
-        font-size: 1.1rem;
-      }
-      .slogan {
-        display: block;
-        margin-top: 0.5rem;
-        font-size: 0.8rem;
-      }
-      .section-nav {
-        justify-content: center;
-      }
-      .section-btn {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.8rem;
-      }
-    }
-  
-    .lang-switcher {
-      display: flex;
-      gap: 0.4rem;
-      align-items: center;
-      margin-left: auto;
-    }
-    .lang-switcher a {
-      color: white;
-      text-decoration: none;
-      padding: 0.3rem 0.6rem;
-      border: 1px solid rgba(255,255,255,0.5);
-      border-radius: 4px;
-      font-size: 0.85rem;
-      font-weight: bold;
-      transition: background 0.2s;
-    }
-    .lang-switcher a:hover {
-      background: rgba(255,255,255,0.2);
-    }
-    .lang-switcher a[aria-current="true"] {
-      background: white;
-      color: #d32f2f;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --rojo: #C62828; --rojo-claro: #E53935; --verde: #2E7D32; --verde-claro: #4CAF50; --negro: #121212; --negro-suave: #181818; --gris: #222; --gris-claro: #2f2f2f; --blanco: #F5F5F5; --texto: #eaeaea; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: radial-gradient(circle at top, rgba(76,175,80,0.12), transparent 35%), linear-gradient(180deg, #111, #0d0d0d); color: var(--texto); line-height: 1.75; }
+    header { background: linear-gradient(135deg, rgba(30,30,30,0.96), rgba(15,15,15,0.99)); color: #fff; text-align: center; padding: 3rem 1rem 2.5rem; border-bottom: 4px solid var(--rojo); position: relative; overflow: hidden; }
+    .logo-msr { display: flex; justify-content: center; align-items: center; gap: 1.5rem; margin-bottom: 1.25rem; flex-wrap: wrap; position: relative; z-index: 1; }
+    .estrella-roja { width: 82px; height: 82px; background-color: var(--rojo); clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); box-shadow: 0 0 24px rgba(198,40,40,0.5); }
+    .logo-completo { display: flex; flex-direction: column; align-items: center; gap: 0.8rem; }
+    .msr-letters { display: flex; gap: 0.8rem; justify-content: center; }
+    .msr-letters span { font-size: 1rem; font-weight: 800; color: var(--rojo-claro); background: rgba(255,255,255,0.08); padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.15); }
+    .letras-msr-texto { font-size: 1.95rem; font-weight: 800; letter-spacing: 0.35em; color: var(--blanco); text-transform: uppercase; }
+    header h1 { font-size: clamp(2.4rem, 4vw, 3.4rem); margin: 0.9rem auto 0.6rem; color: var(--verde-claro); }
+    .btn, .donation-btn { display: inline-block; background: linear-gradient(135deg, var(--rojo), var(--rojo-claro)); color: #fff; padding: 12px 26px; border-radius: 30px; text-decoration: none; font-weight: bold; transition: all 0.3s; margin-top: 1rem; }
+    .btn:hover, .donation-btn:hover { background: linear-gradient(135deg, var(--verde), var(--verde-claro)); transform: scale(1.04); }
+    nav { background: rgba(20,20,20,0.96); padding: 0.8rem 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; flex-wrap: wrap; gap: 0.6rem; padding: 0 1rem; }
+    .nav-container a { color: var(--blanco); text-decoration: none; padding: 0.55rem 1rem; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); font-size: 0.9rem; }
+    .nav-container a:hover { background: var(--rojo); color: #fff; }
+    main { max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem; }
+    section { background: rgba(255,255,255,0.03); margin-bottom: 2rem; padding: 2rem; border-radius: 20px; border-left: 5px solid var(--rojo); }
+    h2 { color: var(--verde-claro); font-size: 1.8rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--rojo); display: inline-block; }
+    h3 { color: var(--rojo-claro); margin: 1.5rem 0 0.8rem 0; font-size: 1.3rem; }
+    h4 { color: var(--verde-claro); margin: 1.2rem 0 0.6rem 0; font-size: 1.1rem; }
+    p { margin-bottom: 1rem; }
+    ul { margin: 1rem 0 1rem 2rem; }
+    li { margin-bottom: 0.5rem; }
+    a { color: var(--verde-claro); }
+    a:hover { color: var(--rojo-claro); }
+    .accordion { background: rgba(34,34,34,0.92); color: var(--verde-claro); cursor: pointer; padding: 1rem 1.5rem; width: 100%; border: none; text-align: left; outline: none; font-size: 1rem; font-weight: bold; transition: 0.3s; border-radius: 14px; margin-top: 1rem; border: 1px solid rgba(255,255,255,0.08); }
+    .accordion:hover, .accordion.open { background: rgba(198,40,40,0.95); color: #fff; }
+    .panel { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; background: rgba(255,255,255,0.03); border-radius: 0 0 14px 14px; }
+    .panel.show { max-height: none; padding: 1.5rem; }
+    details { background: rgba(255,255,255,0.05); margin: 1rem 0; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); }
+    summary { padding: 1rem 1.5rem; font-weight: bold; cursor: pointer; background: rgba(34,34,34,0.92); color: var(--verde-claro); transition: background 0.3s; }
+    summary:hover { background: rgba(198,40,40,0.95); color: #fff; }
+    details > *:not(summary) { padding: 0 1.5rem; }
+    details > p:first-of-type { padding-top: 1rem; }
+    details > p:last-of-type { padding-bottom: 1.5rem; }
+    footer { background: var(--negro-suave); text-align: center; padding: 2rem; margin-top: 2rem; border-top: 3px solid var(--verde); }
+    .lang-bar { position: fixed; bottom: 1rem; right: 1rem; z-index: 2000; display: flex; gap: 0.3rem; background: rgba(20,20,20,0.95); padding: 0.4rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(8px); }
+    .lang-bar a { color: #fff; text-decoration: none; padding: 0.4rem 0.9rem; border-radius: 999px; font-weight: 600; font-size: 0.85rem; transition: all 0.2s; }
+    .lang-bar a:hover, .lang-bar a.active { background: var(--rojo); }
+    @media(max-width: 768px) { main { padding: 0 1rem; } section { padding: 1.5rem; } h2 { font-size: 1.5rem; } .estrella-roja { width: 50px; height: 50px; } }
   </style>
 </head>
 <body>
-<header>
-  <div class="logo-container">
-    <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg" width="100%" height="50">
-      <rect width="300" height="50" y="0" fill="#006400"/>
-      <rect width="300" height="50" y="50" fill="#d32f2f"/>
-      <rect width="300" height="50" y="100" fill="#000"/>
-      <polygon fill="white" points="150,65 158,93 186,93 163,110 171,138 150,121 129,138 137,110 114,93 142,93"/>
-      <polygon fill="#d32f2f" points="150,70 156,89 175,89 160,105 166,124 150,108 134,124 140,105 125,89 144,89"/>
-      <text x="150" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="white">MSR</text>
-    </svg>
-  </div>
-  <div class="site-title">
-    República de Esperanza — MSR
-  </div>
-  <div class="slogan">
-    ¡ÚNETE A LA LUCHA POR UNA REPÚBLICA DEMOCRÁTICA, POPULAR Y REVOLUCIONARIA!
-  </div>
-      <nav class="lang-switcher" aria-label="Selector de idioma">
-        <a href="/es" aria-current="true" title="Espanol">ES</a>
-        <a href="/en/" title="English">EN</a>
-        <a href="/ht/" title="Kreyol Ayisyen">HT</a>
-      </nav>
-
-</header>
-<div class="section-nav">
-  <button class="section-btn" data-target="sobre-nosotros">Sobre Nosotros</button>
-  <button class="section-btn" data-target="principios">Principios</button>
-  <button class="section-btn" data-target="valores">Valores</button>
-  <button class="section-btn" data-target="internacional">Internacional</button>
-  <button class="section-btn" data-target="diaspora">Diáspora</button>
-  <button class="section-btn" data-target="derechos-humanos">Derechos Humanos</button>
-  <button class="section-btn" data-target="actividades">Actividades</button>
-  <button class="section-btn" data-target="teologia">Teología</button>
-  <button class="section-btn" data-target="donaciones">Donaciones</button>
+<div class="lang-bar">
+  <a href="/" class="active">🇩🇴 ES</a>
+  <a href="/en/">🇺🇸 EN</a>
+  <a href="/ht/">🇭🇹 HT</a>
 </div>
+<header>
+  <div class="logo-msr">
+    <div class="logo-completo">
+      <div class="estrella-roja"></div>
+      <div class="msr-letters"><span>M</span><span>S</span><span>R</span></div>
+    </div>
+    <div class="letras-msr-texto">REPÚBLICA DE ESPERANZA</div>
+  </div>
+  <h1>Movimiento Por la Salvación de la República</h1>
+  <p><strong>¡ÚNETE A LA LUCHA POR UNA REPÚBLICA DEMOCRÁTICA, POPULAR Y REVOLUCIONARIA!</strong> Construyamos esperanza, solidaridad y soberanía desde cada barrio, cada pueblo y cada hogar.</p>
+  <a href="#contacto" class="btn">Únete ahora</a>
+</header>
+<nav>
+  <div class="nav-container">
+    <a href="#sobre-nosotros">Sobre Nosotros</a>
+    <a href="#principios">Principios</a>
+    <a href="#valores">Valores</a>
+    <a href="#internacional">Internacional</a>
+    <a href="#biblioteca">Biblioteca</a>
+    <a href="#diaspora">Diáspora</a>
+    <a href="#derechos-humanos">DDHH</a>
+    <a href="#teologia">Teología</a>
+    <a href="#actividades">Actividades</a>
+    <a href="#donaciones">Donaciones</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+</nav>
 <main>
 <section id="sobre-nosotros">
   <h2>✊ SOBRE NOSOTROS ✊</h2>
