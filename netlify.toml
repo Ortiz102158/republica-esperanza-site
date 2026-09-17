@@ -1,0 +1,22 @@
+# netlify.toml — Configuración para el despliegue en Netlify
+# Reescrituras para el sitio multi-idioma República de Esperanza
+
+[[redirects]]
+  from = "/"
+  to = "/es/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/es"
+  to = "/es/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/en"
+  to = "/en/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/ht"
+  to = "/ht/index.html"
+  status = 200
