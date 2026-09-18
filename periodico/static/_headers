@@ -1,0 +1,5 @@
+/admin/config.yml
+  Content-Type: text/yaml
+
+/admin/index.html
+  Content-Type: text/html
