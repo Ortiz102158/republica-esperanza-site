@@ -1,0 +1,18 @@
+{{ define "main" }}
+<section class="portada">
+  <h1>Ultimas noticias</h1>
+  {{ $articulos := where .Site.RegularPages "Section" "!=" "" }}
+  {{ range first 10 $articulos.ByDate.Reverse }}
+    <article class="articulo-resumen">
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      <div class="meta">
+        {{ if .Params.autor }}Por {{ .Params.autor }} | {{ end }}
+        {{ partial "fecha.html" . }}
+        {{ if .Params.seccion }} | {{ .Params.seccion }}{{ end }}
+      </div>
+      <p>{{ .Summary }}</p>
+      <a href="{{ .Permalink }}" class="leer-mas">Leer mas</a>
+    </article>
+  {{ end }}
+</section>
+{{ end }}

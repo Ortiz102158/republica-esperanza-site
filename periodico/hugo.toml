@@ -1,0 +1,59 @@
+baseURL = "https://periodico-republica-esperanza.netlify.app/"
+languageCode = "es-do"
+title = "Periodico Republica de Esperanza"
+theme = "msr"
+
+[params]
+  description = "Periodico digital del Movimiento Por la Salvacion de la Republica"
+  author = "MSR"
+  email = "republica-esperanza@proton.me"
+  colorVerde = "#006400"
+  colorRojo = "#d32f2f"
+  colorNegro = "#000000"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[menu]
+  [[menu.main]]
+    name = "Actualidad"
+    url = "/actualidad/"
+    weight = 10
+  [[menu.main]]
+    name = "Internacional"
+    url = "/internacional/"
+    weight = 20
+  [[menu.main]]
+    name = "Economia"
+    url = "/economia/"
+    weight = 30
+  [[menu.main]]
+    name = "Sector Obrero"
+    url = "/sector-obrero/"
+    weight = 40
+  [[menu.main]]
+    name = "Social"
+    url = "/social/"
+    weight = 50
+  [[menu.main]]
+    name = "Derechos Humanos"
+    url = "/derechos-humanos/"
+    weight = 60
+  [[menu.main]]
+    name = "Diaspora"
+    url = "/diaspora/"
+    weight = 70
+  [[menu.main]]
+    name = "Cultura"
+    url = "/cultura/"
+    weight = 80
+  [[menu.main]]
+    name = "Teologia"
+    url = "/teologia/"
+    weight = 90
+  [[menu.main]]
+    name = "Opinion"
+    url = "/opinion/"
+    weight = 100

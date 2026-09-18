@@ -1,0 +1,8 @@
+# Archivos temporales de Hugo
+public/
+resources/
+.hugo_build.lock
+
+# Archivos del sistema
+.DS_Store
+*.swp

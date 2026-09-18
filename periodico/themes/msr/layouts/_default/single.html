@@ -1,0 +1,22 @@
+{{ define "main" }}
+<article class="articulo-completo">
+  <h1>{{ .Title }}</h1>
+  <div class="meta">
+    {{ if .Params.autor }}Por {{ .Params.autor }} | {{ end }}
+    {{ partial "fecha.html" . }}
+    {{ if .Params.seccion }} | Seccion: {{ .Params.seccion }}{{ end }}
+  </div>
+  {{ if .Params.tipo }}
+    <div class="tipo-{{ .Params.tipo }}">{{ .Params.tipo | upper }}</div>
+  {{ end }}
+  <div class="contenido">
+    {{ .Content }}
+  </div>
+  {{ if eq .Params.tipo "opinion" }}
+    <div class="aviso-opinion">
+      Las opiniones expresadas en este articulo son responsabilidad exclusiva del autor
+      y no representan necesariamente la posicion oficial del MSR.
+    </div>
+  {{ end }}
+</article>
+{{ end }}
