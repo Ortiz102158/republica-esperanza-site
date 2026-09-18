@@ -1,20 +1,22 @@
-<header>
-  <div class="container header-inner">
-    <a href="/" class="logo">
-      <svg viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg" width="120" height="60">
-        <rect width="300" height="50" y="0" fill="#006400"/>
-        <rect width="300" height="50" y="50" fill="#d32f2f"/>
-        <rect width="300" height="50" y="100" fill="#000"/>
-        <polygon fill="white" points="150,65 158,93 186,93 163,110 171,138 150,121 129,138 137,110 114,93 142,93"/>
-        <polygon fill="#d32f2f" points="150,70 156,89 175,89 160,105 166,124 150,108 134,124 140,105 125,89 144,89"/>
-        <text x="150" y="115" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="white">MSR</text>
-      </svg>
-      <span class="site-title">Periodico Republica de Esperanza</span>
-    </a>
-    <nav class="main-nav">
-      {{ range .Site.Menus.main }}
-        <a href="{{ .URL }}">{{ .Name }}</a>
-      {{ end }}
-    </nav>
+<header class="site-header">
+  <div class="header-top">
+    <div class="logo-msr">
+      <div class="estrella-roja"></div>
+      <div class="msr-letters"><span>M</span><span>S</span><span>R</span></div>
+    </div>
+    <h1 class="site-title">PERIÓDICO REPÚBLICA DE ESPERANZA</h1>
+    <p class="site-subtitle">Órgano del Movimiento Por la Salvación de la República</p>
+    <p class="site-date">
+      {{- $meses := slice "enero" "febrero" "marzo" "abril" "mayo" "junio" "julio" "agosto" "septiembre" "octubre" "noviembre" "diciembre" -}}
+      {{- $mes := index $meses (sub now.Month 1) -}}
+      Santo Domingo, {{ now.Day }} de {{ $mes }} de {{ now.Year }}
+    </p>
   </div>
 </header>
+<nav class="main-nav">
+  <div class="nav-container">
+    {{ range .Site.Menus.main }}
+      <a href="{{ .URL }}">{{ .Name }}</a>
+    {{ end }}
+  </div>
+</nav>
