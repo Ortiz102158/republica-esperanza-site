@@ -1,6 +1,6 @@
 ---
 title: "Declaración Universal de Derechos Humanos (ONU, 1948)"
-date: "2026-09-18"
+date: "1948-12-10"
 autor: "Organización de las Naciones Unidas"
 seccion: "Derechos Humanos"
 tipo: "documento"

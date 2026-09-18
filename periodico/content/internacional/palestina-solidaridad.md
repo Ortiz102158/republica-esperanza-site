@@ -1,6 +1,6 @@
 ---
 title: "Palestina: solidaridad sin condiciones"
-date: "2026-09-18"
+date: "2025-04-04"
 autor: "MSR - Comision Internacional de Solidaridad"
 seccion: "Internacional"
 tipo: "articulo"

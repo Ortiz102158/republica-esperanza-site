@@ -3,7 +3,7 @@ from pathlib import Path
 
 contenido = '''---
 title: "La Diáspora Dominicana: Motor Cultural, Económico y Político del Desarrollo Transnacional"
-date: "2026-09-18"
+date: "2024-12-15"
 autor: "MSR - Comisión de Diáspora"
 seccion: "Diáspora"
 tipo: "ensayo"

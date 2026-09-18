@@ -1,6 +1,6 @@
 ---
 title: "Tabaco y Cigarro son dominicanos"
-date: "2026-09-18"
+date: "2024-04-02"
 autor: "Ing. Francisco Matos Mancebo"
 seccion: "Cultura"
 tipo: "articulo"

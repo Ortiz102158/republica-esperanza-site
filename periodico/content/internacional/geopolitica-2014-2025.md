@@ -1,6 +1,6 @@
 ---
 title: "Geopolítica mundial 2014-2025: Análisis de coyuntura"
-date: "2026-09-18"
+date: "2025-01-15"
 autor: "Alejandro Ortiz"
 seccion: "Internacional"
 tipo: "analisis"

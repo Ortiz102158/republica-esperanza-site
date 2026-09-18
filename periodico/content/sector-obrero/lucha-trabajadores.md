@@ -1,6 +1,6 @@
 ---
 title: "La lucha de los trabajadores dominicanos en el siglo XXI"
-date: "2026-09-16"
+date: "2025-02-15"
 autor: "Alejandro Ortiz"
 seccion: "Sector Obrero"
 tipo: "articulo"

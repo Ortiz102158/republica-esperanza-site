@@ -1,6 +1,6 @@
 ---
 title: "Venezuela: defender la soberania popular"
-date: "2026-09-18"
+date: "2025-04-03"
 autor: "MSR - Frente Antiimperialista Latinoamericano"
 seccion: "Internacional"
 tipo: "articulo"
