@@ -1,4 +1,4 @@
-baseURL = "https://periodico-republica-esperanza.netlify.app/"
+baseURL = "https://periodico-republica-esperanza.pages.dev/"
 languageCode = "es-do"
 title = "Periodico Republica de Esperanza"
 theme = "msr"

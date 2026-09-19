@@ -304,3 +304,23 @@ footer a { color: var(--rojo); }
   .site-date { font-size: 0.75rem; }
   .nav-container a { font-size: 0.75rem; padding: 0.4rem 0.7rem; }
 }
+
+
+/* Boton WEB (enlace a la web institucional) */
+.btn-web {
+  background: linear-gradient(135deg, #2E7D32, #4CAF50) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  padding: 0.5rem 1.2rem !important;
+  border: none !important;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 8px rgba(46,125,50,0.4);
+  transition: all 0.2s;
+}
+.btn-web:hover {
+  background: linear-gradient(135deg, #4CAF50, #2E7D32) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46,125,50,0.6);
+}
