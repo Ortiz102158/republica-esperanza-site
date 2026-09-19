@@ -9,7 +9,7 @@
         {{ if .Params.autor }}Por {{ .Params.autor }} | {{ end }}
         {{ partial "fecha.html" . }}
       </div>
-      <p>{{ .Summary }}</p>
+      <p>{{ if .Params.summary }}{{ .Params.summary }}{{ else }}{{ .Summary | plainify | truncate 200 }}{{ end }}</p>
     </article>
   {{ end }}
 </section>

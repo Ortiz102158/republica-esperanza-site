@@ -19,6 +19,7 @@ collections:
       - { label: "Autor", name: "autor", widget: "string", default: "MSR" }
       - { label: "Sección", name: "seccion", widget: "string", default: "Actualidad" }
       - { label: "Tipo", name: "tipo", widget: "select", options: ["articulo", "editorial", "analisis", "ensayo", "documento", "opinion"], default: "articulo" }
+      - { label: "Resumen", name: "summary", widget: "text", required: false, hint: "Breve descripcion (2-3 lineas)" }
       - { label: "Contenido", name: "body", widget: "markdown" }
 
   - name: "internacional"
@@ -32,6 +33,7 @@ collections:
       - { label: "Autor", name: "autor", widget: "string", default: "MSR" }
       - { label: "Sección", name: "seccion", widget: "string", default: "Internacional" }
       - { label: "Tipo", name: "tipo", widget: "select", options: ["articulo", "editorial", "analisis", "ensayo", "documento", "opinion"], default: "articulo" }
+      - { label: "Resumen", name: "summary", widget: "text", required: false, hint: "Breve descripcion (2-3 lineas)" }
       - { label: "Contenido", name: "body", widget: "markdown" }
 
   - name: "economia"
@@ -45,6 +47,7 @@ collections:
       - { label: "Autor", name: "autor", widget: "string", default: "MSR" }
       - { label: "Sección", name: "seccion", widget: "string", default: "Economía" }
       - { label: "Tipo", name: "tipo", widget: "select", options: ["articulo", "editorial", "analisis", "ensayo", "documento", "opinion"], default: "articulo" }
+      - { label: "Resumen", name: "summary", widget: "text", required: false, hint: "Breve descripcion (2-3 lineas)" }
       - { label: "Contenido", name: "body", widget: "markdown" }
 
   - name: "sector-obrero"
@@ -58,6 +61,7 @@ collections:
       - { label: "Autor", name: "autor", widget: "string", default: "MSR - Comisión de Trabajadores" }
       - { label: "Sección", name: "seccion", widget: "string", default: "Sector Obrero" }
       - { label: "Tipo", name: "tipo", widget: "select", options: ["articulo", "editorial", "analisis", "ensayo", "documento", "opinion"], default: "articulo" }
+      - { label: "Resumen", name: "summary", widget: "text", required: false, hint: "Breve descripcion (2-3 lineas)" }
       - { label: "Contenido", name: "body", widget: "markdown" }
 
   - name: "social"
@@ -71,6 +75,7 @@ collections:
       - { label: "Autor", name: "autor", widget: "string", default: "MSR" }
       - { label: "Sección", name: "seccion", widget: "string", default: "Social" }
       - { label: "Tipo", name: "tipo", widget: "select", options: ["articulo", "editorial", "analisis", "ensayo", "documento", "opinion"], default: "articulo" }
+      - { label: "Resumen", name: "summary", widget: "text", required: false, hint: "Breve descripcion (2-3 lineas)" }
       - { label: "Contenido", name: "body", widget: "markdown" }
 
   - name: "derechos-humanos"
@@ -84,6 +89,7 @@ collections:
       - { label: "Autor", name: "autor", widget: "string", default: "MSR" }
       - { label: "Sección", name: "seccion", widget: "string", default: "Derechos Humanos" }
       - { label: "Tipo", name: "tipo", widget: "select", options: ["articulo", "editorial", "analisis", "ensayo", "documento", "opinion"], default: "articulo" }
+      - { label: "Resumen", name: "summary", widget: "text", required: false, hint: "Breve descripcion (2-3 lineas)" }
       - { label: "Contenido", name: "body", widget: "markdown" }
 
   - name: "diaspora"
@@ -97,6 +103,7 @@ collections:
       - { label: "Autor", name: "autor", widget: "string", default: "MSR - Comisión de Diáspora" }
       - { label: "Sección", name: "seccion", widget: "string", default: "Diáspora" }
       - { label: "Tipo", name: "tipo", widget: "select", options: ["articulo", "editorial", "analisis", "ensayo", "documento", "opinion"], default: "articulo" }
+      - { label: "Resumen", name: "summary", widget: "text", required: false, hint: "Breve descripcion (2-3 lineas)" }
       - { label: "Contenido", name: "body", widget: "markdown" }
 
   - name: "cultura"
@@ -110,6 +117,7 @@ collections:
       - { label: "Autor", name: "autor", widget: "string", default: "MSR" }
       - { label: "Sección", name: "seccion", widget: "string", default: "Cultura" }
       - { label: "Tipo", name: "tipo", widget: "select", options: ["articulo", "editorial", "analisis", "ensayo", "documento", "opinion"], default: "articulo" }
+      - { label: "Resumen", name: "summary", widget: "text", required: false, hint: "Breve descripcion (2-3 lineas)" }
       - { label: "Contenido", name: "body", widget: "markdown" }
 
   - name: "teologia"
@@ -123,6 +131,7 @@ collections:
       - { label: "Autor", name: "autor", widget: "string", default: "MSR - Comisión de Teología" }
       - { label: "Sección", name: "seccion", widget: "string", default: "Teología" }
       - { label: "Tipo", name: "tipo", widget: "select", options: ["articulo", "editorial", "analisis", "ensayo", "documento", "opinion"], default: "articulo" }
+      - { label: "Resumen", name: "summary", widget: "text", required: false, hint: "Breve descripcion (2-3 lineas)" }
       - { label: "Contenido", name: "body", widget: "markdown" }
 
   - name: "opinion"
@@ -136,4 +145,5 @@ collections:
       - { label: "Autor", name: "autor", widget: "string", default: "MSR" }
       - { label: "Sección", name: "seccion", widget: "string", default: "Opinión" }
       - { label: "Tipo", name: "tipo", widget: "select", options: ["articulo", "editorial", "analisis", "ensayo", "documento", "opinion"], default: "opinion" }
+      - { label: "Resumen", name: "summary", widget: "text", required: false, hint: "Breve descripcion (2-3 lineas)" }
       - { label: "Contenido", name: "body", widget: "markdown" }

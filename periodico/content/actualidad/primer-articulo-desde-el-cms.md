@@ -4,8 +4,9 @@ date: 2026-09-19T12:29:00.000-04:00
 autor: MSR
 seccion: Actualidad
 tipo: articulo
+summary: ""
 ---
-\## Resumen Ejecutivo: Panorama Mundial a Julio de 2026
+## Resumen Ejecutivo: Panorama Mundial a Julio de 2026
 
 
 
@@ -13,11 +14,11 @@ El mundo atraviesa un momento de alta volatilidad. La economía global, que most
 
 
 
-\---
+---
 
 
 
-\### 1. Panorama Militar y Político: El Conflicto en Oriente Medio como Eje Central
+### 1. Panorama Militar y Político: El Conflicto en Oriente Medio como Eje Central
 
 
 
@@ -43,11 +44,11 @@ La confrontación entre Estados Unidos e Irán, que comenzó con ataques aéreos
 
 
 
-\---
+---
 
 
 
-\### 2. Panorama Económico: Un Mundo bajo el Shock Energético
+### 2. Panorama Económico: Un Mundo bajo el Shock Energético
 
 
 
@@ -75,11 +76,11 @@ El impacto económico del conflicto ha sido inmediato y severo, descarrilando la
 
 
 
-\---
+---
 
 
 
-\### 3. Riesgos y Perspectivas: Entre la Resiliencia y el Precipicio
+### 3. Riesgos y Perspectivas: Entre la Resiliencia y el Precipicio
 
 
 

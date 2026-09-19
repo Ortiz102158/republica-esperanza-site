@@ -10,7 +10,7 @@
         {{ partial "fecha.html" . }}
         {{ if .Params.seccion }} | {{ .Params.seccion }}{{ end }}
       </div>
-      <p>{{ .Summary }}</p>
+      <p>{{ if .Params.summary }}{{ .Params.summary }}{{ else }}{{ .Summary | plainify | truncate 200 }}{{ end }}</p>
       <a href="{{ .Permalink }}" class="leer-mas">Leer mas</a>
     </article>
   {{ end }}
