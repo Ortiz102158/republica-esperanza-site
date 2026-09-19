@@ -56,7 +56,27 @@
     details > *:not(summary) { padding: 0 1.5rem; }
     details > p:first-of-type { padding-top: 1rem; }
     details > p:last-of-type { padding-bottom: 1.5rem; }
+  
+    .btn-periodico {
+      background: linear-gradient(135deg, var(--rojo, #C62828), #E53935) !important;
+      color: #fff !important;
+      font-weight: 700 !important;
+      padding: 0.55rem 1.2rem !important;
+      border: none !important;
+      box-shadow: 0 2px 8px rgba(198,40,40,0.4);
+      animation: pulse-periodico 2s infinite;
+    }
+    .btn-periodico:hover {
+      background: linear-gradient(135deg, #E53935, #C62828) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(198,40,40,0.6);
+    }
+    @keyframes pulse-periodico {
+      0%, 100% { box-shadow: 0 2px 8px rgba(198,40,40,0.4); }
+      50% { box-shadow: 0 2px 16px rgba(198,40,40,0.8); }
+    }
   </style>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
 <body>
 <div class="lang-bar">
@@ -89,6 +109,10 @@
     <a href="#actividades">Actividades</a>
     <a href="#donaciones">Donaciones</a>
     <a href="#contacto">Contacto</a>
+  <a href="https://periodico-republica-esperanza.netlify.app" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         class="btn-periodico">📰 PERIÓDICO</a>
   </div>
 </nav>
 <main>
