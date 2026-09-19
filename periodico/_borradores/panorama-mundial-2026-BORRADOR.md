@@ -1,11 +1,12 @@
 ---
-title: Artculo de prueba
-date: 2026-09-19T12:13:00.000-04:00
-autor: MSR
-seccion: Actualidad
-tipo: articulo
-summary: ""
+title: "Panorama Mundial a Julio de 2026: Analisis de Coyuntura"
+date: "2026-07-01"
+autor: "MSR - Comision Internacional"
+seccion: "Internacional"
+tipo: "analisis"
+summary: "Analisis de la situacion geopolitica mundial a julio de 2026: el conflicto en Oriente Medio como eje central, la volatilidad economica global y la fragmentacion geopolitica creciente."
 ---
+
 ## Resumen Ejecutivo: Panorama Mundial a Julio de 2026
 
 
