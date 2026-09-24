@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La participación cristiana en la lucha por los derechos de los explotados, oprimidos y excluidos · Comisión Teológica MSR</title>
+<meta name="description" content="Documento oficial de la Comisión Teológica del MSR. Ensayo sobre la participación cristiana en la lucha por los derechos de los explotados, oprimidos y excluidos.">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;500&family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rojo:#e11d2a; --rojoOsc:#a10d17; --rojoClaro:#f3b4b4;
+  --verde:#2f8a5b; --verdeOsc:#1a5a3a; --verdeClaro:#7dd3a5;
+  --negro:#0a0a0a; --negro2:#141414; --negro3:#1c1c1c;
+  --crema:#ece7dd; --gris:#8a8a8a; --gris2:#5c5c5c;
+  --linea:rgba(236,231,221,.10);
+  --lineaV:rgba(47,138,91,.30);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--negro); color:var(--crema);
+  font-family:'IBM Plex Mono',ui-monospace,monospace;
+  font-size:15px; line-height:1.65;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:820px; margin:0 auto; padding:0 22px}
+
+/* ============ FRANJA TRICOLOR ============ */
+.tricolor{display:flex; height:4px; position:fixed; top:0; left:0; right:0; z-index:100}
+.tricolor i{flex:1}
+.tricolor i:nth-child(1){background:var(--crema)}
+.tricolor i:nth-child(2){background:var(--verde)}
+.tricolor i:nth-child(3){background:var(--rojo)}
+
+/* ============ TOPBAR ============ */
+.topbar{
+  position:fixed; top:4px; left:0; right:0; z-index:90;
+  background:rgba(10,10,10,.94); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--linea);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:10px 20px; font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+  gap:14px;
+}
+.topbar .back{color:var(--gris); display:flex; align-items:center; gap:8px; white-space:nowrap}
+.topbar .back:hover{color:var(--crema)}
+.topbar .back::before{content:"←"}
+.topbar .msr{display:flex; gap:5px}
+.topbar .msr span{
+  width:20px; height:20px; border-radius:50%; display:grid; place-items:center;
+  font-family:'Oswald',sans-serif; font-weight:700; font-size:10px;
+}
+.topbar .msr span:nth-child(1){border:1.2px solid var(--rojo); color:var(--rojo)}
+.topbar .msr span:nth-child(2){border:1.2px solid var(--verde); color:var(--verde)}
+.topbar .msr span:nth-child(3){border:1.2px solid var(--crema); color:var(--crema)}
+.topbar .langs{display:flex; gap:4px}
+.topbar .langs button{
+  background:none; border:1px solid var(--linea); color:var(--gris);
+  font:inherit; letter-spacing:inherit; cursor:pointer;
+  padding:5px 10px; font-size:10px; transition:.2s;
+}
+.topbar .langs button:hover{color:var(--crema); border-color:var(--gris)}
+.topbar .langs button.on{color:var(--rojo); border-color:var(--rojo)}
+
+/* ============ CABECERA OFICIAL ============ */
+.doc-header{
+  padding:120px 0 40px;
+  border-bottom:1px solid var(--linea);
+  position:relative;
+}
+.doc-header::before{
+  content:""; position:absolute; top:78px; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--verde) 20%, var(--verde) 80%, transparent);
+  opacity:.4;
+}
+.doc-seal{
+  display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+  margin-bottom:30px;
+}
+.doc-seal .tag{
+  font-family:'IBM Plex Mono',monospace; font-size:10px;
+  letter-spacing:.32em; text-transform:uppercase;
+  color:var(--verdeClaro);
+  padding:6px 12px; border:1px solid var(--lineaV);
+}
+.doc-seal .id{
+  font-family:'IBM Plex Mono',monospace; font-size:10px;
+  letter-spacing:.32em; text-transform:uppercase;
+  color:var(--gris);
+}
+.doc-seal .id b{color:var(--crema); font-weight:500}
+
+.doc-org{
+  font-family:'IBM Plex Mono',monospace; font-size:11px;
+  letter-spacing:.30em; text-transform:uppercase;
+  color:var(--crema); margin-bottom:8px;
+}
+.doc-org-sub{
+  font-family:'IBM Plex Mono',monospace; font-size:10px;
+  letter-spacing:.24em; text-transform:uppercase;
+  color:var(--gris); margin-bottom:40px;
+}
+
+/* ============ TÍTULO ============ */
+h1.article-title{
+  font-family:'Oswald',sans-serif; font-weight:700;
+  font-size:clamp(30px,4.8vw,54px); line-height:1.04;
+  letter-spacing:-.015em; text-transform:uppercase;
+  margin-bottom:28px;
+}
+h1.article-title .accent{color:var(--verdeClaro)}
+
+.deck{
+  font-family:'EB Garamond',serif; font-style:italic;
+  font-size:clamp(17px,2.1vw,21px); line-height:1.5;
+  color:#c9c4b8; max-width:680px; margin-bottom:40px;
+}
+.deck b{color:var(--crema); font-weight:600; font-style:normal}
+
+.article-meta{
+  display:flex; gap:26px; flex-wrap:wrap;
+  font-family:'IBM Plex Mono',monospace; font-size:10px;
+  letter-spacing:.22em; text-transform:uppercase; color:var(--gris);
+  padding-top:24px; border-top:1px dashed var(--linea);
+}
+.article-meta b{color:var(--crema); font-weight:500}
+
+/* ============ CUERPO ============ */
+.article-body{padding:60px 0 60px}
+.article-body p{
+  font-family:'EB Garamond',serif; font-size:19px; line-height:1.75;
+  color:#c9c4b8; margin-bottom:26px;
+}
+.article-body p b{color:var(--crema); font-weight:600}
+.article-body p em{font-style:italic; color:var(--crema)}
+.article-body p.lead{
+  font-size:22px; line-height:1.6; color:var(--crema);
+}
+.article-body p.lead::first-letter{
+  font-family:'Oswald',sans-serif; font-weight:700;
+  font-size:60px; line-height:.85;
+  float:left; margin:6px 12px 0 0; color:var(--verdeClaro);
+}
+
+h2.section{
+  font-family:'Oswald',sans-serif; font-weight:700;
+  font-size:clamp(20px,2.8vw,30px); line-height:1.1;
+  letter-spacing:-.01em; text-transform:uppercase;
+  margin:56px 0 24px; color:var(--crema);
+  padding-top:26px; border-top:2px solid var(--verde);
+}
+h3.subsection{
+  font-family:'Oswald',sans-serif; font-weight:600;
+  font-size:16px; letter-spacing:.02em; text-transform:uppercase;
+  margin:34px 0 14px; color:var(--verdeClaro);
+}
+.article-body ul{
+  margin:0 0 26px 26px; padding:0;
+}
+.article-body ul li{
+  font-family:'EB Garamond',serif; font-size:18px; line-height:1.7;
+  color:#c9c4b8; margin-bottom:14px; padding-left:6px;
+}
+.article-body ul li::marker{color:var(--verde)}
+.article-body ul li b{color:var(--crema); font-weight:600}
+
+.article-body blockquote{
+  margin:40px 0; padding:24px 0 24px 30px;
+  border-left:3px solid var(--rojo);
+  font-family:'EB Garamond',serif; font-style:italic;
+  font-size:22px; line-height:1.5; color:var(--crema);
+}
+.article-body blockquote cite{
+  display:block; margin-top:14px; font-style:normal;
+  font-family:'IBM Plex Mono',monospace; font-size:11px;
+  letter-spacing:.24em; text-transform:uppercase; color:var(--gris);
+}
+
+/* ============ FIRMA OFICIAL ============ */
+.doc-signature{
+  margin:80px 0 0; padding:44px 40px;
+  background:
+    linear-gradient(120deg, rgba(47,138,91,.10) 0%, rgba(0,0,0,0) 50%, rgba(225,29,42,.08) 100%),
+    var(--negro2);
+  border-left:3px solid var(--verde);
+  position:relative;
+}
+.doc-signature .label{
+  font-family:'IBM Plex Mono',monospace; font-size:10px;
+  letter-spacing:.30em; text-transform:uppercase;
+  color:var(--verdeClaro); margin-bottom:16px;
+}
+.doc-signature .org{
+  font-family:'Oswald',sans-serif; font-weight:700;
+  font-size:clamp(18px,2.6vw,24px); line-height:1.15;
+  letter-spacing:.02em; text-transform:uppercase;
+  color:var(--crema); margin-bottom:6px;
+}
+.doc-signature .sub{
+  font-family:'IBM Plex Mono',monospace; font-size:11px;
+  letter-spacing:.22em; text-transform:uppercase;
+  color:var(--gris); margin-bottom:26px;
+}
+.doc-signature .nota{
+  font-family:'EB Garamond',serif; font-size:17px;
+  line-height:1.65; color:#c9c4b8;
+  padding-top:22px; border-top:1px dashed var(--lineaV);
+}
+.doc-signature .nota b{color:var(--crema); font-weight:600}
+.doc-signature .nota .jura{
+  display:block; margin-top:14px;
+  color:var(--verdeClaro); font-style:italic;
+}
+
+/* ============ FOOTER ============ */
+footer{
+  padding:50px 0 70px; border-top:1px solid var(--linea);
+  font-size:11px; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--gris); text-align:center;
+}
+footer .msr{display:flex; gap:6px; justify-content:center; margin-bottom:24px}
+footer .msr span{
+  width:26px; height:26px; border-radius:50%; display:grid; place-items:center;
+  font-family:'Oswald',sans-serif; font-weight:700; font-size:11px;
+}
+footer .msr span:nth-child(1){border:1.2px solid var(--rojo); color:var(--rojo)}
+footer .msr span:nth-child(2){border:1.2px solid var(--verde); color:var(--verde)}
+footer .msr span:nth-child(3){border:1.2px solid var(--crema); color:var(--crema)}
+footer .jura{color:var(--verdeClaro); margin-top:16px; font-style:normal}
+footer .jura b{color:var(--crema); font-weight:600}
+
+@media(max-width:600px){
+  .doc-header{padding:100px 0 30px}
+  .article-body{padding:40px 0}
+  .article-body p{font-size:17.5px}
+  .article-body p.lead{font-size:19px}
+  .article-body p.lead::first-letter{font-size:50px}
+  .article-body blockquote{font-size:19px}
+  .doc-signature{padding:30px 22px}
+}
+</style>
+</head>
+<body>
+
+<div class="tricolor"><i></i><i></i><i></i></div>
+
+<div class="topbar">
+  <a class="back" href="/" data-i18n="back"></a>
+  <div class="msr"><span>M</span><span>S</span><span>R</span></div>
+  <div class="langs">
+    <button data-lang="es">ES</button>
+    <button data-lang="en">EN</button>
+    <button data-lang="ht">HT</button>
+  </div>
+</div>
+
+<article>
+
+  <header class="doc-header">
+    <div class="wrap">
+      <div class="doc-seal">
+        <span class="tag" data-i18n="doc_tag"></span>
+        <span class="id" data-i18n="doc_id"></span>
+      </div>
+      <p class="doc-org" data-i18n="doc_org"></p>
+      <p class="doc-org-sub" data-i18n="doc_org_sub"></p>
+
+      <h1 class="article-title" id="artTitle"></h1>
+      <p class="deck" id="artDeck"></p>
+
+      <div class="article-meta">
+        <span><span data-i18n="meta_section"></span> <b data-i18n="meta_section_v"></b></span>
+        <span><span data-i18n="meta_type"></span> <b data-i18n="meta_type_v"></b></span>
+        <span><span data-i18n="meta_read"></span> <b data-i18n="meta_read_v"></b></span>
+      </div>
+    </div>
+  </header>
+
+  <div class="article-body">
+    <div class="wrap" id="articleBody"></div>
+  </div>
+
+  <div class="wrap">
+    <div class="doc-signature">
+      <p class="label" data-i18n="sig_label"></p>
+      <p class="org" data-i18n="sig_org"></p>
+      <p class="sub" data-i18n="sig_sub"></p>
+      <p class="nota" id="sigNota"></p>
+    </div>
+  </div>
+
+</article>
+
+<footer>
+  <div class="wrap">
+    <div class="msr"><span>M</span><span>S</span><span>R</span></div>
+    <div data-i18n="footer_line"></div>
+    <div class="jura" data-i18n="footer_jura"></div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   COMISIÓN TEOLÓGICA MSR · DOCUMENTO CT-001/2026
+   Contenido trilingüe
+   ============================================================ */
+
+const DOC = {
+
+es:{
+  back:"Volver al MSR",
+  doc_tag:"Documento Oficial",
+  doc_id:"CT-001 / 2026",
+  doc_org:"Comisión Teológica · MSR",
+  doc_org_sub:"Movimiento por la Salvación de la República",
+
+  title:'La participación cristiana en la lucha por los derechos de los <span class="accent">explotados, oprimidos y excluidos</span>',
+  deck:'La fe no puede quedarse en el ámbito privado: debe traducirse en <b>compromiso público con la justicia</b>. Un recorrido por los fundamentos bíblico-teológicos, la teología de la liberación y las formas actuales de participación cristiana.',
+
+  meta_section:"Sección", meta_section_v:"Teología",
+  meta_type:"Tipo", meta_type_v:"Documento Oficial",
+  meta_read:"Lectura", meta_read_v:"10 min",
+
+  sig_label:"Firmado por",
+  sig_org:"Comisión Teológica del MSR",
+  sig_sub:"Documento Oficial · CT-001/2026",
+  sig_nota:'Este documento se publica bajo la autoridad de la <b>Comisión Teológica del Movimiento por la Salvación de la República</b>. Dialoga con la doctrina tricolor: el <b>negro</b> que sostiene la memoria de los mártires, el <b>verde</b> que siembra esperanza y el <b>rojo</b> que lucha por la justicia.<span class="jura">«Política sin moral, es indignidad.» — Hostos, 1887</span>',
+
+  footer_line:"MSR · Fundado 2010 · En línea desde 2025",
+  footer_jura:"«Política sin moral, es indignidad» — <b>HOSTOS</b>, 1887",
+
+  blocks:[
+    {t:'p', cls:'lead', c:'La lucha por los derechos humanos y la justicia social no es una causa que concierna únicamente a ciertas ideologías, comunidades o tradiciones religiosas. Es una exigencia ética universal que interpela a toda la humanidad.'},
+    {t:'p', c:'En este horizonte, la participación de los cristianos en la defensa de los explotados, oprimidos y excluidos no es un añadido opcional a la fe, sino una <b>dimensión constitutiva del seguimiento de Jesús</b>. Desde sus orígenes, el cristianismo ha contenido una profunda vocación de justicia y liberación. En el momento actual, marcado por nuevas formas de exclusión, crisis ecológica, migraciones forzadas y desigualdades estructurales, esta participación sigue siendo vital y necesaria.'},
+    {t:'p', c:'Este ensayo explora los fundamentos teológicos, los aportes históricos —especialmente los de la teología de la liberación— y las formas concretas en que los cristianos contribuyen hoy a la construcción de una sociedad más justa y equitativa.'},
+
+    {t:'h2', c:'Fundamentos bíblico-teológicos: la dignidad humana y el Dios liberador'},
+    {t:'p', c:'El cristianismo se asienta sobre la convicción de que todo ser humano posee una <b>dignidad intrínseca</b>, otorgada por Dios, que ninguna estructura social, económica o política puede legítimamente suprimir. Esta enseñanza no es una mera afirmación doctrinal: es una llamada a transformar la realidad para que esa dignidad sea reconocida y protegida.'},
+    {t:'p', c:'La Escritura da testimonio de un Dios que escucha el clamor de los oprimidos y actúa en la historia para liberarlos. El <em>Éxodo</em> narra la liberación de un pueblo esclavizado como acontecimiento fundante de la fe. Los profetas denuncian con dureza a quienes dictan leyes injustas, explotan al pobre y acumulan riqueza a costa del débil. Jesús de Nazaret asume esta tradición y proclama la buena noticia a los pobres, la liberación a los cautivos y la vista a los ciegos.'},
+    {t:'p', c:'Su práctica de cercanía a los marginados, su confrontación con los poderes religiosos y políticos, y su ejecución como subversivo revelan que el <b>Reino de Dios no es una promesa puramente espiritual</b>, sino una dinámica que irrumpe en la historia para desmontar las relaciones de dominación.'},
+    {t:'p', c:'Para los cristianos, por tanto, el valor intrínseco de cada persona es el fundamento de una sociedad sin discriminación, sin opresión y sin explotación. La fe no puede quedarse en el ámbito privado: debe traducirse en <b>compromiso público con la justicia</b>.'},
+
+    {t:'h2', c:'La teología de la liberación: una concreción histórica latinoamericana'},
+    {t:'p', c:'La participación cristiana en la lucha por los derechos de los oprimidos alcanzó una formulación sistemática en la <b>teología de la liberación</b>, surgida en América Latina en los años sesenta, en un contexto de profundas desigualdades, dictaduras militares y movimientos sociales emergentes.'},
+    {t:'p', c:'Esta corriente teológica, impulsada por figuras como Gustavo Gutiérrez, Leonardo Boff, Ignacio Ellacuría y Jon Sobrino, entre otros, propuso una lectura del Evangelio desde la perspectiva de los pobres. Sus aportes fundamentales incluyen:'},
+    {t:'ul', items:[
+      '<b>La opción preferencial por los pobres:</b> los pobres no son objetos pasivos de asistencia, sino sujetos históricos de su propia liberación.',
+      '<b>El método ver-juzgar-actuar:</b> articula el análisis de la realidad social con la reflexión de fe y la acción transformadora.',
+      '<b>La dimensión estructural del pecado:</b> el pecado no es solo un acto individual, sino que se manifiesta en sistemas económicos, políticos y culturales que generan muerte.',
+      '<b>El martirio como testimonio:</b> figuras como Óscar Romero, asesinado por denunciar la represión, o los jesuitas de la Universidad Centroamericana en El Salvador, asesinados por su compromiso intelectual con la justicia, muestran el costo de la fidelidad evangélica.'
+    ]},
+    {t:'p', c:'La teología de la liberación no solo influyó en la reflexión académica, sino que transformó la práctica pastoral: impulsó las comunidades eclesiales de base, la lectura popular de la Biblia, la formación de líderes comunitarios y una liturgia más cercana a la vida y las luchas del pueblo. También generó debates éticos y prácticos sobre el papel de la Iglesia en la sociedad, el uso de la violencia y las relaciones entre fe y política.'},
+
+    {t:'h2', c:'Formas actuales de participación cristiana'},
+    {t:'p', c:'En el presente, la participación cristiana en la defensa de los explotados y oprimidos adopta múltiples formas, muchas de ellas herederas de esa tradición liberadora.'},
+
+    {t:'h3', c:'Acompañamiento de luchas sociales'},
+    {t:'p', c:'Los cristianos y cristianas participan activamente en movimientos por la vivienda digna, los derechos laborales, la defensa del territorio, los derechos de los migrantes y la justicia climática. Organizaciones como la Pastoral de la Tierra en Brasil, el Servicio Jesuita a Migrantes o numerosas comunidades de base acompañan a comunidades en resistencia y en la construcción de alternativas.'},
+
+    {t:'h3', c:'Incidencia política y construcción de alternativas'},
+    {t:'p', c:'La fe impulsa también a influir en las leyes, luchar contra la corrupción, promover la igualdad y la diversidad, y exigir justicia económica. Los cristianos contribuyen a la construcción de economías alternativas como el comercio justo, las cooperativas y las finanzas éticas. La iniciativa <em>Economía de Francisco</em>, promovida por el papa Francisco, reúne a jóvenes economistas comprometidos con un paradigma económico que ponga en el centro la dignidad humana y el cuidado de la casa común.'},
+
+    {t:'h3', c:'Educación y sensibilización'},
+    {t:'p', c:'La Iglesia, como una de las grandes voces del mundo, tiene una responsabilidad educativa: promover la conciencia sobre las situaciones de opresión y exclusión, y formar sujetos críticos capaces de comprender y transformar su realidad. Experiencias como <em>Fe y Alegría</em>, presente en numerosos países, articulan educación popular, alfabetización y concienciación política.'},
+
+    {t:'h3', c:'Diálogo interreligioso e intercultural'},
+    {t:'p', c:'La lucha por la justicia no es exclusiva de los cristianos. El diálogo con otras tradiciones religiosas, con movimientos indígenas, afrodescendientes y organizaciones seculares amplía el horizonte de la acción transformadora y reconoce la pluralidad de caminos hacia una sociedad justa.'},
+
+    {t:'h3', c:'El magisterio del papa Francisco'},
+    {t:'p', c:'El papa Francisco ha renovado con fuerza esta tradición. En <em>Laudato Si\'</em> denuncia la raíz humana de la crisis ecológica y propone una ecología integral que une justicia social y ambiental. En <em>Fratelli Tutti</em> critica el paradigma tecnocrático y la cultura del descarte, llamando a construir una fraternidad universal. Su insistencia en una Iglesia "en salida", pobre y para los pobres, orienta hoy la participación cristiana en los procesos de liberación.'},
+
+    {t:'h2', c:'Desafíos y tensiones'},
+    {t:'p', c:'La participación cristiana en estas luchas no está exenta de dificultades. Existe el riesgo de reducir la fe a una ideología política o de instrumentalizarla para fines partidistas. La fidelidad evangélica exige mantener la tensión entre <b>compromiso histórico y trascendencia del Reino</b>.'},
+    {t:'p', c:'En muchos contextos, los cristianos comprometidos con la justicia enfrentan persecución, difamación e incluso la muerte. El asesinato de líderes como Berta Cáceres en Honduras o las amenazas contra defensores de derechos humanos en América Latina y otras regiones revelan el costo del compromiso.'},
+    {t:'p', c:'También existen tensiones dentro de las iglesias entre quienes priorizan la dimensión espiritual y quienes enfatizan el compromiso social. La polarización política contemporánea atraviesa a las comunidades cristianas y dificulta la unidad en torno a causas comunes.'},
+    {t:'p', c:'Finalmente, los cristianos deben reconocer la <b>complicidad histórica</b> de las iglesias con estructuras de opresión —colonialismo, esclavitud, regímenes autoritarios— y asumir una actitud de humildad, autocrítica y reparación.'},
+
+    {t:'h2', c:'Conclusión'},
+    {t:'p', c:'La participación de los cristianos en la lucha por los derechos de los explotados, oprimidos y excluidos es vital. No se trata solo de una cuestión de coherencia con la fe, sino de una manera concreta de transformar la realidad y hacer presente el Reino de Dios en la historia. Los cristianos pueden ser un motor significativo para una sociedad más justa y equitativa, donde todas las personas puedan disfrutar de sus derechos y de su dignidad.'},
+    {t:'p', c:'Desde la tradición profética hasta la teología de la liberación y el magisterio actual, la fe cristiana ha demostrado que el amor al prójimo no puede separarse de la lucha contra las estructuras que generan sufrimiento. En un mundo marcado por nuevas y viejas formas de opresión, esta participación sigue siendo una contribución esencial que no puede subestimarse.'},
+    {t:'quote', c:'La Iglesia no puede ser sorda ni muda ante el clamor de millones de hombres que piden a sus pastores una liberación que no les llega de ninguna parte.', cite:'— Óscar Romero'},
+    {t:'p', c:'La esperanza cristiana se convierte así en compromiso histórico, sin perder de vista la promesa de una justicia plena que solo Dios puede consumar.'}
+  ]
+},
+
+en:{
+  back:"Back to MSR",
+  doc_tag:"Official Document",
+  doc_id:"CT-001 / 2026",
+  doc_org:"Theological Commission · MSR",
+  doc_org_sub:"Movement for the Salvation of the Republic",
+
+  title:'Christian participation in the struggle for the rights of the <span class="accent">exploited, oppressed and excluded</span>',
+  deck:'Faith cannot remain in the private sphere: it must translate into <b>public commitment to justice</b>. A journey through the biblical-theological foundations, liberation theology and the current forms of Christian participation.',
+
+  meta_section:"Section", meta_section_v:"Theology",
+  meta_type:"Type", meta_type_v:"Official Document",
+  meta_read:"Reading", meta_read_v:"10 min",
+
+  sig_label:"Signed by",
+  sig_org:"Theological Commission of the MSR",
+  sig_sub:"Official Document · CT-001/2026",
+  sig_nota:'This document is published under the authority of the <b>Theological Commission of the Movement for the Salvation of the Republic</b>. It dialogues with the tricolor doctrine: the <b>black</b> that holds the memory of the martyrs, the <b>green</b> that sows hope, and the <b>red</b> that fights for justice.<span class="jura">"Politics without morality is indignity." — Hostos, 1887</span>',
+
+  footer_line:"MSR · Founded 2010 · Online since 2025",
+  footer_jura:'"Politics without morality is indignity" — <b>HOSTOS</b>, 1887',
+
+  blocks:[
+    {t:'p', cls:'lead', c:'The struggle for human rights and social justice is not a cause that concerns only certain ideologies, communities or religious traditions. It is a universal ethical demand that challenges all of humanity.'},
+    {t:'p', c:'In this horizon, the participation of Christians in the defense of the exploited, oppressed and excluded is not an optional addition to faith, but a <b>constitutive dimension of following Jesus</b>. Since its origins, Christianity has contained a profound vocation of justice and liberation. At the present moment, marked by new forms of exclusion, ecological crisis, forced migrations and structural inequalities, this participation remains vital and necessary.'},
+    {t:'p', c:'This essay explores the theological foundations, the historical contributions —especially those of liberation theology— and the concrete ways in which Christians contribute today to the construction of a more just and equitable society.'},
+
+    {t:'h2', c:'Biblical-theological foundations: human dignity and the liberating God'},
+    {t:'p', c:'Christianity rests on the conviction that every human being possesses an <b>intrinsic dignity</b>, granted by God, that no social, economic or political structure can legitimately suppress. This teaching is not a mere doctrinal affirmation: it is a call to transform reality so that this dignity is recognized and protected.'},
+    {t:'p', c:'Scripture bears witness to a God who hears the cry of the oppressed and acts in history to liberate them. <em>Exodus</em> narrates the liberation of an enslaved people as the founding event of faith. The prophets harshly denounce those who dictate unjust laws, exploit the poor and accumulate wealth at the expense of the weak. Jesus of Nazareth takes up this tradition and proclaims good news to the poor, liberation to captives and sight to the blind.'},
+    {t:'p', c:'His practice of closeness to the marginalized, his confrontation with religious and political powers, and his execution as a subversive reveal that the <b>Kingdom of God is not a purely spiritual promise</b>, but a dynamic that breaks into history to dismantle relations of domination.'},
+    {t:'p', c:'For Christians, therefore, the intrinsic value of each person is the foundation of a society without discrimination, without oppression and without exploitation. Faith cannot remain in the private sphere: it must translate into <b>public commitment to justice</b>.'},
+
+    {t:'h2', c:'Liberation theology: a Latin American historical concretion'},
+    {t:'p', c:'Christian participation in the struggle for the rights of the oppressed reached a systematic formulation in <b>liberation theology</b>, which emerged in Latin America in the 1960s, in a context of deep inequalities, military dictatorships and emerging social movements.'},
+    {t:'p', c:'This theological current, driven by figures such as Gustavo Gutiérrez, Leonardo Boff, Ignacio Ellacuría and Jon Sobrino, among others, proposed a reading of the Gospel from the perspective of the poor. Its fundamental contributions include:'},
+    {t:'ul', items:[
+      '<b>The preferential option for the poor:</b> the poor are not passive objects of assistance, but historical subjects of their own liberation.',
+      '<b>The see-judge-act method:</b> it articulates the analysis of social reality with reflection of faith and transformative action.',
+      '<b>The structural dimension of sin:</b> sin is not only an individual act, but manifests itself in economic, political and cultural systems that generate death.',
+      '<b>Martyrdom as testimony:</b> figures such as Óscar Romero, assassinated for denouncing repression, or the Jesuits of the Central American University in El Salvador, assassinated for their intellectual commitment to justice, show the cost of evangelical fidelity.'
+    ]},
+    {t:'p', c:'Liberation theology not only influenced academic reflection, but transformed pastoral practice: it promoted base ecclesial communities, popular reading of the Bible, the formation of community leaders and a liturgy closer to the life and struggles of the people. It also generated ethical and practical debates about the role of the Church in society, the use of violence and the relations between faith and politics.'},
+
+    {t:'h2', c:'Current forms of Christian participation'},
+    {t:'p', c:'At present, Christian participation in the defense of the exploited and oppressed takes multiple forms, many of them heirs to that liberating tradition.'},
+
+    {t:'h3', c:'Accompaniment of social struggles'},
+    {t:'p', c:'Christian men and women participate actively in movements for decent housing, labor rights, defense of territory, migrant rights and climate justice. Organizations such as the Pastoral Land Commission in Brazil, the Jesuit Refugee Service or numerous base communities accompany communities in resistance and in the construction of alternatives.'},
+
+    {t:'h3', c:'Political advocacy and construction of alternatives'},
+    {t:'p', c:'Faith also drives Christians to influence laws, fight corruption, promote equality and diversity, and demand economic justice. Christians contribute to the construction of alternative economies such as fair trade, cooperatives and ethical finance. The <em>Economy of Francesco</em> initiative, promoted by Pope Francis, brings together young economists committed to an economic paradigm that places human dignity and care for our common home at the center.'},
+
+    {t:'h3', c:'Education and awareness-raising'},
+    {t:'p', c:'The Church, as one of the great voices of the world, has an educational responsibility: to promote awareness of situations of oppression and exclusion, and to form critical subjects capable of understanding and transforming their reality. Experiences such as <em>Fe y Alegría</em>, present in numerous countries, articulate popular education, literacy and political awareness.'},
+
+    {t:'h3', c:'Interreligious and intercultural dialogue'},
+    {t:'p', c:'The struggle for justice is not exclusive to Christians. Dialogue with other religious traditions, with indigenous and Afro-descendant movements and secular organizations broadens the horizon of transformative action and recognizes the plurality of paths toward a just society.'},
+
+    {t:'h3', c:'The magisterium of Pope Francis'},
+    {t:'p', c:'Pope Francis has forcefully renewed this tradition. In <em>Laudato Si\'</em> he denounces the human root of the ecological crisis and proposes an integral ecology that unites social and environmental justice. In <em>Fratelli Tutti</em> he criticizes the technocratic paradigm and the throwaway culture, calling for the construction of a universal fraternity. His insistence on a Church "going forth", poor and for the poor, guides today the Christian participation in processes of liberation.'},
+
+    {t:'h2', c:'Challenges and tensions'},
+    {t:'p', c:'Christian participation in these struggles is not free of difficulties. There is a risk of reducing faith to a political ideology or of instrumentalizing it for partisan ends. Evangelical fidelity demands maintaining the tension between <b>historical commitment and the transcendence of the Kingdom</b>.'},
+    {t:'p', c:'In many contexts, Christians committed to justice face persecution, defamation and even death. The assassination of leaders such as Berta Cáceres in Honduras or the threats against human rights defenders in Latin America and other regions reveal the cost of commitment.'},
+    {t:'p', c:'There are also tensions within the churches between those who prioritize the spiritual dimension and those who emphasize social commitment. Contemporary political polarization crosses Christian communities and hinders unity around common causes.'},
+    {t:'p', c:'Finally, Christians must recognize the <b>historical complicity</b> of the churches with structures of oppression —colonialism, slavery, authoritarian regimes— and assume an attitude of humility, self-criticism and reparation.'},
+
+    {t:'h2', c:'Conclusion'},
+    {t:'p', c:'The participation of Christians in the struggle for the rights of the exploited, oppressed and excluded is vital. It is not only a question of coherence with faith, but a concrete way of transforming reality and making the Kingdom of God present in history. Christians can be a significant engine for a more just and equitable society, where all people can enjoy their rights and their dignity.'},
+    {t:'p', c:'From the prophetic tradition to liberation theology and the current magisterium, the Christian faith has shown that love of neighbor cannot be separated from the struggle against the structures that generate suffering. In a world marked by new and old forms of oppression, this participation remains an essential contribution that cannot be underestimated.'},
+    {t:'quote', c:'The Church cannot be deaf or mute before the cry of millions of men who ask their pastors for a liberation that comes to them from nowhere.', cite:'— Óscar Romero'},
+    {t:'p', c:'Christian hope thus becomes historical commitment, without losing sight of the promise of a full justice that only God can consummate.'}
+  ]
+},
+
+ht:{
+  back:"Retounen nan MSR",
+  doc_tag:"Dokiman Ofisyèl",
+  doc_id:"CT-001 / 2026",
+  doc_org:"Komisyon Teyolojik · MSR",
+  doc_org_sub:"Mouvman pou Sove Repiblik la",
+
+  title:'Patisipasyon kretyen nan lit pou dwa moun ki <span class="accent">eksplwate, oprime ak eskli</span>',
+  deck:'Lafwa pa ka rete nan domèn prive a: li dwe tradwi nan <b>angajman piblik pou jistis</b>. Yon vwayaj nan fondasyon biblik-teyolojik yo, teyoloji liberasyon an ak fòm aktyèl patisipasyon kretyen.',
+
+  meta_section:"Seksyon", meta_section_v:"Teyoloji",
+  meta_type:"Tip", meta_type_v:"Dokiman Ofisyèl",
+  meta_read:"Lekti", meta_read_v:"10 min",
+
+  sig_label:"Siyen pa",
+  sig_org:"Komisyon Teyolojik MSR la",
+  sig_sub:"Dokiman Ofisyèl · CT-001/2026",
+  sig_nota:'Dokiman sa a pibliye anba otorite <b>Komisyon Teyolojik Mouvman pou Sove Repiblik la</b>. Li nan dyalòg ak doktrin twa koulè a: <b>nwa</b> a ki soutni memwa mati yo, <b>vèt</b> la ki simen espwa, ak <b>wouj</b> la ki goumen pou jistis.<span class="jura">«Politik san moral, se endiyite.» — Hosto, 1887</span>',
+
+  footer_line:"MSR · Fonde 2010 · An liy depi 2025",
+  footer_jura:"«Politik san moral, se endiyite» — <b>HOSTO</b>, 1887",
+
+  blocks:[
+    {t:'p', cls:'lead', c:'Lit pou dwa moun ak jistis sosyal se pa yon kòz ki konsène sèlman kèk ideoloji, kominote oswa tradisyon relijye. Se yon egzijans etik inivèsèl ki pale ak tout limanite.'},
+    {t:'p', c:'Nan orizon sa a, patisipasyon kretyen yo nan defans eksplwate, oprime ak eskli yo se pa yon adisyon opsyonèl nan lafwa, men se yon <b>dimansyon konstititif nan swivi Jezi</b>. Depi orijin li, krisyanis te genyen yon vokasyon pwofon pou jistis ak liberasyon. Nan moman aktyèl la, ki make pa nouvo fòm eksklizyon, kriz ekolojik, migrasyon fòse ak inegalite estriktirèl, patisipasyon sa a rete vital ak nesesè.'},
+    {t:'p', c:'Redaksyon sa a eksplore fondasyon teyolojik yo, kontribisyon istorik yo —espesyalman sa yo nan teyoloji liberasyon an— ak fòm konkè kote kretyen yo kontribye jodi a nan konstriksyon yon sosyete pi jis ak pi ekitab.'},
+
+    {t:'h2', c:'Fondasyon biblik-teyolojik: dinite moun ak Bondye ki libere a'},
+    {t:'p', c:'Krisyanis chita sou konviksyon ke chak moun genyen yon <b>dinite entrensèk</b>, Bondye bay, ke okenn estrikti sosyal, ekonomik oswa politik pa ka lejitimman siprime. Ansèyman sa a se pa yon senp afimasyon doktrinal: se yon apèl pou transfòme reyalite a pou dinite sa a rekonèt epi pwoteje.'},
+    {t:'p', c:'Ekriti a temwaye sou yon Bondye ki tande rèl oprime yo epi ki aji nan istwa a pou libere yo. <em>Egzòd</em> rakonte liberasyon yon pèp esklavaj kòm evènman fondatè lafwa a. Pwofèt yo denonse ak dite moun ki dikte lwa enjis, eksplwate pòv la epi akimile richès sou do fèb la. Jezi de Nazarèt pran tradisyon sa a epi pwoklame bon nouvèl la bay pòv yo, liberasyon an bay prizonye yo ak vizyon an bay avèg yo.'},
+    {t:'p', c:'Pratik li nan pwoksimite ak moun ki majinalize yo, konfwontasyon li ak pouvwa relijye ak politik yo, ak ekzekisyon li kòm sibvèsif revele ke <b>Wayòm Bondye a se pa yon pwomès piman espirityèl</b>, men se yon dinamik ki fè iripsyon nan istwa a pou demonte relasyon dominasyon yo.'},
+    {t:'p', c:'Pou kretyen yo, kidonk, valè entrensèk chak moun se fondasyon yon sosyete san diskriminasyon, san opresyon ak san eksplwatasyon. Lafwa pa ka rete nan domèn prive a: li dwe tradwi nan <b>angajman piblik pou jistis</b>.'},
+
+    {t:'h2', c:'Teyoloji liberasyon an: yon konkretizasyon istorik latinoamerikèn'},
+    {t:'p', c:'Patisipasyon kretyen nan lit pou dwa oprime yo rive nan yon fòmilasyon sistematik nan <b>teyoloji liberasyon an</b>, ki te parèt nan Amerik Latin nan ane swasant yo, nan yon kontèks gwo inegalite, diktati militè ak mouvman sosyal k ap parèt.'},
+    {t:'p', c:'Mouvman teyolojik sa a, ki te pote pa figi tankou Gustavo Gutiérrez, Leonardo Boff, Ignacio Ellacuría ak Jon Sobrino, pami lòt, te pwopoze yon lekti Levanjil la soti nan pèspektiv pòv yo. Kontribisyon fondamantal li yo enkli:'},
+    {t:'ul', items:[
+      '<b>Opsyon preferansyèl pou pòv yo:</b> pòv yo se pa objè pasif asistans, men se sijè istorik pwòp liberasyon yo.',
+      '<b>Metòd wè-jije-aji:</b> li atikile analiz reyalite sosyal la ak refleksyon lafwa a ak aksyon transfòmatris.',
+      '<b>Dimansyon estriktirèl peche a:</b> peche a se pa sèlman yon zak endividyèl, men li manifeste nan sistèm ekonomik, politik ak kiltirèl ki jenere lanmò.',
+      '<b>Matiri kòm temwayaj:</b> figi tankou Óscar Romero, ki te asasinen pou denonse represyon an, oswa jeswit Inivèsite Santral Ameriken an nan Salvadò, ki te asasinen pou angajman entelektyèl yo ak jistis, montre pri fidelite evanjelik la.'
+    ]},
+    {t:'p', c:'Teyoloji liberasyon an pa sèlman enfliyanse refleksyon akademik, men li transfòme pratik pastòral: li te pouse kominote eklezyal debaz yo, lekti popilè Bib la, fòmasyon lidè kominotè ak yon litiji pi pre lavi ak lit pèp la. Li te jenere tou deba etik ak pratik sou wòl Legliz la nan sosyete a, itilizasyon vyolans ak relasyon ant lafwa ak politik.'},
+
+    {t:'h2', c:'Fòm aktyèl patisipasyon kretyen'},
+    {t:'p', c:'Kounye a, patisipasyon kretyen nan defans eksplwate ak oprime yo pran plizyè fòm, anpil nan yo eritye tradisyon liberasyon sa a.'},
+
+    {t:'h3', c:'Akonpayman lit sosyal yo'},
+    {t:'p', c:'Kretyen yo patisipe aktivman nan mouvman pou lojman diy, dwa travayè, defans teritwa, dwa migran ak jistis klimatik. Òganizasyon tankou Pastoral Tè a nan Brezil, Sèvis Jezwit pou Migran oswa anpil kominote debaz akonpaye kominote nan rezistans ak nan konstriksyon altènativ.'},
+
+    {t:'h3', c:'Enfliyans politik ak konstriksyon altènativ'},
+    {t:'p', c:'Lafwa a pouse tou pou enfliyanse lwa yo, goumen kont koripsyon, ankouraje egalite ak divèsite, epi egzije jistis ekonomik. Kretyen yo kontribye nan konstriksyon ekonomi altènativ tankou komès jis, koperativ ak finans etik. Inisyativ <em>Ekonomi Franswa</em>, ki papa Franswa te pwomouvwa, rasanble jèn ekonomis ki angaje ak yon paradigm ekonomik ki mete dinite moun ak swen kay komen an nan sant la.'},
+
+    {t:'h3', c:'Edikasyon ak sansibilizasyon'},
+    {t:'p', c:'Legliz la, kòm youn nan gwo vwa mond lan, gen yon responsablite edikatif: ankouraje konsyans sou sitiyasyon opresyon ak eksklizyon, epi fòme sijè kritik ki kapab konprann epi transfòme reyalite yo. Eksperyans tankou <em>Fe y Alegría</em>, ki prezan nan anpil peyi, atikile edikasyon popilè, alfabetizasyon ak konsyantizasyon politik.'},
+
+    {t:'h3', c:'Dyalòg entèrelijye ak entèkiltirèl'},
+    {t:'p', c:'Lit pou jistis se pa sèlman pou kretyen yo. Dyalòg ak lòt tradisyon relijye, ak mouvman endijèn, afrodesandan ak òganizasyon eksklizyon elaji orizon aksyon transfòmatris la epi rekonèt pliralite wout pou rive nan yon sosyete jis.'},
+
+    {t:'h3', c:'Majistè papa Franswa'},
+    {t:'p', c:'Papa Franswa renouvle ak fòs tradisyon sa a. Nan <em>Laudato Si\'</em> li denonse rasin imen kriz ekolojik la epi pwopoze yon ekoloji entegral ki ini jistis sosyal ak anviwònman. Nan <em>Fratelli Tutti</em> li kritike paradigm teknokratik la ak kilti jete a, ki rele pou konstwi yon fratènite inivèsèl. Ensistans li sou yon Legliz "an sòti", pòv epi pou pòv yo, oryante jodi a patisipasyon kretyen nan pwosesis liberasyon yo.'},
+
+    {t:'h2', c:'Defi ak tansyon'},
+    {t:'p', c:'Patisipasyon kretyen nan lit sa yo pa san difikilte. Genyen risk pou redwi lafwa a nan yon ideoloji politik oswa enstrimantalize li pou fins patizàn. Fidelite evanjelik la egzije kenbe tansyon ant <b>angajman istorik ak transandans Wayòm nan</b>.'},
+    {t:'p', c:'Nan anpil kontèks, kretyen ki angaje ak jistis fè fas ak pèsekisyon, difamasyon e menm lanmò. Asasinay lidè tankou Berta Cáceres nan Ondiras oswa menas kont defansè dwa moun nan Amerik Latin ak lòt rejyon revele pri angajman an.'},
+    {t:'p', c:'Genyen tou tansyon andedan legliz yo ant moun ki priyorize dimansyon espirityèl la ak moun ki ensiste sou angajman sosyal. Polarizasyon politik kontanporen travèse kominote kretyen yo epi fè difisil inite alantou kòz komen.'},
+    {t:'p', c:'Finalman, kretyen yo dwe rekonèt <b>konplisite istorik</b> legliz yo ak estrikti opresyon —kolonyalis, esklavaj, rejim otoritè— epi pran yon atitid imilite, otokritik ak reparasyon.'},
+
+    {t:'h2', c:'Konklizyon'},
+    {t:'p', c:'Patisipasyon kretyen yo nan lit pou dwa eksplwate, oprime ak eskli yo se vital. Se pa sèlman yon kesyon koerans ak lafwa, men se yon fason konkè pou transfòme reyalite a epi fè Wayòm Bondye a prezan nan istwa a. Kretyen yo ka yon motè enpòtan pou yon sosyete pi jis ak pi ekitab, kote tout moun ka jwi dwa yo ak dinite yo.'},
+    {t:'p', c:'Depi tradisyon pwofetik la rive nan teyoloji liberasyon an ak majistè aktyèl la, lafwa kretyen an te demontre ke lanmou pou frè parèy la pa ka separe ak lit kont estrikti ki jenere soufrans. Nan yon mond ki make pa nouvo ak ansyen fòm opresyon, patisipasyon sa a rete yon kontribisyon esansyèl ki pa ka souzèstime.'},
+    {t:'quote', c:'Legliz la pa ka soud ni bèb devan rèl plizyè milyon moun ki mande pastè yo yon liberasyon ki pa rive yo soti nan okenn kote.', cite:'— Óscar Romero'},
+    {t:'p', c:'Espwa kretyen an tounen konsa angajman istorik, san li pa pèdi de vi pwomès yon jistis plen ke sèlman Bondye ka konsome.'}
+  ]
+}
+};
+
+/* ============================================================
+   RENDER
+   ============================================================ */
+let currentLang = 'es';
+
+function renderLang(l){
+  const d = DOC[l]; if(!d) return;
+  currentLang = l;
+  document.documentElement.lang = l;
+
+  // Topbar y cabecera
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.dataset.i18n;
+    if(d[k] != null) el.innerHTML = d[k];
+  });
+
+  // Título y bajada
+  document.getElementById('artTitle').innerHTML = d.title;
+  document.getElementById('artDeck').innerHTML = d.deck;
+
+  // Firma
+  document.getElementById('sigNota').innerHTML = d.sig_nota;
+
+  // Cuerpo
+  const body = document.getElementById('articleBody');
+  body.innerHTML = d.blocks.map(b=>{
+    if(b.t === 'h2') return `<h2 class="section">${b.c}</h2>`;
+    if(b.t === 'h3') return `<h3 class="subsection">${b.c}</h3>`;
+    if(b.t === 'ul') return `<ul>${b.items.map(i=>`<li>${i}</li>`).join('')}</ul>`;
+    if(b.t === 'quote') return `<blockquote>${b.c}<cite>${b.cite}</cite></blockquote>`;
+    return `<p class="${b.cls||''}">${b.c}</p>`;
+  }).join('');
+
+  // Botones de idioma
+  document.querySelectorAll('[data-lang]').forEach(b=>{
+    b.classList.toggle('on', b.dataset.lang === l);
+  });
+
+  try{ localStorage.setItem('msr-ct-lang', l); }catch(e){}
+}
+
+document.querySelectorAll('[data-lang]').forEach(b=>{
+  b.addEventListener('click', ()=>renderLang(b.dataset.lang));
+});
+
+let saved = 'es';
+try{ saved = localStorage.getItem('msr-ct-lang') || (navigator.language||'es').slice(0,2); }catch(e){}
+if(!DOC[saved]) saved = (saved==='fr') ? 'ht' : 'es';
+renderLang(saved);
+</script>
+</body>
+</html>
